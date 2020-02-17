@@ -34,7 +34,7 @@
             <?=$isPalindrome ?>
             <h4>The number of vowels in the input string</h4>
             <?=$vowelCount ?>
-            <h4>The input string after all letters shifted</h4>
+            <h4>The input string after all letters are shifted</h4>
             <?=$shiftedString ?>
             <?php endif ?>
         </div>

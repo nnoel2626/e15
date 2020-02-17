@@ -4,14 +4,12 @@ session_start();
 
 
 # 1. (Required) Is palindrome?
-
+    # Get input the string value from post super global
     $inputString = $_POST['inputString'];
-    //var_dump($inputString);
-
-    # remove special characters, spaces and make lowercase*/
+    
+    # remove special characters, spaces and number from input stringe
     $sanitizedInputString =  preg_replace("/[^a-zA-Z]/", "", $inputString);
 
-   // var_dump($sanitizedInputString);
 
 #Reverse string function
 function stringReverse($sanitizedInputString)
@@ -30,17 +28,15 @@ function stringReverse($sanitizedInputString)
 
 #Passing sanitizedString to Palindrome function
 function isPalindrome($sanitizedInputString)
-{   
-    /* compare the reverse sanitized string with the sanitized string or empty string*/
+{
+    #compare the reverse sanitized string with the sanitized string or empty string
     if ($sanitizedInputString == strrev($sanitizedInputString) || $sanitizedInputString = 0) {
         return 'Yes';
     } else {
         return "no";
     }
-};
+}
 
-#{ ($sanitizedInputString != $outputString)
-// $sanitizedInputString == 0
 
 # 2. (Required) Vowel count
 function vowelCount($sanitizedInputString)
@@ -48,11 +44,10 @@ function vowelCount($sanitizedInputString)
     preg_match_all('/[aeiou]/i', $sanitizedInputString, $matches);
 
     return count($matches[0]);
-};
+}
 
 
 # 3. (Optional) Letter shift
-
 function letterShift($sanitizedInputString)
 {
     $InputString = $sanitizedInputString;
@@ -65,7 +60,7 @@ function letterShift($sanitizedInputString)
         $shiftedString .= $shiftedLetters;
     }
     return $shiftedString;
-};
+}
 
 
 $stringReverse = stringReverse($sanitizedInputString);
@@ -74,26 +69,12 @@ $vowelCount = vowelCount($sanitizedInputString);
 $shiftedString = letterShift($sanitizedInputString);
 
 
-
 $_SESSION['results'] =[
     'stringReverse' => $stringReverse,
     'isPalindrome' => $isPalindrome,
     'vowelCount' => $vowelCount,
     'shiftedString' => $shiftedString
 ];
-
-//var_dump($_SESSION);
-
-
-if (isset($_POST['submit'])) {
-    function reset()
-    {
-        $reset = $_POST['submit'];
-        //var_dump($inputString);
-    }
-};
-
-
 
 
 header('LOCATION: index.php');

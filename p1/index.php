@@ -1,10 +1,21 @@
 <?php
 
-# Add up how much money is in the piggy bank
-#$total =  ($pennies * $penny_value) + ($nickels * $nickel_value) + 
-#($dimes * $dime_value) + ($quarters * $quarter_value) + rand (200, 400);
+session_start();
 
-# functioon fro reversing a string
-//strrev ( string $string ) : string for
+#To check content of SESSION
+//var_dump($_SESSION);
+
+# To make no results get display in index-view.php at reflesh
+ $results = null;
+
+if(isset($_SESSION['results'])) {
+    $results = $_SESSION['results'];
+
+    # extract function Checks each key to see whether it has a valid variable name. 
+    #It also checks for collisions with existing variables in the symbol table.
+     extract($results);
+
+    $_SESSION['results'] = null;
+}
 
 require 'index-view.php';

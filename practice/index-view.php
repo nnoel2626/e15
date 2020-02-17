@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
 
     <title>PHPiggy Bank</title>
@@ -8,18 +9,18 @@
 </head>
 
 <body>
+    <p>
+        Today is <?php echo date("l"); ?>
+    </p>
 
 
-<p>
-    Today is <?php echo date("l"); ?> 
-</p>
-
-
-    <img alt='PHPiggy Bank Logo' src='https://s3.amazonaws.com/making-the-internet/php-piggy-bank-logo@2x.png' style='width:202px;'>
+    <img alt='PHPiggy Bank Logo' src='https://s3.amazonaws.com/making-the-internet/php-piggy-bank-logo@2x.png'
+        style='width:202px;'>
 
     <p>
         You have $<?php echo $total; ?> in your piggy bank.
     </p>
 
 </body>
+
 </html>

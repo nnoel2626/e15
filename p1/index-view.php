@@ -15,34 +15,30 @@
 <body>
     <div class="container">
         <div>
-            <h1 class='underline'>E15 Project One </h1>
+            <h1 class='underline'>E-15 Project One </h1>
             <h2>String Processor</h2>
             <form method='post' action='process.php'>
-                <label for='inputString'><strong>Enter your word:</strong></label>
+                <label for='inputString'><strong>Enter a word:</strong></label>
                 <input type='text' name='inputString' id='inputString'>
                 <button class="startBtn" type='submit'>Process</button>
-                <button class="restartBtn" onclick="header(parent.window.location.reload())">Reset</button>
+                <button class="reset" type="button" value="Link" onclick="location.href='index.php'">Reset</button>
             </form>
+            <br>
 
         </div>
-
         <div class='response'>
             <?php if (isset($results)) : ?>
-            <h4>String reverse</h4>
+            <h4>The input string reverse</h4>
             <?=$stringReverse ?>
-            <h4>Is palindrome?</h4>
+            <h4>Is palindrome ?</h4>
             <?=$isPalindrome ?>
-            <h4>The number of vowels in the word </h4>
+            <h4>The number of vowels in the input string</h4>
             <?=$vowelCount ?>
-            <h4>Letter shift?</h4>
-            <?=$shiftedString  ?>
+            <h4>The input string after all letters shifted</h4>
+            <?=$shiftedString ?>
             <?php endif ?>
         </div>
     </div>
 </body>
 
 </html>
-
-
-<!-- $string = "This is some text with some more text and even more text.";
-echo "There are <strong>".preg_match_all('/[aeiou]/i', $string, $matches)." vowels</strong> in the string <strong>".$string."</strong>"; -->

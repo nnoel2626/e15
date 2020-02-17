@@ -22,17 +22,12 @@ h2 {
   margin-top: 20px;
 }
 
-div.response{
-     border: 2px solid red;
-}
-.response > p{
+.response > h4{
   line-height: 5;
   margin-top: 20px;
   margin-bottom: 30px;
-  font-weight: bolder;
-   text-decoration: rgb(131, 21, 21);
   font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .startBtn {

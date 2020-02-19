@@ -1,5 +1,7 @@
 <?php
 
+require('StringProcessor.php');
+
 session_start();
 
 
@@ -7,74 +9,25 @@ session_start();
     # Get input the string value from post super global
     $inputString = $_POST['inputString'];
     
-    # remove special characters, spaces and number from input stringe
-    $sanitizedInputString =  preg_replace("/[^a-zA-Z]/", "", $inputString);
+     # remove special characters, spaces and number from input stringe
+    $sanitizedInputString = preg_replace("/[^a-zA-Z]/", "", $inputString);
 
+    # Create a new instance of the class StringProcessor
+    $stringProcessor = new StringProcessor($sanitizedInputString);
 
-#Reverse string function
-function stringReverse($sanitizedInputString)
-{
-    $outputString ="";
+    # Get all the output results of each functions or methods
+    $stringReverse = $stringProcessor->stringReverse();
+    $isPalindrome = $stringProcessor->isPalindrome();
+    $vowelCount = $stringProcessor->vowelCount();
+    $shiftedString = $stringProcessor->letterShift();
 
-    $len = strlen($sanitizedInputString);
+    #Store all our results in one array in the global session
+    $_SESSION['results'] =[
+        'stringReverse' => $stringReverse,
+        'isPalindrome' => $isPalindrome,
+        'vowelCount' => $vowelCount,
+        'shiftedString' => $shiftedString
+    ];
 
-    for ($i = $len; $i>= 0; $i--) {
-        $outputString .= substr($sanitizedInputString, $i, 1);
-    }
-       
-    return  $outputString;
-}
-
-
-#Passing sanitizedString to Palindrome function
-function isPalindrome($sanitizedInputString)
-{
-    #compare the reverse sanitized string with the sanitized string or empty string
-    if ($sanitizedInputString == strrev($sanitizedInputString) || $sanitizedInputString = 0) {
-        return 'Yes';
-    } else {
-        return "no";
-    }
-}
-
-
-# 2. (Required) Vowel count
-function vowelCount($sanitizedInputString)
-{
-    preg_match_all('/[aeiou]/i', $sanitizedInputString, $matches);
-
-    return count($matches[0]);
-}
-
-
-# 3. (Optional) Letter shift
-function letterShift($sanitizedInputString)
-{
-    $InputString = $sanitizedInputString;
-    $shift = 1;
-    $shiftedString = "";
-
-    for ($i = 0; $i < strlen($InputString); $i++) {
-        $ascii = ord($InputString[$i]);
-        $shiftedLetters = chr($ascii + $shift);
-        $shiftedString .= $shiftedLetters;
-    }
-    return $shiftedString;
-}
-
-
-$stringReverse = stringReverse($sanitizedInputString);
-$isPalindrome = isPalindrome($sanitizedInputString);
-$vowelCount = vowelCount($sanitizedInputString);
-$shiftedString = letterShift($sanitizedInputString);
-
-
-$_SESSION['results'] =[
-    'stringReverse' => $stringReverse,
-    'isPalindrome' => $isPalindrome,
-    'vowelCount' => $vowelCount,
-    'shiftedString' => $shiftedString
-];
-
-
+# redirect to index.php
 header('LOCATION: index.php');

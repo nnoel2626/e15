@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Route::get('contact', 'TipController@index')->name('index');
+//Route::post('contact', 'ContactController@calculate')->name('calculate');
 
-Route::get('/book/{id}', function ($id) {
-    return 'You have requested book #' .$id;
-});

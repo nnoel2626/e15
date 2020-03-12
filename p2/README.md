@@ -5,5 +5,7 @@
 
 ## Outside resources
 
+    https://stackoverflow.com/questions/41696945/how-to-use-radio-button-with-laravel
+    for radio button blade syntax.
 
 ## Notes for instructor

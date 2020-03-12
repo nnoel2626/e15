@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-//Route::get('contact', 'TipController@index')->name('index');
-//Route::post('contact', 'ContactController@calculate')->name('calculate');
-
+Route::get('/', 'TipController@index');
+Route::post('/splitTotal', 'TipController@splitTotal');

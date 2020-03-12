@@ -11,11 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@welcome');
+Route::get('/about', 'PageController@about');
+Route::get('/contact', 'PageController@contact');
 
 
-Route::get('/book/{id}', function ($id) {
-    return 'You have requested book #' .$id;
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::get('/books', 'BookController@index');
+
+Route::get('/books/{title}', 'BookController@show');
+Route::get('/books/edit', 'BookController@edit');

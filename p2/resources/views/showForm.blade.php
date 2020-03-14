@@ -8,13 +8,16 @@
 @section('content')
 
     <div class="wrapper">
+         @if (Session::has('message'))
+        <div class="alert alert-info">{{ Session::get('message') }}</div>
+         @endif
     <div class="header">
         Bill Splitter
     </div>
-        {{  Form::open( ['action' => 'TipController@splitTotal']) }}
+        {{  Form::open( ['url' => '/', 'method'=>'post']) }}
         {{ csrf_field() }}
     <div>
-        {{ Form::label('How much was the Bill ?',null, ['class' => '']) }}
+        {{ Form::label('How much was the Bill ?', null, ['class' => '']) }}
         {{ Form::number('totalAmount', 'totalAmount'), ['placeholder'=>'Enter bill total'] }}
     </div>
         <div>
@@ -30,35 +33,24 @@
         {{ Form::label('radio', 'RoundUp Total Tip?', ['class' => 'radioLabel']) }}
         {{ Form::radio('roundUp','roundUp', false, ['class' => 'radio'])  }}
     </div>
+     @if(Session::has('splitAmount'))
+     <fieldset>
+         <div class='results alert alert-primary'>
+            <ul>
+            {{-- <li>{{ $splitAmount }}</li> --}}
 
-
-    {{-- <fieldset> --}}
-        {{-- @if($splitAmount = null)
-            <div class='results alert alert-warning'>
-            Please, fill out the form fields
-            </div>
-        @else
-            <div class='results alert alert-primary'>
-                <ul>
-                    <li>{{ $splitAmount }}</li>
-                    {{-- <li>{{ $splitAmount }}</li>
-                    <li>{{ $splitAmount }}</li>
-
-                </ul>
-            </div>
-        @endif --}}
-
-
-    {{-- </fieldset> --}}
-
+            </ul>
+        </div>
+        </fieldset>
+    @endif
     <div class='buttonSpace'>
-        {!! Form::button('Submit', ['class' => '', 'child' => '<i class="fa fa-plus"></i>',  'type' => 'submit']) !!}
-        {!! Form::button('Reset', ['class' => '', 'child' => '<i class="fa fa-plus"></i>',  'type' => 'reset']) !!}
+        {{ Form::button('Submit', ['class' => '', 'child' => '<i class="fa fa-plus"></i>',  'type' => 'submit']) }}
+        {{ Form::button('Reset', ['class' => '', 'child' => '<i class="fa fa-plus"></i>',  'type' => 'reset']) }}
     </div>
     {!! Form::close() !!}
     </div>
 
-
-
 @endsection
+
+
 

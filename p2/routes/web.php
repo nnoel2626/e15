@@ -13,4 +13,4 @@
 
 
 Route::get('/', 'TipController@index');
-Route::post('/splitTotal', 'TipController@splitTotal');
+Route::post('/', 'TipController@splitTotal');

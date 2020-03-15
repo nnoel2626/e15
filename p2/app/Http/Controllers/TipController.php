@@ -27,8 +27,8 @@ class TipController extends Controller
 
         # Validate all the form inputs
         $this->validate($this->request, [
-           'totalAmount' => 'required',
-           'numberOfPeople' => 'required',
+           'totalAmount' => 'required | integer',
+           'numberOfPeople' => 'required | numeric',
            'tipPercentage' => 'required',
 
         ]);
@@ -37,41 +37,42 @@ class TipController extends Controller
         $totalAmount = $this->request->input('totalAmount');
         $tipPercentage = $this->request->input('tipPercentage');
 
+        $totalTip;
+
         # Calculate the totalTip
         if ($tipPercentage == 'Being stingy') {
-            $this->totalTip  = ($totalAmount * 10) / 100;
+            $totalTip  = ($totalAmount * 10) / 100;
         }
 
         if ($tipPercentage == 'Average tip') {
-            $this->totalTip = ($totalAmount * 15) / 100;
+            $totalTip = ($totalAmount * 15) / 100;
         }
 
         if ($tipPercentage == 'Feelin generous') {
-            $this->totalTip = ($totalAmount * 20) / 100;
+            $totalTip = ($totalAmount * 20) / 100;
         }
 
 
         # get all input value from Form
-        $totalAmount = floatval($this->request->input('totalAmount', null));
-        $numberOfPeople = floatval($this->request->input('numberOfPeople', null));
+        $totalAmount = floatval($this->request->input('totalAmount'));
+        $numberOfPeople = floatval($this->request->input('numberOfPeople'));
         $roundUp = $this->request->input('roundUp');
 
         # Boolean to see if the request contains data for a particular field(roundUp)
         if ($this->request->has('roundUp')) {
             # If it has, round up the total amount.
-            $splitAmount = round(($totalAmount + $this->totalTip) /$numberOfPeople);
+            $splitAmount = round(($totalAmount + $totalTip) /$numberOfPeople);
         } else {
-            $splitAmount =  ($totalAmount + $this->totalTip) / $numberOfPeople;
+            $splitAmount =  ($totalAmount + $totalTip) / $numberOfPeople;
         }
 
-        // dump($totalAmount);
-        // dump($this->totalTip);
-        // dump($splitAmount);
+        # Show user the new bill total with the tip included
+        $newBillTotal = $splitAmount * $numberOfPeople;
 
         #Redirect to the form View with the following variables
         return redirect()->back()->with([
-            'totalAmount' => $totalAmount,
-             'tipTotal' => $this->totalTip,
+            'newBillTotal' => $newBillTotal,
+             'tipTotal' => $totalTip,
             'splitAmount' => $splitAmount
 
             ]);

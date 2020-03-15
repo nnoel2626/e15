@@ -26,10 +26,9 @@ body {
   margin-bottom: 2rem;
 
 }
-
 form {
  margin: 0 auto;
-  border: 2px dashed #2E3F51;
+  border: 2px dashed rgb(101, 27, 5);
   width: 35%;
   padding: 2rem;
   box-sizing: border-box;
@@ -74,6 +73,13 @@ input {
   width: 100%;
   text-align: center;
 }
+.submitBtn{
+  background-color: rgb(91, 104, 73);
+}
+
+.resetBtn{
+ background-color: rgb(112, 81, 72);
+}
 .buttonSpace button {
   margin-top: .6rem;
   border-radius: 10px;
@@ -81,6 +87,29 @@ input {
   padding: .5rem 4rem;
   font-family: 'Lora', serif;
   font-size: 1.2rem;
+  color: rgb(245, 248, 240);
+}
+
+fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border:none;
+    background-color: rgb(196, 244, 255);
+}
+
+
+.errlist{
+ background-color: rgb(252, 222, 222);
+ text-align: center;
+ margin-top: 1rem;
+ margin-bottom: 1rem;
+
 }
 
 

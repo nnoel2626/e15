@@ -36,7 +36,7 @@
         ['placeholder' => 'Select Tip percetage'], ['class' => 'select-selected'] ) }}
     </div>
     <div class='inline'>
-        {{ Form::label('radio', 'RoundUp Total Tip?', ['class' => 'radioLabel']) }}
+        {{ Form::label('radio', 'RoundUp Total Bill Amount?', ['class' => 'radioLabel']) }}
         {{ Form::radio('roundUp','$roundUp or Default', false, ['class' => 'radio'])  }}
     </div>
      @if(Session::has('splitAmount'))

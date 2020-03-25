@@ -1,26 +1,27 @@
-@extends('layout.master')
+@extends('layouts.master2')
 
 @section('title')
-{{ $title }}
+{{ $book['title'] }}
 @endsection
 
 @section('head')
-{{-- custom css links for individual pages --}}
+{{-- Page specific CSS includes should be defined here; this .css file does not exist yet, but we can create it --}}
+<link href='/css/books/show.css' rel='stylesheet'>
 @endsection
 
 @section('content')
-  @if($bookFound)
-        <h1>{{ $title }}</h1>
 
-        <p>
-            Details about this book will go here...
-        </p>
-    @else
-        <p>
-            Book not found
-        </p>
-    @endif
+<img class='cover' src='{{ $book['cover_url'] }}' alt='Cover photo for {{ $book['title'] }}'>
+
+<h1>{{ $book['title'] }}</h1>
+
+<p>By {{ $book['author'] }} ({{$book['published_year']}})</p>
+
+<p class='description'>
+    {{ $book['description'] }}
+    <a href='{{$book['info_url']}}'>Learn more...</a>
+</p>
+
+<a href='{{$book['purchase_url']}}'>Purchase...</a>
 
 @endsection
-
-

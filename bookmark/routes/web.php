@@ -1,31 +1,23 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
+# Misc. Pages
 Route::get('/', 'PageController@welcome');
 Route::get('/about', 'PageController@about');
 Route::get('/contact', 'PageController@contact');
+Route::get('/support', 'PageController@support');
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-Route::get('/books', 'BookController@index');
-
-Route::get('/books/{title}', 'BookController@show');
+# Books
 Route::get('/books/edit', 'BookController@edit');
+Route::get('/books/create', 'BookController@create');
+Route::post('/books', 'BookController@store');
+Route::get('/books', 'BookController@index');
+Route::get('/books/{slug?}', 'BookController@show');
+Route::get('/search', 'BookController@search');
+Route::get('/list', 'BookController@list');
+
+# This was an example route to show multiple parameters;
+# Not a feature we're actually building, so I'm commenting out
+# Route::get('/filter/{category}/{subcategory?}', 'BookController@filter');

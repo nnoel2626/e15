@@ -10,7 +10,10 @@ session_start();
     $inputString = $_POST['inputString'];
     
      # remove special characters, spaces and number from input stringe
-    $sanitizedInputString = preg_replace("/[^a-zA-Z]/", "", $inputString);
+    $sanitizedInputString = preg_replace("/[^a-zA-Z]/", "", strtolower($inputString));
+       # Reduce string down to just letters a-z
+    // $string = preg_replace("/[^a-z]/", '', strtolower($string));
+
 
     # Create a new instance of the class StringProcessor
     $stringProcessor = new StringProcessor($sanitizedInputString);

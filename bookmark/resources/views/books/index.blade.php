@@ -1,30 +1,24 @@
-@extends('layout.master')
+@extends('layouts.master2')
 
 @section('title')
-{{-- {{ $title }} --}}
+    All Books
 @endsection
 
 @section('head')
-{{-- custom css links for individual pages --}}
+    <link href='/css/books/index.css' rel='stylesheet'>
 @endsection
 
 @section('content')
-  {{-- @if($bookFound) --}}
-        {{-- @foreach($books as $book => $val) - Starts a foreach block
-         <h1>{{ $title }}</h1>
+    <h1>All Books</h1>
 
-            <p>
-                Details about this book will go here...
-            </p>
-
-        @endforeach - Ends a foreach block --}}
-
-    {{-- @else
-        <p>
-            Book not found
-        </p>
-    @endif --}}
-
+    @if(count($books) == 0)
+        No books have been added yet...
+    @else
+        @foreach($books as $slug => $book)
+            <a href='/books/{{ $slug }}'>
+            <img class='cover' src='{{ $book['cover_url'] }}'></a>
+        @endforeach
+    @endif
 @endsection
 
 

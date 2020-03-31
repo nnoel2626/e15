@@ -5,16 +5,15 @@
 @endsection
 
 @section('content')
-
-        @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-             </div>
-        @endif
-            <div>
+    @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
+        <div>
             Welcome to microphones&mdash; an online microphones that let’s you track and share a history of microphoness.
             </div>
-                 <form method='GET' action='/search'>
+                <form method='GET' action='/search'>
 
                     <h2>Search for a microphones to add to your list</h2>
 
@@ -66,28 +65,35 @@
                             @endforeach
                             </ul>
                          @endif
-                     </form>
+                </form>
 
 
-                    @if(!is_null($searchResults))
-                        @if(count($searchResults) == 0)
-                            <div class='results alert alert-warning'>
-                                No results found.
-                                <a href='/microphoness/create'>Want to add this microphones to our library?</a>
-                            </div>
-                        @else
-                            <div class='results alert alert-primary'>
 
-                            {{ count($searchResults) }}
-                            {{ Str::plural('Result', count($searchResults)) }}:
 
-                                <ul>
-                                    @foreach($searchResults as $slug => $microphones)
-                                    <li><a href='/microphones/{{ $slug }}'> {{ $microphones['building'] }}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                    @endif
+        @if(!is_null($searchResults))
+            @if(count($searchResults) == 0)
+            <div class='results alert alert-warning'>
+                 No results found.
+                {{-- <a href='/microphoness/create'>Want to add this microphones to our library?</a> --}}
+            </div>
+                @else
+            <div class='results alert alert-primary'>
+                 {{ count($searchResults) }}
+                    {{ Str::plural('Result', count($searchResults)) }}:
+
+                    <ul>
+                     @foreach($searchResults as $slug => $microphones)
+                        {{-- <li><a href='/microphones/{{ $slug }}'> {{ $microphones['building'] }}</a></li> --}}
+                    <div class="card bg-light mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Shure:{{ $microphones [ 'model' ]}} </div>
+                    <div class="card-body">
+                    <h4 class="card-text  mb-2">Band: {{ $microphones ['band']}} </h4>
+                    <h3 class="card-text">{{ $microphones ['assigned_frequency'] }} </h3>
+                    </div>
+                        @endforeach
+                    </ul>
+            </div>
+            @endif
+        @endif
 @endsection
 

@@ -224,3 +224,100 @@ Both the fifth and sixth error are related to the same problem: we’re missing 
 + Fix the errors that the w3 Validator identified in the buggy code, and then run it through the validator again. If necessary, repeat this process until validation passes with no errors or warnings.
 + Using the [**Validate by URI**](https://validator.w3.org/#validate_by_uri) option, plug in the URL of one of your favorite web site and see how their code stands up to the validator. 
 
+
+## How to Create a Laravel Package.
+
+Before we can start creating our package, I think it would useful to first describe what is a package and how it gets used in a Laravel 7 project.
+
+A package is a  stand-alone source code that developers create that can be integrated into a project to add new functionality that Laravel does provide. developers only need to import by "require" the package through Composer and adapt it to your project.
+
+## Creating Laravel Packages
+
+As I just mentioned, you are going to need Composer installed in your machine, a need account with (<https://packagist.org)> a GitHub account which most of you already have, a fresh install of laravel project to host the package. I also realized that the best to demonstrate the process is to createNow that we get this out out the way, let's start....
+
+
+Create a new Laravel project 
+Depending on the sofistication of the package 
+The two most important files on a package are composer.json  and service provider files.
+"composer create-project laravel/laravel form-package"
+create an "src" folder in the root directory of your project.
+
+To manage this new package you are creating, it will need to have a composer.json file. In your command prompt, navigate inside the "src" run:
+ composer init 
+and follow the prompt:
+
+Note that the composer.json in your project is different from the composer.json in your package. Be sure you are editing the correct composer.json file.
+In your command prompt run:
+php artisan make: provider ContactFormServiceProvider.php
+
+Note that the provider you just created, was created inside the provider folder.  You just need to copy and paste the file inside the "src" folder.
+
+Namespace the ContactFormServiceProvider class file correctly so that Composer can access it during the autoload process. That means you should this autoload object in your composer.json file to register the root namespace: 
+
+"autoload": {
+        "psr-4": {
+            "Nnoel\\ContactForm\\": "src/"
+        }
+    }
+
+You also need to add the path of the new class in the default laravel project composer file under autoload-dev:
+ "autoload-dev": {
+        "psr-4": {
+            "Laravel\\Tinker\\Tests\\": "tests/",
+            "Nnoel\\ContactForm\\": "package/contact-    form/src/"
+        }
+    }
+
+you can refer to the 
+
+
+## Laravel documentation if you need further assistance.
+
+The next step is to declare the new class  name in a service provider: Then Go to  Config/app and register the provider to the provider classes add: 
+Nnoel\ContactForm\
+ContactFormServiceProvider::class
+Then composer.json file
+At this point to make sure you have not made any syntax error you can this composer command to verify if your added class is registering with composer.
+composer dump-autoload
+
+If everything goes well, let's create the commands ContactFormServiceProvider file.
+
+## Views
+
+https://laravel.com/docs/7.x/packages/Views
+
+Migration
+php artisan migrate will load both the migration from the default laravel project and the contact-form package that we are creating.
+Add this to the boot method on the ContactFormService.
+public function boot()
+{
+    $this->loadMigrationsFrom(__DIR__.'/path/to/migrations');
+}
+
+
+## Docs:
+Package views are referenced using the package::view syntax convention. So, once your view path is registered in a service provider, you may load the admin view from the courier package like so:
+Route::get('admin', function () {
+    return view('courier::admin');
+});
+
+## Bonus tips
+
+
+## publishing your package to Packagist
+The last thing is if you want to show your package to the world so that other people would add it to their composer.json file. I won’t provide detailed instructions on this, cause it kinda goes outside Laravel topic, but here are basic steps:
+Make package auto-discovery
+
+1. You form your package as a repository and upload it to GitHub;
+2. You register on Packagist.org;
+3. You make sure that your composer.json contains all necessary information;
+4. You submit a link to your GitHub repository to Packagist – and then – BOOM! – magic happens!
+5. For all detailed information about composer.json fields, package versioning and other topics – see Packagist documentation.
+So, now we’re (finally?) finished with the tutorial. Here is the basic way to create a package. Of course, you can grow it much bigger with Models, Assets and your sub-folder structure, but I will leave it for you to play with.
+And if you create your package with the help of this tutorial, don’t forget to give the link in the comments – tell the world about your achievement!
+
+
+Laravel Package tutorial, Composer Package development Packagist Package upload Composer requires package Contact Form Laravel Package Development
+
+## link to  contact-form package on packagist.org
+https://packagist.org/packages/nnoel/contact-form

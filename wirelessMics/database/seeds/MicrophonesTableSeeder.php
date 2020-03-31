@@ -221,6 +221,7 @@ class MicrophonesTableSeeder extends Seeder
             'room'=> 'Thompson',
             'make'=> 'Shure',
             'model'=> 'Axient Digital',
+            
             'band'=> 'G57',
             'frequency_range'=> '470- 616 MHZ',
             'serial_number'=> '',

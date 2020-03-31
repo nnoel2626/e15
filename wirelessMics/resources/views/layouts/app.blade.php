@@ -32,10 +32,16 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto">
 
-                    </ul>
+                    <li class="{{Request::path()=== '/users' ? 'current_page_item': ''}}">
+                    <a class="nav-link" href="{{ route('admin.users.index') }}">Users</a>
+                 </li>
+                    <li class="{{Request::is('list') ? 'current_page_item': ''}}">
+                    <a class="nav-link" href="{{ route('admin.mics.list') }}">Microphones</a>
+                    </li>
 
+                 </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -75,10 +81,10 @@
         </nav>
 
         <main class="py-4">
-            <div class="container">
+            {{-- <div class="container"> --}}
                 <div> @include('partials.alerts') </div>
                  <div>@yield('content')</div>
-            </div>
+            {{-- </div> --}}
         </main>
     </div>
 </body>

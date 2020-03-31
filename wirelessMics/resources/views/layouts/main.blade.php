@@ -19,11 +19,24 @@
         {{-- <a href='/'><img src='/images/bookmark-logo@2x.png' id='logo' alt='bookmark Logo'></a> --}}
         <nav>
             <ul>
-                <li><a href='/home'>Home</a></li>
-                <li><a href='/microphones'>All Microphones</a></li>
-                <li><a href='/list'>Portable list</a></li>
-                <li><a href='/about'>About</a></li>
-                <li><a href='/support'>Support</a></li>
+              <li class="{{Request::path()=== '/' ? 'current_page_item': ''}}">
+                <a class="nav-link" href="{{ route('home') }}">Home</a>
+            </li>
+                <li class="{{Request::is('index') ? 'current_page_item': ''}}">
+                    <a class="nav-link" href="{{ route('index') }}">All Microphones</a>
+                </li>
+                <li class="{{Request::is('installed') ? 'current_page_item': ''}}">
+                    <a class="nav-link" href="{{ route('installed') }}">Installed list</a>
+                </li>
+                <li class="{{Request::is('portable') ? 'current_page_item': ''}}">
+                    <a class="nav-link" href="{{ route('portable') }}">Portable list</a>
+                </li>
+                 <li class="{{Request::is('about') ? 'current_page_item': ''}}">
+                    <a class="nav-link" href="{{ route('about') }}">About</a>
+                </li>
+                 <li class="{{Request::is('support') ? 'current_page_item': ''}}">
+                    <a  class="nav-link" href="{{ route('support') }}">Support</a>
+                </li>
             </ul>
              <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -60,10 +73,11 @@
             </ul>
         </nav>
     </header>
-
+<main>
     <section id='main'>
         @yield('content')
     </section>
+</main>
 
     <footer>
         &copy; Harvard Microphones

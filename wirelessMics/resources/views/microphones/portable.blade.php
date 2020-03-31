@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Your List
+    Portable List
 @endsection
 
 @section('head')
@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <h1>Your List</h1>
+    <h1>Portable Micrrophones </h1>
 
-    <em>This page will display all the books on your list...</em>
+    <em>This page will display all the portable Mics</em>
 @endsection

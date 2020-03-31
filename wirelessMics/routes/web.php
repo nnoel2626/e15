@@ -29,32 +29,39 @@ Route::get('/', function () {
     Route::get('/about', 'PagesController@about')->name('about');
     Route::get('/support', 'PagesController@support')->name('support');
 
-
  # Microphones Routes
     #Route to display all Microphones
-    Route::get('/microphones', 'MicrophonesController@index');
-
-    #Routes to display create and save new microphone
-    Route::get('/microphones/create', 'MicrophonesController@create');
-    Route::post('/microphones', 'MicrophonesController@store');
+    Route::get('/microphones', 'MicrophonesController@index')->name('index');
 
     #route to show a single Microphone
-    Route::get('/microphones/{slug?}', 'MicrophonesController@show');
-
-    #Routes to edit a single microphone and update that microphone
-    Route::get('/microphones/edit/{slug?}', 'MicrophonesController@edit');
-    Route::put('/microphones/update', 'MicrophonesController@update');
-
-    #route to delete a Microphone
-    Route::get('/equipment/delete/{slug?}', 'MicrophonesController@Destroy');
+    Route::get('/microphones/{slug?}', 'MicrophonesController@show')->name('show');
 
     #Route that searches Microphone by searchTerm and SearchType
-    Route::get('/search', 'MicrophonesController@search');
-    Route::get('/list', 'MicrophonesController@list');
+    Route::get('/search', 'MicrophonesController@search')->name('search');
+    Route::get('/installed', 'MicrophonesController@installed')->name('installed');
+    Route::get('/portable', 'MicrophonesController@portable')->name('portable');
 
  //});
 
 #resources route for Admin
     Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function () {
+
         Route::resource('/users', 'UsersController', ['except' =>['create','store','show']]);
+
+         #Routes to display microphone List
+       Route::get('/microphones', 'AdminMicsController@list')->name('mics.list');
+
+
+         Route::resource('/microphones', 'AdminMicsController', [
+             'only' => [ 'create', 'store', 'edit', 'update', 'destroy'],
+           'names' => [
+
+                'create' => 'mics.create',
+                'store' => 'mics.store',
+                'edit' => 'mics.edit',
+                'update' => 'mics.update',
+                'destroy' => 'mics.destroy'
+
+                 ]
+            ]);
     });

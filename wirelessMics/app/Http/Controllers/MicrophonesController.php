@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tag;
+use App\Microphone;
 use Gate;
 use Arr;
 use Str;
@@ -13,85 +14,16 @@ class MicrophonesController extends Controller
     {
         $this->middleware('auth');
     }
-      /**
-     * GET /microphones
-     * Show all the microphones in the library
-     */
-    public function index()
+
+
+     public function search(Request $request)
     {
-        $microphones = Microphone::all();
+        //ddd($request->all());
 
-        ddd($microphones);
-        # Alphabetize the microphones
-        // $microphones = Arr::sort($microphones, function ($value) {
-        //     return $value['building'];
-        // });
-
-        // return view('microphones.index')->with([
-        //     'microphones' => $microphones
-        // ]);
-    }
-
-    /**
-    * GET /microphones/create
-    * Display the form to add a new book
-    */
-    public function create(Request $request)
-    {
-        return view('microphones.create');
-    }
-
-
-    /**
-    * POST /microphones
-    * Process the form for adding a new book
-    */
-    public function store(Request $request)
-    {
-        # Validate the request data
-        # The `$request->validate` method takes an array of data
-        # where the keys are form inputs
-        # and the values are validation rules to apply to those inputs
         // $request->validate([
-        // 'slug' => 'required',
-        // 'building'=> 'required',
-        // 'room'=> 'required',
-        // 'make'=> 'required',
-        // 'model'=> 'required',
-        // 'band'=> 'required',
-        // 'frequency_range'=> 'required',
-        // 'serial_number'=> '',
-        // 'mic_type'=> 'required',
-        // 'group'=> 'required',
-        // 'channel'=> 'required',
-        // 'Assigned_frequency'=> '589.725 MHZ',
-        // 'comments'=> 'required|min:255'
-
-        // 'title' => 'required',
-        // 'author' => 'required',
-        // 'published_year' => 'required|digits:4',
-        // 'cover_url' => 'url',
-        // 'cover_url' => 'url',
-        // 'purchase_url' => 'required|url',
-        // 'description' => 'required|min:255'
-        //]);
-
-        # Note: If validation fails, it will automatically redirect the visitor back to the form page
-        # and none of the code that follows will execute.
-
-        # Code will eventually go here to add the book to the database,
-        # but for now we'll just dump the form data to the page for proof of concept
-        dump($request->all());
-    }
-
-    public function search(Request $request)
-    {
-        //sdd($request->all());
-
-        $request->validate([
-            'searchTerms' => 'required',
-            'searchType' => 'required',
-        ]);
+        //     'searchTerms' => 'required',
+        //     'searchType' => 'required',
+        // ]);
 
         # Note: if validation fails, it will redirect
         # back to `/` (page from which the form was submitted)
@@ -107,66 +39,106 @@ class MicrophonesController extends Controller
         //dd($searchType);
         # Load our book data using PHP's file_get_contents
         # We specify our microphones.json file path using Laravel's database_path helper
-        $microphones = App\Microphone::all();
 
-        // ddd($microphones);
+        $microphoneData = Microphone::all();
+        //ddd($microphoneData);
         # Convert the string of JSON text we loaded from microphones.json into an
         # array using PHP's built-in json_decode function
-        //$microphones = json_decode($bookData, true);
-
+        $microphones = json_decode($microphoneData, true);
+           // ddd($microphones);
         # This algorithm will filter our $microphones down to just the microphones where either
         # the title or author ($searchType) matches the keywords the user entered ($searchTerms)
         # The search values are convereted to lower case using PHP's built in strtolower function
         # so that the search is case insensitive
-        $searchResults = array_filter($microphones, function ($microphone) use ($searchTerms, $searchType) {
-            return Str::contains(strtolower($microphone[$searchType]), strtolower($searchTerms));
-        });
-        dd($searchResults);
+        // $searchResults = array_filter($microphones, function ($microphone) use ($searchTerms, $searchType) {
+        //     return Str::contains(strtolower($microphone[$searchType]), strtolower($searchTerms));
+        // });
+
+        //      if($query) {
+	    //     # Eager load categories
+	    // $quipment = App\Equipment::with('categories')
+	    // ->whereHas(function($q) use($query) {
+	    // $q->where('name', 'LIKE', "%$query%");
+	    // })
+	    // ->orWhereHas('categories', function($q) use($query) {
+	    // $q->where('name', 'LIKE', "%$query%");
+	    // })
+	    // ->orWhere('brand', 'LIKE', "%$query%")
+	    // ->orWhere( 'LIKE', "%$query%")
+	    // ->get();
+	        # Note on what `use` means above:
+	        # Closures may inherit variables from the parent scope.
+	        # Any such variables must be passed to the `use` language construct.
+	    //}
+	        # Otherwise, just fetch all Equipments
+	    // else {
+	    //     # Eager load categories
+	    // $equipment = App\Equipment::with('categories')->get();
+	    // }
+	    // return $equipment;
+
 
         # The above array_filter accomplishes the same thing this for loop would
-        // foreach ($microphones as $slug => $microphone) {
-        //     if (strtolower($microphone[$searchType]) == strtolower($searchTerms)) {
-        //         $searchResults[$slug] = $microphone;
-        //     }
-        // }
-
+        foreach ($microphones as $slug => $microphone) {
+            if (strtolower($microphone[$searchType]) == strtolower($searchTerms)) {
+                $searchResults[$slug] = $microphone;
+            }
+        }
+         //ddd($searchResults);
         # Redirect back to the form with data/results stored in the session
         # Ref: https://laravel.com/docs/redirects#redirecting-with-flashed-session-data
-        return redirect('/')->with([
+        return redirect('home')->with([
             'searchTerms' => $searchTerms,
             'searchType' => $searchType,
             'searchResults' => $searchResults
         ]);
-    }
+      }
 
-
-    /**
-     * GET /list
-     */
-    public function list()
+        /**
+         * GET /list
+         */
+    public function installed()
     {
-        return view('microphones.list');
+        return view('microphones.installed');
+    }
+        /**
+         * GET /list
+         */
+    public function portable()
+    {
+        return view('microphones.portable');
     }
 
-
-
-    /**
-     * GET /book/{slug}
-     * Show the details for an individual book
+      /**
+     * GET /microphones
+     * Show all the microphones in the library
      */
-    public function show($slug)
-     {
-    //     $microphone = Arr::first($microphones, function ($value, $key) use ($slug) {
-    //         return $key == $slug;
-    //     });
+    public function index()
+    {
 
-    //     return view('microphones.show')->with([
-    //         'microphone' => $microphone,
-    //         'slug' => $slug,
-    //     ]);
+        #eager loading to reduce the number of queries
+        $microphones = Microphone::all();
+
+
+        # Alphabetize the microphones
+        $microphones = Arr::sort($microphones, function ($value) {
+            return $value['building'];
+        });
+
+        return view('microphones.index')
+        ->with('microphones', $microphones);
+
     }
 
-    /**
+
+
+
+
+
+
+}
+
+/**
      * GET /filter/{$category}/{subcategory?}
      * Example demonstrating multiple parameters
      * Not a feature we're actually building, so I'm commenting out
@@ -181,5 +153,3 @@ class MicrophonesController extends Controller
 
     //     return $output;
     // }
-}
-

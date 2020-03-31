@@ -62,6 +62,8 @@ class UsersController extends Controller
         $user->roles()->sync($request->roles);
         $user->name = $request->name;
         $user->email = $request->email;
+
+
         if ($user->save()) {
             $request->session()->flash('success', $user->name . ' ' . 'user has been updated');
         } else {

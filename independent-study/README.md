@@ -126,9 +126,6 @@ Make package auto-discovery.
     4. You submit a link to your GitHub repository to packagist
     5. For all detailed information about composer.json fields, package versioning and other topics – see   packagist documentation.
 
-So, now we’re (finally?) finished with the tutorial. Here is the basic way to create a package. Of course, you can grow it much bigger with Models, Assets and your sub-folder structure, but I will leave it for you to play with.
-And if you create your package with the help of this tutorial, don’t forget to give the link in the comments – tell the world about your achievement!
-
 
 Laravel Package tutorial, Composer Package development packagist Package upload Composer requires package Contact Form Laravel Package Development
 

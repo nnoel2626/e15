@@ -19,6 +19,17 @@ class Microphone extends Model
         return $this->belongsToMany(Tag::class);
     }
 
+     public function hasAnyTags($tags)
+    {
+        #check for multiple roles .if this curent user has any roles
+        if ($this->tags()->whereIn('name', $tags)->first()) {
+            return true;
+        }
+
+        return false;
+    }
+
+
     public function hasTag($tag)
     {
         #check if this curent mic has a given tag in the Tag Table

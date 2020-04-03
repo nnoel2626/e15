@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>MTS Rental</title>
+		<title>MTS Microphones Inventory</title>
 
 		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
@@ -30,12 +30,12 @@
 			}
 
 			.title {
-				color: #660000;
+				color: #1C1109;
 				font-size: 86px;
 				margin-bottom: 50px;
 			}
             .subTitle {
-				color: #660000;
+				color: #1C1109;
 				font-size: 56px;
 				margin-bottom: 40px;
 			}
@@ -44,7 +44,8 @@
 
 				margin-top: 1.5em;
 				list-style: none;
-				font-size: 24px;
+                font-size: 24px;
+                color: #1C1109;
 
 			}
 

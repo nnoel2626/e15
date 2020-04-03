@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('head')
-    <link href='/css/microphones/home.css' rel='stylesheet'>
+     <link href='/css/microphones/home.css' rel='stylesheet'>
 @endsection
 
 @section('content')
@@ -11,11 +11,11 @@
         </div>
     @endif
         <div>
-            Welcome to microphones&mdash; an online microphones that let’s you track and share a history of microphoness.
+
             </div>
                 <form method='GET' action='/search'>
 
-                    <h2>Search for a microphones to add to your list</h2>
+                    <h2>Search for Microphone(s)</h2>
 
                         <fieldset>
                             <label for='searchTerms'>
@@ -50,20 +50,20 @@
                        <input
                        type='radio'
                        name='searchType'
-                       id='frequency_band'
-                       value='frequency_band'
-                        {{ (old('searchType') == 'frequency_band' or $searchType == 'frequency_band') ? 'checked' : '' }}
+                       id='band'
+                       value='band'
+                        {{ (old('searchType') == 'band' or $searchType == 'band') ? 'checked' : '' }}
                         >
                         <label for='frequency_band'>Frequency Band</label>
 
                        </fieldset>
                        <input type='submit' class='btn btn-primary' value='Search'>
                         @if(count($errors) > 0)
-                            <ul class='alert alert-danger error'>
+                        <ul class='alert alert-danger error'>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
-                            </ul>
+                        </ul>
                          @endif
                 </form>
 
@@ -80,20 +80,37 @@
             <div class='results alert alert-primary'>
                  {{ count($searchResults) }}
                     {{ Str::plural('Result', count($searchResults)) }}:
+                    <br>
 
                     <ul>
-                     @foreach($searchResults as $slug => $microphones)
+
+                        @foreach($searchResults as $slug => $microphones)
+
+                       <li class="card_items bg-light mb-3" style="max-width: 20rem;">
+                           <div class="card_content">
+                               <h3 class="card_heading">{{ $microphones ['assigned_frequency'] }} </h3>
+                               <p class="card-text">Shure: {{$microphones['model'] }}</p>
+                                <p class="card-text">Band: {{ $microphones ['band']}} </p>
+                             </div>
+                        </li>
+
+                        @endforeach
+
+                    </ul>
+             </div>
+            @endif
+        @endif
+@endsection
+
+ {{-- <div class="card bg-light mb-3" style="max-width: 20rem;">
                         {{-- <li><a href='/microphones/{{ $slug }}'> {{ $microphones['building'] }}</a></li> --}}
-                    <div class="card bg-light mb-3" style="max-width: 20rem;">
+
+                    {{-- <div class="card_items">
+                    <div class="card_content">
                     <div class="card-header">Shure:{{ $microphones [ 'model' ]}} </div>
                     <div class="card-body">
                     <h4 class="card-text  mb-2">Band: {{ $microphones ['band']}} </h4>
                     <h3 class="card-text">{{ $microphones ['assigned_frequency'] }} </h3>
                     </div>
-                        @endforeach
-                    </ul>
-            </div>
-            @endif
-        @endif
-@endsection
-
+                     </div>
+                      </div> --}}

@@ -5,23 +5,41 @@
 @endsection
 
 @section('head')
-{{-- Page specific CSS includes should be defined here; this .css file does not exist yet, but we can create it --}}
+
 {{-- <link href='/css/books/show.css' rel='stylesheet'> --}}
 @endsection
 
 @section('content')
-    <h1> Showing the requested Mic</h1>
-{{-- <img class='cover' src='{{ $book['cover_url'] }}' alt='Cover photo for {{ $book['title'] }}'>
+    <div class="col-12 text-center">
+    <h2><em>Microphone Details</em></h2>
+    </div>
 
-<h1>{{ $book['title'] }}</h1>
+    <div class="row justify-content-center">
+     <div class="col-md-6"
+     <div class="card bg-light mb-2">
+        <div class="card-header">Make: {{$microphone->make}} </div>
 
-<p>By {{ $book['author'] }} ({{$book['published_year']}})</p>
+                <div class="card-body">
+                     <h4 class="card-text">Model: {{$microphone->model}} </h4>
+                    <h4 class="card-text mb-2">Building: {{ $microphone->building }}</h4>
+                    <h4 class="card-text mb-2">Room: {{ $microphone->room }}</h4>
+                    <h4 class="card-text  mb-2">Microphone Band: {{ $microphone->band }} </h4>
+                    <h4 class="card-text">Microphone Range: {{ $microphone->frequency_range }} </h4>
+                    <h4 class="card-text mb-2">Serial Numbe: {{ $microphone->serial_number }}</h4>
+                    <h4 class="card-text mb-2">Microphone Type: {{ $microphone->mic_type }}</h4>
+                    <h4 class="card-text  mb-2">Group: {{ $microphone->group }} </h4>
+                    <h4 class="card-text  mb-2">Channel: {{ $microphone->channel }} </h4>
+                    <h4 class="card-text">Assigned Frequency: {{ $microphone->assigned_frequency }} </h4>
+                </div>
+                    <div class="card-text">Comments:{{ $microphone->comments }}</div>
+            </div>
+        </div>
+        </div>
+    </div>
+ </div>
 
-<p class='description'>
-    {{ $book['description'] }}
-    <a href='{{$book['info_url']}}'>Learn more...</a>
-</p>
-
-<a href='{{$book['purchase_url']}}'>Purchase...</a> --}}
 
 @endsection
+
+
+

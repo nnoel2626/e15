@@ -1,0 +1,38 @@
+ div.row {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+
+
+}
+ div.card-wrapper {
+    border: 1px solid purple;
+    margin: 0 auto;
+    padding: 1em;
+    max-width: 900px;
+    display: flex;
+    flex-basis: 60%;
+    justify-content: center;
+    flex-wrap: wrap;
+    }
+
+ div.card{
+ /* display: flex;
+ flex-direction: column;
+  margin: 1rem auto;
+  height: 100px;
+  width: 100px;
+  color: #FFFFFF;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 150px; */
+
+}
+
+
+   hr {
+    margin-right: 0;
+    margin-left: 0;
+  }

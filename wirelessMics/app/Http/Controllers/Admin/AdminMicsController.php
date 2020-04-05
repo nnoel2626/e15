@@ -39,10 +39,10 @@ class AdminMicsController extends Controller
     {
         $microphones = Microphone::with('tags')->get();
        // ddd($microphones);
-        // $tags = array(); 
-        // foreach(Tag::all() as $tag){ 
+        // $tags = array();
+        // foreach(Tag::all() as $tag){
 
-        // $tags[$tag->id] = $tag->name; 
+        // $tags[$tag->id] = $tag->name;
         // }
         $tags = Tag::all();
 
@@ -51,7 +51,7 @@ class AdminMicsController extends Controller
             'microphones' => $microphones,
             'tags' => $tags
         ]);
-       
+
     }
 
     /**
@@ -59,14 +59,14 @@ class AdminMicsController extends Controller
     * Process the form for adding a new book
     */
     public function store(Request $request)
-    {    
+    {
        // ddd($request->all());
 
         # Validate the request data
         # The `$request->validate` method takes an array of data
         # where the keys are form inputs
         # and the values are validation rules to apply to those inputs
-        //  $this->validate($this->request, [   
+        //  $this->validate($this->request, [
         //     'slug' => 'required',
         //     'building'=> 'required',
         //     'room'=> 'required',
@@ -190,19 +190,32 @@ class AdminMicsController extends Controller
 
     # Method for Admin Panel
      public function destroy(Request $request, Microphone $microphone)
-     {    
-           if ($microphone->delete()) {
-            $request->session()->flash('success', $microphone->slug . ' ' . 'microphone has been deleted');
+     {
+         //$microphone = Microphone::where('author', '=', 'F. Scott Fitzgerald')->first();
+
+         if (!$microphone) {
+
+         $request->session()->flash('error', 'Error deleting the microphone.Microphone not found.');
         } else {
-            $request->session()->flash('error', 'There was an error deleting the microphone');
+
+            $microphone->delete();
+            $request->session()->flash('success', $microphone->slug . ' ' . 'microphone has been deleted');
         }
 
-          return redirect()->route('admin.mics.list');  
-    }
+          return redirect()->route('admin.mics.list');
+
 }
 
 
+# First get a book to delete
+// $book = Book::where('author', '=', 'F. Scott Fitzgerald')->first();
 
+// if (!$book) {
+//     dump('Did not delete- Book not found.');
+// } else {
+//     $book->delete();
+//     dump('Deletion complete; check the database to see if it worked...');
+// }
 
 //   $validator = Validator::make($request->all(), [
         //     'title' => 'required|unique:posts|max:255',

@@ -79,7 +79,7 @@
 {{-- </main> --}}
 
     <footer>
-        &copy; Harvard Microphones
+        &copy; Harvard Wireless Microphones.
     </footer>
 
 </body>

@@ -61,7 +61,7 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Wireless Microphone Inventory</div>
+				<div class="title">Wireless Microphones Inventory</div>
 				<div class="subTitle">Media And Technology Services</div>
 				 <div class="line-separator"></div>
 				<div class="link">

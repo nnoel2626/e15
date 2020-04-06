@@ -15,6 +15,7 @@ class AdminMicsController extends Controller
     {
         $this->middleware('auth');
     }
+    
         /**
      * GET /microphones
      * Displayy all the microphones in the Admin Panel

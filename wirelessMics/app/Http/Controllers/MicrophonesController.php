@@ -39,9 +39,10 @@ class MicrophonesController extends Controller
             $searchType = strtolower($request->input('searchType', null));
             //dd($searchTerms);  //dd($searchType);
 
-            $microphoneData = Microphone::all();
-            $microphones = json_decode( $microphoneData, true);
+            #retreive all wireless Mics Collection and convert it to array.
+            $microphones = Microphone::all()->toArray();
 
+            #user php array_filter function to filter the microphones
             $searchResults = array_filter($microphones, function ($microphone) use ($searchTerms, $searchType) {
             return Str::contains(strtolower($microphone[$searchType]), strtolower($searchTerms));
             });
@@ -68,10 +69,13 @@ class MicrophonesController extends Controller
 
         #Retrieve all $microphones with at least one tag_name containing words installed
         $microphones = Microphone::whereHas('tags', function ($query) use($tags) {
-        $query->where('tag_name','installed');
-         })->get();
+        $query->where('tag_name','Installed');
+         })->orderBy('assigned_frequency')
+         ->get()
+         ->toArray();
 
-         //dump($microphones);
+         //ddd($microphones);
+
         return view('microphones.installed')->with([
            'tags' => $tags,
            'microphones' => $microphones
@@ -85,10 +89,14 @@ class MicrophonesController extends Controller
         # Retrieve all $tags
         $tags = Tag::all();
 
+        // $articles = Article::whereHas('tags', function($query) use ($tagName) {
+        // $query->whereName($tagName);
+        // })->get();
+
         #Retrieve all $microphones with at least one tag_name containing words installed
         $microphones = Microphone::whereHas('tags', function ($query) use($tags) {
-         $query->where('tag_name','portable');
-         })->get();
+         $query->where('tag_name','Portable');
+         })->get()->toArray();
 
        // dump($microphones);
         return view('microphones.portable')->with([

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Practice
+ */
+Route::any('/practice/{n?}', 'PracticeController@index');
+
 
 # Misc. Pages
 Route::get('/', 'PageController@welcome');

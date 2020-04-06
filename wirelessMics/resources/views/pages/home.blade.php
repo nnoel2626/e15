@@ -57,7 +57,7 @@
                         <label for='frequency_band'>Frequency Band</label>
 
                        </fieldset>
-                       <input type='submit' class='btn btn-primary' value='Search'>
+                       <input type='submit' class='btn fill' value='Search'>
                         @if(count($errors) > 0)
                         <ul class='alert alert-danger error'>
                             @foreach ($errors->all() as $error)
@@ -77,15 +77,13 @@
                 {{-- <a href='/microphoness/create'>Want to add this microphones to our library?</a> --}}
             </div>
                 @else
-            <div class='results alert alert-primary'>
+            <div class='results alert-background'>
                  {{ count($searchResults) }}
                     {{ Str::plural('Result', count($searchResults)) }}:
                     <br>
 
                     <ul>
-
                         @foreach($searchResults as $slug => $microphones)
-
                        <li class="card_items bg-light mb-3" style="max-width: 20rem;">
                            <div class="card_content">
                                <h3 class="card_heading">{{ $microphones ['assigned_frequency'] }} </h3>
@@ -93,24 +91,10 @@
                                 <p class="card-text">Band: {{ $microphones ['band']}} </p>
                              </div>
                         </li>
-
                         @endforeach
-
                     </ul>
              </div>
             @endif
         @endif
 @endsection
 
- {{-- <div class="card bg-light mb-3" style="max-width: 20rem;">
-                        {{-- <li><a href='/microphones/{{ $slug }}'> {{ $microphones['building'] }}</a></li> --}}
-
-                    {{-- <div class="card_items">
-                    <div class="card_content">
-                    <div class="card-header">Shure:{{ $microphones [ 'model' ]}} </div>
-                    <div class="card-body">
-                    <h4 class="card-text  mb-2">Band: {{ $microphones ['band']}} </h4>
-                    <h3 class="card-text">{{ $microphones ['assigned_frequency'] }} </h3>
-                    </div>
-                     </div>
-                      </div> --}}

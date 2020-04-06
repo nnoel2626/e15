@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\support\facades\Hash;
+
 use Illuminate\Database\Seeder;
 use App\Role;
 use App\User;
+use Illuminate\support\facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {

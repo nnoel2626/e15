@@ -27,7 +27,7 @@ class AdminMicsController extends Controller
        // $microphones = Microphone::groupBy('building')->get([DB::raw('Date(created_at) as day')]);
 
       return view('admin.microphones.list')
-        ->with('microphones', $microphones);
+        ->with(['microphones'=> $microphones]);
     }
 
     /**
@@ -58,7 +58,7 @@ class AdminMicsController extends Controller
     * POST /microphones
     * Process the form for adding a new book
     */
-    public function store(Request $request)
+    public function store( Request $request)
     {
        // ddd($request->all());
 
@@ -75,7 +75,7 @@ class AdminMicsController extends Controller
         //     'frequency_range'=> 'required',
         //     'band'=> 'required',
         //     'serial_number'=> '',
-        //     'mic_type'=> 'required',
+        //     'type'=> 'required',
         //     'group'=> 'required',
         //     'channel'=> 'required',
         //     'Assigned_frequency'=> 'required',
@@ -100,7 +100,7 @@ class AdminMicsController extends Controller
         $microphone->frequency_range = $request->frequency_range;
         $microphone->band = $request->band ;
         $microphone->serial_number = $request->serial_number;
-        $microphone->mic_type = $request->mic_type;
+        $microphone->type = $request->type;
         $microphone->group = $request->group;
         $microphone->channel = $request->channel;
         $microphone->assigned_frequency = $request->assigned_frequency;
@@ -112,7 +112,7 @@ class AdminMicsController extends Controller
 
          if ($request->has('tag')) {
              $tag = $this->request->input('tag_name');
-             $microphone->tags()->attach($request->tag);;
+             $microphone->tags()->attach($request->tag);
         }
          //ddd( $microphone);
         return redirect()->route('admin.mics.list');
@@ -136,7 +136,7 @@ class AdminMicsController extends Controller
          return view('admin.microphones.show')
         ->with([
             'microphone' => $microphone,
-            'slug' => $slug,
+            'slug' => $slug
         ]);
     }
 
@@ -204,9 +204,9 @@ class AdminMicsController extends Controller
 
           return redirect()->route('admin.mics.list');
 
+        }
+
 }
-
-
 # First get a book to delete
 // $book = Book::where('author', '=', 'F. Scott Fitzgerald')->first();
 

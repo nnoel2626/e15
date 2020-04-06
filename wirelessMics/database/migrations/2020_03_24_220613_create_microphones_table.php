@@ -27,7 +27,7 @@ class CreateMicrophonesTable extends Migration
             $table->string('frequency_range');
             $table->string('serial_number');
             #frequency
-            $table->string('mic_type');
+            $table->string('type');
             $table->string('group');
             $table->string('channel');
             $table->string('assigned_frequency');

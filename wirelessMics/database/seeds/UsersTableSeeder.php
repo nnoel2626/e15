@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
             'name'  => 'Norcius Noel',
             // 'username' => 'Norcius',
             'email'  => 'mensah33@gmail.com',
-            'password' => Hash::make('Admin'),
+            'password' => \Hash::make('Admin'),
 
         ]);
 
@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
             'name'  => 'Dave Harris',
             // 'username' => 'Dave',
             'email'  => 'daveh@staff.com',
-            'password' => Hash::make('Staff'),
+            'password' => \Hash::make('Staff'),
 
 
         ]);
@@ -40,7 +40,7 @@ class UsersTableSeeder extends Seeder
             'name'  => 'John do',
             // 'username' => 'John',
             'email'  => 'johnd@user.com',
-            'password' => Hash::make('User'),
+            'password' => \Hash::make('User'),
 
         ]);
 
@@ -49,7 +49,7 @@ class UsersTableSeeder extends Seeder
         'name'  => 'otto do',
         //    'username' => 'John',
             'email'  => 'johnd@temp.com',
-            'password' => Hash::make('Temp'),
+            'password' => \Hash::make('Temp'),
 
         ]);
 

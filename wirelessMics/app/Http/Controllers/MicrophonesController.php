@@ -37,7 +37,6 @@ class MicrophonesController extends Controller
             # Get the input values (default to null if no values exist)
             $searchTerms = strtolower($request->input('searchTerms', null));
             $searchType = strtolower($request->input('searchType', null));
-            //dd($searchTerms);  //dd($searchType);
 
             #retreive all wireless Mics Collection and convert it to array.
             $microphones = Microphone::all()->toArray();
@@ -64,17 +63,12 @@ class MicrophonesController extends Controller
         # Retrieve all $tags
         $tags = Tag::all();
 
-       // $microphones = Tag::where('tag_name', request('tag_name'))
-        //->firstOrFail()->microphones;
-
         #Retrieve all $microphones with at least one tag_name containing words installed
         $microphones = Microphone::whereHas('tags', function ($query) use($tags) {
-        $query->where('tag_name','Installed');
+        $query->where('name','Installed');
          })->orderBy('assigned_frequency')
          ->get()
          ->toArray();
-
-         //ddd($microphones);
 
         return view('microphones.installed')->with([
            'tags' => $tags,
@@ -89,16 +83,13 @@ class MicrophonesController extends Controller
         # Retrieve all $tags
         $tags = Tag::all();
 
-        // $articles = Article::whereHas('tags', function($query) use ($tagName) {
-        // $query->whereName($tagName);
-        // })->get();
-
         #Retrieve all $microphones with at least one tag_name containing words installed
         $microphones = Microphone::whereHas('tags', function ($query) use($tags) {
-         $query->where('tag_name','Portable');
-         })->get()->toArray();
+         $query->where('name','Portable');
+        })->orderBy('assigned_frequency')
+         ->get()
+         ->toArray();
 
-       // dump($microphones);
         return view('microphones.portable')->with([
             'tags' => $tags,
             'microphones' => $microphones
@@ -111,12 +102,10 @@ class MicrophonesController extends Controller
      */
     public function index()
     {
-
         #eager loading to reduce the number of queries
-        $microphones = Microphone::all();
-
+        $microphoneData = Microphone::all()->toArray();
         # Alphabetize the microphones
-        $microphones = Arr::sort($microphones, function ($value) {
+        $microphones = Arr::sort($microphoneData, function ($value) {
             return $value['building'];
         });
 
@@ -125,13 +114,10 @@ class MicrophonesController extends Controller
 
     }
 
+    
     public function show($id) {
 
         $microphone = Microphone::findOrFail($id);
-
-        //ddd( $microphone);
-
-       // return 'Show mic detail';
 
         return view('microphones.show')->with([
             'microphone'=> $microphone

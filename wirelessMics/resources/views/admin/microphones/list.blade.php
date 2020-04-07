@@ -5,9 +5,15 @@
 @endsection
 
 @section('content')
-    {{-- <div class="container"> --}}
+    {{-- <div class="container">  --}}
+          @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+                @endif
         <div class="row justify-content-center">
-            {{-- <div class="col-md-12"> --}}
+          
+              {{-- <div class="col-md-12">  --}}
                 <div class="card">
                     <div class="card-header">Microphones</div>
 
@@ -35,7 +41,7 @@
                                 <td> {{ $microphone->model }}</td>
                                 <td> {{ $microphone->band }}</td>
                                 <td> {{ $microphone->assigned_frequency }}</td>
-                                <td> {{ implode( ',', $microphone->tags()->get()->pluck('tag_name')->toArray()) }}</td>
+                                <td> {{ implode( ',', $microphone->tags()->get()->pluck('name')->toArray()) }}</td>
                                 <td>
                                 <a href="{{ route('admin.mics.create') }}" class="btn btn-secondary">Add </a>
 
@@ -55,8 +61,8 @@
                             </tbody>
                             </table>
                     </div>
-                </div>
-            {{-- </div> --}}
+                {{-- </div> --}}
+            </div>
         </div>
     {{-- </div> --}}
 

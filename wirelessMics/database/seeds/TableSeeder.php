@@ -243,10 +243,10 @@ class TableSeeder extends Seeder
 
         //$tags = [];
 
-        Tag::create(['tag_name' => 'Installed']);
-        Tag::create(['tag_name' => 'Portable']);
-        Tag::create(['tag_name' => 'Roaming']);
-        Tag::create(['tag_name' => 'Special Event']);
+        Tag::create(['name' => 'Installed']);
+        Tag::create(['name' => 'Portable']);
+        Tag::create(['name' => 'Roaming']);
+        Tag::create(['name' => 'Special Event']);
 
 
 

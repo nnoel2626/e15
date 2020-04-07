@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\Validator as validator;
 
 class AdminMicsController extends Controller
 {
-        public function __construct()
+     public function __construct()
     {
         $this->middleware('auth');
     }
-    
+
         /**
      * GET /microphones
      * Displayy all the microphones in the Admin Panel
@@ -23,12 +23,15 @@ class AdminMicsController extends Controller
     # Method for Admin Panel
     public function list()
     {
-        $microphones = Microphone::all();
-
-       // $microphones = Microphone::groupBy('building')->get([DB::raw('Date(created_at) as day')]);
-
+        # Eager load categories
+        $microphones = Microphone::with('tags')
+        ->orderBy('building')
+        ->get();
+	   
       return view('admin.microphones.list')
-        ->with(['microphones'=> $microphones]);
+        ->with([
+            'microphones'=> $microphones
+            ]);
     }
 
     /**
@@ -60,38 +63,27 @@ class AdminMicsController extends Controller
     * Process the form for adding a new book
     */
     public function store( Request $request)
-    {
-       // ddd($request->all());
+    {   # Validate the request data The `$request->validate` method takes an array of data
+        # where the keys are form inputs and the values are validation rules to apply to those inputs
+        $request->validate([
+            'slug' => 'required',
+            'building'=> 'required',
+            'room'=> 'required',
+            'make'=> 'required',
+            'model'=> 'required',
+            'frequency_range'=> 'required',
+            'band'=> 'required',
+            'serial_number'=> 'required',
+            'type'=> 'required',
+            'group'=> 'required',
+            'channel'=> 'required',
+            'assigned_frequency'=> 'required',
+            'comments'=> 'min:8'
+        ]);
 
-        # Validate the request data
-        # The `$request->validate` method takes an array of data
-        # where the keys are form inputs
-        # and the values are validation rules to apply to those inputs
-        //  $this->validate($this->request, [
-        //     'slug' => 'required',
-        //     'building'=> 'required',
-        //     'room'=> 'required',
-        //     'make'=> 'required',
-        //     'model'=> 'required',
-        //     'frequency_range'=> 'required',
-        //     'band'=> 'required',
-        //     'serial_number'=> '',
-        //     'type'=> 'required',
-        //     'group'=> 'required',
-        //     'channel'=> 'required',
-        //     'Assigned_frequency'=> 'required',
-        //     'comments'=> 'min:8'
-        // ]);
-
-        // if($validator->fails()) {
-        //     return redirect('admin/microphones/create')
-        //                 ->withErrors($validator)
-        //                 ->withInput();
-        // }
         # Note: If validation fails, it will automatically redirect the visitor back to the form page
         # and none of the code that follows will execute.
 
-        //else{
         $microphone = new Microphone;
 		$microphone->slug = $request->slug;
         $microphone->building = $request->building;
@@ -108,25 +100,21 @@ class AdminMicsController extends Controller
         $microphone->comments = $request->comments;
 
         $microphone->save();
-
-        //ddd( $microphone);
-
+        # Once microphone is create, attach the requested tag(s).
          if ($request->has('tag')) {
-             $tag = $this->request->input('tag_name');
+             $tag = $this->request->input('name');
              $microphone->tags()->attach($request->tag);
         }
-         //ddd( $microphone);
-        return redirect()->route('admin.mics.list');
-		// return Redirect::to('/admin.mics.list')
-		// ->with('message', 'Microphnoe Created');
-		//}
+        # redirect to microphone list with message 
+        return redirect()->route('admin.mics.list')->with('status', 'Microphnoe Created!');
+		
 
     }
 
 
     /**
      * GET /book/{slug}
-     * Show the details for an individual book
+     * Show the details for an individual book  Item $item
      */
     public function show($slug)
      {
@@ -157,9 +145,7 @@ class AdminMicsController extends Controller
 
     # Method for Admin Panel
      public function update(Request $request, Microphone $microphone)
-     {
-        //$microphone->update($request->all());
-        # sync tags from request tags if any
+     {  # sync tags from request tags if any
         $microphone->tags()->sync($request->tags);
 
         # create Microphone from request input
@@ -172,27 +158,27 @@ class AdminMicsController extends Controller
         $microphone->frequency_range = $request->frequency_range;
         $microphone->band = $request->band ;
         $microphone->serial_number = $request->serial_number;
-        $microphone->mic_type = $request->mic_type;
+        $microphone->type = $request->type;
         $microphone->group = $request->group;
         $microphone->channel = $request->channel;
         $microphone->assigned_frequency = $request->assigned_frequency;
         $microphone->comments = $request->comments;
 
-        //ddd($microphone);
-         if ($microphone->save()) {
-            $request->session()->flash('success', $microphone->slug . ' ' . 'microphone has been updated');
-        } else {
-            $request->session()->flash('error', 'There was an error updating the microphone');
+        $microphone->save(); 
+
+        # Once microphone is saved, attach the requested tag(s).
+         if ($request->has('tag')) {
+             $tag = $this->request->input('name');
+             $microphone->tags()->attach($request->tag);
         }
-
-         return redirect()->route('admin.mics.list');
-
+        #redirect to microphone list with status
+      return redirect()->route('admin.mics.list')->with('status', 'Microphnoe has been updated!');
     }
 
     # Method for Admin Panel
      public function destroy(Request $request, Microphone $microphone)
      {
-         //$microphone = Microphone::where('author', '=', 'F. Scott Fitzgerald')->first();
+        //$microphone = Microphone::where('author', '=', 'F. Scott Fitzgerald')->first();
 
          if (!$microphone) {
 
@@ -208,6 +194,10 @@ class AdminMicsController extends Controller
         }
 
 }
+
+
+
+
 # First get a book to delete
 // $book = Book::where('author', '=', 'F. Scott Fitzgerald')->first();
 
@@ -230,6 +220,11 @@ class AdminMicsController extends Controller
     //     }
 
 
+//     $articles = Article::whereHas('tags', function($query) use ($tagName) {
+//   $query->whereName($tagName);
+// })->get();
+
+
              //ddd($microphone);
             // try {
 			// 	$microphone = Equipment::findOrFail($microphone);
@@ -243,3 +238,14 @@ class AdminMicsController extends Controller
 			// return View('/admin.equipment.edit', compact('equipment'));
         //ddd($microphone);
         //dump($request->all());
+
+
+         // if($validator->fails()) {
+        //     return redirect('admin/microphones/create')
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
+//    $request->session()->flash('success', $microphone->slug . ' ' . 'microphone has been updated');
+//         } else {
+//             $request->session()->flash('error', 'There was an error updating the microphone');
+//         }

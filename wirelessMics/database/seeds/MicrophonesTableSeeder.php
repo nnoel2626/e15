@@ -235,10 +235,10 @@ class MicrophonesTableSeeder extends Seeder
 
 
 
-        $installed = Tag::where('tag_name', 'installed')->first();
-        $portable = Tag::where('tag_name', 'portable')->first();
-        $roaming = Tag::where('tag_name', 'roaming')->first();
-        $specialEvent = Tag::where('tag_name', 'specialEvent')->first();
+        $installed = Tag::where('name', 'installed')->first();
+        $portable = Tag::where('name', 'portable')->first();
+        $roaming = Tag::where('name', 'roaming')->first();
+        $specialEvent = Tag::where('name', 'specialEvent')->first();
 
 
     }

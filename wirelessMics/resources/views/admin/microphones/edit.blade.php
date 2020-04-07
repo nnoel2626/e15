@@ -27,7 +27,11 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" id="slug" placeholder="Microphone URI Slug"
                             name="slug" value="{{ $microphone->slug }}" required autocomplete="slug" autofocus/>
-
+                             @if ($errors->has('slug'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('slug') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
 
@@ -35,6 +39,11 @@
                         <label class="col-md-2 col-form-label text-md-right" for="building">Building</label>
                         <div class="col-md-8">
                             <input class="form-control" type="text" name="building" id="building" placeholder="building"  name="building" value="{{ $microphone->building }}" required autocomplete="building" autofocus/>
+                             @if ($errors->has('building'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('building') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
 
@@ -43,6 +52,11 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" id="room" placeholder="room"
                              name="room" value="{{ $microphone->room }}" required autocomplete="room" autofocus/>
+                              @if ($errors->has('room'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('room') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
 
@@ -51,6 +65,11 @@
                         <div class="col-md-8">
                             <input type="make" class="form-control" name="make" id="make" placeholder="make"
                              value="{{ $microphone->make }}" required autocomplete="make" autofocus/>
+                              @if ($errors->has('make'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('make') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
 
@@ -59,6 +78,11 @@
                         <div class="col-md-8">
                             <input type="model" class="form-control" name="model" id="model" placeholder=" model"
                          value="{{ $microphone->model }}" required autocomplete="model" autofocus/>
+                          @if ($errors->has('model'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('model') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
 
@@ -67,6 +91,11 @@
                         <div class="col-md-8">
                             <input type="band" class="form-control" name="band" id="band" placeholder="frequency band"
                          value="{{ $microphone->band }}" required autocomplete="band" autofocus/>
+                          @if ($errors->has('band'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('band') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
 
@@ -75,6 +104,11 @@
                         <div class="col-md-8">
                             <input type="frequency_range" class="form-control" name="frequency_range" id="frequency_range" placeholder="frequency range"
                              value="{{ $microphone->frequency_range }}" required autocomplete="frequency_range" autofocus/>
+                              @if ($errors->has('frequency_range'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('frequency_range') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
 
@@ -83,14 +117,24 @@
                         <div class="col-md-8">
                             <input type="serial_number" class="form-control" name="serial_number" id="serial_number" placeholder="serial number"
                          value="{{ $microphone->serial_number }}" required autocomplete="serial_number" autofocus/>
+                          @if ($errors->has('serial_number'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('serial_number') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
 
                     <div class="form-group form-row">
                         <label class="col-md-2 col-form-label text-md-right" for="micType">Microphone type</label>
                         <div class="col-md-8">
-                            <input type="mic_type" class="form-control" name="mic_type" id="mic_type" placeholder="microphone type"
-                         value="{{ $microphone->mic_type }}" required autocomplete="mic_type" autofocus/>
+                            <input type="type" class="form-control" name="type" id="type" placeholder="microphone type"
+                         value="{{ $microphone->type }}" required autocomplete="type" autofocus/>
+                          @if ($errors->has('type'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('type') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
 
@@ -99,6 +143,11 @@
                         <div class="col-md-8">
                             <input type="group" class="form-control" name="group" id="group" placeholder="group"
                          value="{{ $microphone->group }}" required autocomplete="group" autofocus/>
+                          @if ($errors->has('group'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('group') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
 
@@ -107,6 +156,11 @@
                         <div class="col-md-8">
                             <input type="channel" class="form-control" name="channel" id="channel" placeholder="channel"
                          value="{{ $microphone->channel }}" required autocomplete="channel" autofocus/>
+                          @if ($errors->has('channel'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('channel') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
 
@@ -115,13 +169,23 @@
                         <div class="col-md-8">
                             <input type="assigned_frequency" class="form-control" name="assigned_frequency" id="assigned_frequency" placeholder="assigned frequency"
                             value="{{ $microphone->assigned_frequency }}" required autocomplete="assigned_frequency" autofocus/>
+                             @if ($errors->has('assigned_frequency'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('assigned_frequency') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
 
                     <div class="form-group form-row">
                         <label class="col-md-2 text-md-right" for="comments">microphone comments</label>
                         <div class="col-md-6">
-                            <textarea class="form-control" rows="4" cols="50" name="comments" id="comments" placeholder="comments" value="{{ $microphone->comments }}" autocomplete="comments" autofocus>
+                            <textarea class="form-control" rows="4" cols="50" name="comments" id="comments" placeholder="comments" value="{{ $microphone->comments }}" required  autocomplete="comments" autofocus>
+                                 @if ($errors->has('comments'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('comments') }}</strong>
+                                    </span>
+                                @endif
                             </textarea>
                         </div>
                     </div>
@@ -133,7 +197,7 @@
                                 <div class ="form-check">
                                     <input type ="checkbox" name="tags[]" value ="{{ $tag->id }}"
                                     @if($microphone->tags->pluck('id')->contains($tag->id)) checked @endif>
-                                    <label>{{ $tag->tag_name }}</label>
+                                    <label>{{ $tag->name }}</label>
                                 </div>
                             @endforeach
                         </div>

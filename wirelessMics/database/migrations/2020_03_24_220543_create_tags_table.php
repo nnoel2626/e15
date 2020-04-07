@@ -16,7 +16,7 @@ class CreateTagsTable extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             # General data....
-            $table->string('tag_name', 64);
+            $table->string('name', 64);
             # Important! FK has to be unsigned because the PK it will reference is auto-incrementing
 
           

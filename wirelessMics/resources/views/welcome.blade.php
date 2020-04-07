@@ -1,9 +1,7 @@
 <html>
 	<head>
 		<title>MTS Microphones Inventory</title>
-
 		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-
 		<style>
 			body {
         		background-image: url("images/bg.jpg");
@@ -17,7 +15,6 @@
 				font-family: 'Lato';
 				text-shadow: 0px 1px 0px #ccc;
 			}
-
 			.container {
 				text-align: center;
 				display: table-cell;
@@ -41,14 +38,12 @@
 			}
 
 			.link {
-
 				margin-top: 1.5em;
 				list-style: none;
                 font-size: 24px;
                 color: #1C1109;
 
 			}
-
 			.line-separator{
         	margin-top: 1.5em;
         	margin-bottom: 0px;

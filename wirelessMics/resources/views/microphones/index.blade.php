@@ -8,7 +8,7 @@
         <div class="col-12 text-center">
             <h2><em>All Microphones</em></h2>
         </div>
- <ul class="cards">
+     <ul class="cards">
             @if(count($microphones) == 0)
                 No microphones have been added yet...
             @else
@@ -24,10 +24,9 @@
                             <a href="{{ action('MicrophonesController@show', $microphone['id']) }}" class="btn btn-warning">See details</a>
                         </div>
                 </li>
-        @endforeach
+                 @endforeach
             @endif
-
- </ul>
+     </ul>
 @endsection
 
 

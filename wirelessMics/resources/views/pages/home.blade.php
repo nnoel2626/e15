@@ -16,7 +16,7 @@
                 <form method='GET' action='/search'>
 
                     <h2>Search for Microphone(s)</h2>
-                     <h5>Note: If you are searching by building, enter building name and select the corresponding radio button </h5>
+                     <h4>Note: If you are searching by building, enter building name and select the corresponding radio button. </h4>
 
 
                         <fieldset>

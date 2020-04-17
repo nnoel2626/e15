@@ -81,15 +81,10 @@
 
     Route::resource('/microphones', 'AdminMicsController', [
           'only' => [ 'create', 'store', 'edit', 'update','destroy'],
-           'names' => [
-                'create' => 'mics.create',
-                'store' => 'mics.store',
-                'edit' => 'mics.edit',
-                'update' => 'mics.update',
-                'destroy' => 'mics.destroy'
-
-                 ]
-            ]);
+         'names' => ['create' => 'mics.create','store' => 'mics.store',
+                     'edit' => 'mics.edit','update' => 'mics.update',
+                     'destroy' => 'mics.destroy' ]
+    ]);
 
     # Routes to Manage Tag resources
     Route::resource('/tags', 'TagsController', [

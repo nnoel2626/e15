@@ -16,8 +16,8 @@
                 <li class="card_items">
                         <div class="card_content">
                             <h4 class="card_heading">Shure: {{$microphone[ 'model']}}</h4>
-                            <p class="card-text ">{{ $microphone['building'] }}</p>
-                            <p class="card-text">{{ $microphone['room'] }}</p>
+                            <p class="card-text ">{{ $microphone->location->building }}</p>
+                            <p class="card-text">{{ $microphone->location->room }}</p>
                             <p class="card-text ">Band: {{ $microphone['band'] }} </h4>
                             <p class="card-text">{{ $microphone['assigned_frequency'] }} </p>
                             <hr>

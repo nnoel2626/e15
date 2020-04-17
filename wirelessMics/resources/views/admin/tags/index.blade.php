@@ -28,7 +28,7 @@
                         <tbody>
                             @foreach($tags as $tag)
                             <tr>
-                                 <td>{{ $tag->id }}</td>
+                                <td>{{ $tag->id }}</td>
                                 <td>{{ $tag->name }}</td>
                                 <td>{{ $tag->created_at }}</td>
                                 <td>{{ $tag->updated_at }}</td>

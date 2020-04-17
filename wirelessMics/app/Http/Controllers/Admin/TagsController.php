@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,7 +10,11 @@ use Illuminate\Database\Eloquent\Builder;
 
 class TagsController extends Controller
 {
-   public function index()
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
+     public function index()
 	{
         $tags = Tag::all();
         //ddd($tags);

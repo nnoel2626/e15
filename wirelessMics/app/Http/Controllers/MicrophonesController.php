@@ -79,8 +79,9 @@ class MicrophonesController extends Controller
         $microphones = Microphone::whereHas('tags', function ($query) use($tags) {
         $query->where('name','Installed');
          })->orderBy('assigned_frequency')
-         ->get()
-         ->toArray();
+         ->get();
+
+
 
         return view('microphones.installed')->with([
            'tags' => $tags,
@@ -99,8 +100,8 @@ class MicrophonesController extends Controller
         $microphones = Microphone::whereHas('tags', function ($query) use($tags) {
          $query->where('name','Portable');
         })->orderBy('assigned_frequency')
-         ->get()
-         ->toArray();
+         ->get();
+
 
         return view('microphones.portable')->with([
             'tags' => $tags,
@@ -115,11 +116,11 @@ class MicrophonesController extends Controller
     public function index()
     {
         #eager loading to reduce the number of queries
-        $microphoneData = Microphone::all()->toArray();
+        $microphones = Microphone::all();
         # Alphabetize the microphones
-        $microphones = Arr::sort($microphoneData, function ($value) {
-            return $value['building'];
-        });
+        // $microphones = Arr::sort($microphoneData, function ($value) {
+        //     return $value['slug'];
+        // });
 
         return view('microphones.index')
         ->with('microphones', $microphones);

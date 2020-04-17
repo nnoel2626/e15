@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\tag;
+use App\Tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator as validator;

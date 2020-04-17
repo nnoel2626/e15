@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Microphone;
 use App\Tag;
-
+use App\Location;
 class TableSeeder extends Seeder
 {
     /**

@@ -17,15 +17,13 @@
    <!-- CSRF Token -->
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="{{asset('css/admin.css')}}">
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" /> --}}
+     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
   <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-
 
 
 @yield('head')
@@ -198,95 +196,3 @@ $('#deleteMic').on('show.bs.modal', function (event) {
 </script>
 
 </html>
-{{-- <script type="text/javascript">
-   $('#delete').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      var role_id = button.data('roleid')
-      var modal = $(this)
-      modal.find('.modal-body #role_id').val(role_id);
-})
-
-
-
-$('#delete').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      var user_id = button.data('userid')
-      var modal = $(this)
-      modal.find('.modal-body #user_id').val(user_id);
-})
-
-
-$('#delete').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      var tag_id = button.data('tagid')
-      var modal = $(this)
-      modal.find('.modal-body #tag_id').val(tag_id);
-})
-
-
-$('#delete').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      var microphone_id = button.data('microphoneid')
-      var modal = $(this)
-      modal.find('.modal-body #microphone_id').val(microphone_id);
-})
-
-
-</script> --}}
-
-
-{{-- <script src="{{asset('js/app.js')}}"></script> --}}
-{{--
-<!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- bs-custom-file-input -->
-<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function () {
-  bsCustomFileInput.init();
-});
-</script> --}}
-
-{{-- <script type="text/javascript">
-   $('#delete').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      var role_id = button.data('roleid')
-      var modal = $(this)
-      modal.find('.modal-body #role_id').val(role_id);
-})
-
-
-
-$('#delete').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      var user_id = button.data('userid')
-      var modal = $(this)
-      modal.find('.modal-body #user_id').val(user_id);
-})
-
-
-$('#delete').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      var tag_id = button.data('tagid')
-      var modal = $(this)
-      modal.find('.modal-body #tag_id').val(tag_id);
-})
-
-
-$('#delete').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      var microphone_id = button.data('microphoneid')
-      var modal = $(this)
-      modal.find('.modal-body #microphone_id').val(microphone_id);
-})
-
-
-</script> --}}
-

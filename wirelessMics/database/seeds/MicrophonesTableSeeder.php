@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Location;
 use App\Microphone;
 use App\Tag;
-use App\Location;
+
+
 
 class MicrophonesTableSeeder extends Seeder
 {

@@ -8,43 +8,95 @@ use Str;
 
 class PracticeController extends Controller
 {
+
+
+    public function practice22()
+    { # Eager load the author with the book
+         $books = Book::with('author')->get();
+        foreach ($books as $book) {
+            if ($book->author) {
+                dump($book->author->first_name.' '.$book->author->last_name.' wrote '.$book->title);
+            } else {
+                dump($book->title. ' has no author associated with it.');
+            }
+        }
+
+       dump($books->toArray());
+
+
+    }
+
+    public function ppractice21()
+    {
+        #Read Querying with relationships
+
+        # Get an example book
+        $book = Book::whereNotNull('author_id')->first();
+
+        # Get the author from this book using the "author" dynamic property
+        # "author" corresponds to the the relationship method defined in the Book model
+        $author = $book->author;
+
+        # Output
+        dump($book->title.' was written by '.$author->first_name.' '.$author->last_name);
+        dump($book->toArray());
+
+    }
+
+    public function practice20()
+    { #Create) Associate an author with a book
+        $author = Author::where('first_name', '=', 'J.K.')->first();
+        $book = new Book;
+        $book->slug = 'fantastic-beasts-and-where-to-find-them';
+        $book->title = "Fantastic Beasts and Where to Find Them";
+        $book->published_year = 2001;
+        $book->cover_url = 'https://hes-bookmark.s3.amazonaws.com/cover-placeholder.png';
+        $book->info_url = 'https://en.wikipedia.org/wiki/Fantastic_Beasts_and_Where_to_Find_Them';
+        $book->purchase_url = 'http://www.barnesandnoble.com/w/fantastic-beasts-and-where-to-find-them-j-k-rowling/1004478855';
+        $book->author()->associate($author); # <--- Associate the author with this book
+        $book->description = 'Fantastic Beasts and Where to Find Them is a 2001 guide book written by British author J. K. Rowling (under the pen name of the fictitious author Newt Scamander) about the magical creatures in the Harry Potter universe. The original version, illustrated by the author herself, purports to be Harry Potter’s copy of the textbook of the same name mentioned in Harry Potter and the Philosopher’s Stone (or Harry Potter and the Sorcerer’s Stone in the US), the first novel of the Harry Potter series. It includes several notes inside it supposedly handwritten by Harry, Ron Weasley, and Hermione Granger, detailing their own experiences with some of the beasts described, and including in-jokes relating to the original series.';
+        $book->save();
+        dump($book->toArray());
+
+
+    }
     /**
      * Demonstrates deleting data
      */
-    public function practice7()
-    {
-        # First get a book to delete
-        $book = Book::where('author', '=', 'F. Scott Fitzgerald')->first();
+    // public function practice7()
+    // {
+    //     # First get a book to delete
+    //     $book = Book::where('author', '=', 'F. Scott Fitzgerald')->first();
 
-        if (!$book) {
-            dump('Did not delete- Book not found.');
-        } else {
-            $book->delete();
-            dump('Deletion complete; check the database to see if it worked...');
-        }
-    }
+    //     if (!$book) {
+    //         dump('Did not delete- Book not found.');
+    //     } else {
+    //         $book->delete();
+    //         dump('Deletion complete; check the database to see if it worked...');
+    //     }
+    // }
 
     /**
      * Demonstrates updating data
      */
-    public function practice6()
-    {
-        # First get a book to update
-        $book = Book::where('author', '=', 'F. Scott Fitzgerald')->first();
+    // public function practice6()
+    // {
+    //     # First get a book to update
+    //     $book = Book::where('author', '=', 'F. Scott Fitzgerald')->first();
 
-        if (!$book) {
-            dump("Book not found, can not update.");
-        } else {
-            # Change some properties
-            $book->title = 'The Really Great Gatsby';
-            $book->published_year = '2025';
+    //     if (!$book) {
+    //         dump("Book not found, can not update.");
+    //     } else {
+    //         # Change some properties
+    //         $book->title = 'The Really Great Gatsby';
+    //         $book->published_year = '2025';
 
-            # Save the changes
-            $book->save();
+    //         # Save the changes
+    //         $book->save();
 
-            dump('Update complete; check the database to confirm the update worked.');
-        }
-    }
+    //         dump('Update complete; check the database to confirm the update worked.');
+    //     }
+    // }
 
     /**
      * Demonstrates the `first` method
@@ -103,14 +155,58 @@ class PracticeController extends Controller
         dump('Added: ' . $book->title);
     }
 
+
+     public function practice9()
+    { #Retrieve the last 2 books that were added to the books table.
+      $results = Book::latest()->take(2)->get();
+      dump($results);
+    }
+
+
+    public function practice10()
+    { #Retrieve all the books published after 1950.
+    $results = Book::where('published_year', '>', 1950)->get();
+    dump($results->toArray());
+
+    }
+
+
+     public function practice11()
+    { #Retrieve all the books in alphabetical order by title.
+        $result = Book::orderBy('title')->get();
+        dump($result->toArray());
+
+    }
+
+     public function practice12()
+    { #Retrieve all the books in descending order according to published year.
+       $result = Book::orderBy('published_year', 'desc')->get();
+       dump($result->toArray());
+    }
+
+     public function practice13()
+    { #Find any books by the author “J.K. Rowling” and update the author name to be “JK Rowling”
+        $books = Book::where('author', '=', 'J.K. Rowling')->get();
+        foreach ($books as $book) {
+                $book->author = 'JK Rowling';
+               $book->save();
+        }
+        dump($books);
+    }
+     public function practice14()
+    { #Remove any/all books with an author name that includes the string “Rowling”.
+       $books = Book::where('author', 'LIKE', '%Rowling%')->delete();
+
+       dump($books);
+    }
     /**
      * Demonstrates using the Book model
      */
-    public function practice2()
+    public function practice()
     {
         //dump(Str::plural('mouse'));
-
-        dump(Book::find(3));
+        $books = Book::where('title', 'LIKE', '%Harry Potter%')->first();
+        dump($books);
         dump(Book::all()->toArray());
     }
 
@@ -119,7 +215,11 @@ class PracticeController extends Controller
      */
     public function practice1()
     {
-        dump('This is the first example.');
+        $books = Book::where('author', '=', 'Dr. Suess')->get();
+        $books->delete();
+        //dump($results->toArray()); # Study the results
+        dump('Book delete');
+       // dump('This is the first example.');
     }
 
     /**

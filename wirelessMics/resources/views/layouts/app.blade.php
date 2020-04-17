@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('head')
+    {{-- <script src="/js/bootstrap-confirmation.js" defer></script>
+    @yield('scripts') --}}
+
 </head>
 <body>
     <div id="app">
@@ -39,8 +43,8 @@
 
                     <li class="{{Request::path()=== '/users' ? 'current_page_item': ''}}">
                     <a class="nav-link" href="{{ route('admin.users.index') }}">Users</a>
-                 </li>
-                    <li class="{{Request::is('list') ? 'current_page_item': ''}}">
+                    </li>
+                    <li class="{{Request::path()=== '/list' ? 'current_page_item': ''}}">
                     <a class="nav-link" href="{{ route('admin.mics.list') }}">Microphones</a>
                     </li>
 
@@ -70,7 +74,7 @@
                                         {{ __('Logout') }}
                                     </a>
                                        @can('manage-users')
-                                     <a class="dropdown-item" href="{{ route('admin.users.index') }}">User Management</a>
+                                     <a class="dropdown-item" href="{{ route('admin.users.index') }}">Resource Management</a>
                                        @endcan
                                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                                         @csrf
@@ -84,11 +88,34 @@
         </nav>
 
         <main class="py-4">
-            {{-- <div class="container"> --}}
-                <div> @include('partials.alerts') </div>
-                 <div>@yield('content')</div>
-            {{-- </div> --}}
+
+            <div> @include('partials.alerts') </div>
+            <div>@yield('content')</div>
         </main>
     </div>
+
+    {{-- <script src="{{asset('js/app.js')}}"></script> --}}
+
+<script>
+
+//   $('#edit').on('show.bs.modal', function (event) {
+//       var button = $(event.relatedTarget)
+//       var title = button.data('mytitle')
+//       var description = button.data('mydescription')
+//       var cat_id = button.data('catid')
+//       var modal = $(this)
+//       modal.find('.modal-body #title').val(title);
+//       modal.find('.modal-body #des').val(description);
+//       modal.find('.modal-body #cat_id').val(cat_id);
+// })
+  $('#delete').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+      var microphone_id = button.data('microphoneId')
+      var modal = $(this)
+      modal.find('.modal-body #microphone_id').val(microphone_id);
+})
+</script>
+
+
 </body>
 </html>

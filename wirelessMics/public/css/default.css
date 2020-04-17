@@ -32,6 +32,7 @@ section#main {
     max-width: 1200px;
     margin: auto;
     padding-bottom: 50px;
+    /* background-color: #537375; */
 }
 
 header {
@@ -204,11 +205,14 @@ ul.inputs label {
 .success {
     color: #3c763d;
 }
-
 .details {
     font-size: 1.1rem;
     font-style: italic;
+    text-align: left;
 }
+
+
+
 
 
 /*----------------------------------------------------

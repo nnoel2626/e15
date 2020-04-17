@@ -10,10 +10,12 @@
 @endsection
 
 @section('content')
-    <div class="col-12 text-center">
-    <h2><em>Microphone Details</em></h2>
+    <div class="site-title col-12 text-center">
+    <h2>Microphone Details</h2>
     </div>
-
+    @if(!$microphones)
+                No microphone with this specific name...
+    @else
     <div class="row justify-content-center">
      <div class="col-md-6"
      <div class="card bg-light mb-2">
@@ -38,7 +40,7 @@
     </div>
  </div>
 
-
+@endif
 @endsection
 
 

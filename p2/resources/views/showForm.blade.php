@@ -52,9 +52,6 @@
     <div class='buttonSpace'>
         {{ Form::button('Submit', ['class' => 'submitBtn', 'type' => 'submit']) }}
         {{ Form::button('Reset', ['class' => 'resetBtn', 'type' => 'reset', 'onclick'=>'location.reload()']) }}
-
-
-
     </div>
     {{ Form::close() }}
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tag;
+use App\Location;
 use App\Microphone;
 use Gate;
 use Arr;
@@ -41,10 +42,14 @@ class MicrophonesController extends Controller
             #retreive all wireless Mics Collection and convert it to array.
             $microphones = Microphone::all()->toArray();
 
-            #user php array_filter function to filter the microphones
+            #use php array_filter function to filter the microphones
             $searchResults = array_filter($microphones, function ($microphone) use ($searchTerms, $searchType) {
-            return Str::contains(strtolower($microphone[$searchType]), strtolower($searchTerms));
-            });
+
+            return Str::contains( strtolower ( $microphone[$searchType] ), strtolower($searchTerms));
+
+        });
+
+
 
             //ddd($searchResults);
             # Redirect back to the form with data/results stored in the session
@@ -62,6 +67,13 @@ class MicrophonesController extends Controller
     {
         # Retrieve all $tags
         $tags = Tag::all();
+
+        // $microphones = Microphone:: with('locations')->whereHas('tags', function ($query) use($tags) {
+        // $query->where('name','Installed');
+        //  })->orderBy('assigned_frequency')
+        //  ->get()
+        //  ->toArray();
+
 
         #Retrieve all $microphones with at least one tag_name containing words installed
         $microphones = Microphone::whereHas('tags', function ($query) use($tags) {
@@ -114,13 +126,14 @@ class MicrophonesController extends Controller
 
     }
 
-    
-    public function show($id) {
 
-        $microphone = Microphone::findOrFail($id);
+    public function show($slug) {
+         $microphone = Microphone::where('slug', '=', $slug)->first();
+        //$microphone = Microphone::findOrFail($id);
 
         return view('microphones.show')->with([
-            'microphone'=> $microphone
+            'microphone'=> $microphone,
+            'slug' => $slug
             ]);
     }
 
@@ -181,6 +194,40 @@ class MicrophonesController extends Controller
             //                 ->orWhere('frequency_band', $searchTerms)
             //                 ->orWhere( $searchType, $searchType)
             //                 ->get();
+// foreach($microphones as $microphone){
+        //     //$microphones = $microphone->make);
+        //     $building = $microphone->location->building;
+        //     $room = $microphone->location->room;
 
+        //     foreach($microphone->tags as $tag){
+        //         dump( $tag->name );
+        //     }
+
+        // }
+
+
+
+        //  foreach ($microphone->tags as $tag){
+        //    $tags = $microphone->tags->name;
+        //     }
+        //  ddd($tags);
+
+            //$locations = $book->author;
+            // foreach ($microphones as $microphone) {
+            //  $building = $microphone->location->building;
+            // $room = $microphone->location->room;
+            //  }
+
+
+
+
+
+
+       // ddd($microphones);
+         #Get loop through the tags
+        // $tags = array();
+        // foreach(Tag::all() as $tag){
+        // $tags[$tag->id] = $tag->name;
+        // }
 
 

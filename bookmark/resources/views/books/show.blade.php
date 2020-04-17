@@ -1,27 +1,39 @@
 @extends('layouts.master2')
 
 @section('title')
-{{ $book['title'] }}
+{{ $book ? $book->title : 'Book not found' }}
 @endsection
 
 @section('head')
-{{-- Page specific CSS includes should be defined here; this .css file does not exist yet, but we can create it --}}
 <link href='/css/books/show.css' rel='stylesheet'>
 @endsection
 
 @section('content')
 
-<img class='cover' src='{{ $book['cover_url'] }}' alt='Cover photo for {{ $book['title'] }}'>
+@if(!$book)
+    Book not found. <a href='/books'>Check out the other books in our library...</a>
+@else
+<img class='cover' src='{{ $book->cover_url }}' alt='Cover photo for {{ $book->title }}'>
 
-<h1>{{ $book['title'] }}</h1>
+<h1>{{ $book->title }}</h1>
 
-<p>By {{ $book['author'] }} ({{$book['published_year']}})</p>
+@if($book->author) --}}
+    <p>By {{ $book->author->first_name. ' ' . $book->author->last_name }}</p>
+@endif
+
+<p>({{ $book->published_year }})</p>
+
+<a href='{{ $book->purchase_url }}'>Purchase...</a>
 
 <p class='description'>
-    {{ $book['description'] }}
-    <a href='{{$book['info_url']}}'>Learn more...</a>
+    {{ $book->description }}
+    <a href='{{ $book->info_url }}'>Learn more...</a>
 </p>
 
-<a href='{{$book['purchase_url']}}'>Purchase...</a>
+<ul class='bookActions'>
+    <li><a href='/books/{{ $book->slug }}/edit'><i class="fa fa-edit"></i> Edit</a>
+    <li><a href='/books/{{ $book->slug }}/delete'><i class="fa fa-trash"></i> Delete</a>
+</ul>
+@endif
 
 @endsection

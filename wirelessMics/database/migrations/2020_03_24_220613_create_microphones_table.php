@@ -18,8 +18,9 @@ class CreateMicrophonesTable extends Migration
               # AI, PK
             # Define foreign keys...
             $table->string('slug');
-            $table->string('building');
-            $table->string('room');
+            #location
+            // $table->string('building');
+            // $table->string('room');
             #equipment
             $table->string('make');
             $table->string('model');
@@ -32,6 +33,7 @@ class CreateMicrophonesTable extends Migration
             $table->string('channel');
             $table->string('assigned_frequency');
             $table->string('comments');
+
 
             //$table->string('image_path');
             # created_at, updated_at columns

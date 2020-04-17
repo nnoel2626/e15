@@ -5,6 +5,7 @@
     <title>@yield('title', 'Microphones')</title>
     <meta charset='utf-8'>
      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
      <link href='/css/normalize.css' rel='stylesheet'>
     <link href='/css/default.css' rel='stylesheet'>
      @yield('head')
@@ -59,7 +60,7 @@
                     {{ __('Logout') }}
                     </a>
                     @can('manage-users')
-                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">User Management</a>
+                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">Resource Management</a>
                     @endcan
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                     @csrf
@@ -71,9 +72,8 @@
         </nav>
    </div>
 </header>
-
    {{-- <main> --}}
-<section id='main'>
+   <section id='main'>
         @yield('content')
     </section>
 {{-- </main> --}}

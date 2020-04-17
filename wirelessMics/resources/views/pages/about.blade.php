@@ -9,8 +9,8 @@
 @endsection
 
 @section('content')
-     <div class="col-12 text-center">
-    <h2><em>About</em></h2>
+     <div class="site-title col-12 text-center">
+    <h2>About</h2>
     </div>
 
     <em>This page will display about on...</em>

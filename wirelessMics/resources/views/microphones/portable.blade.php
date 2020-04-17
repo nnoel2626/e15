@@ -5,13 +5,13 @@
 @endsection
 
 @section('head')
-    <link href='/css/microphones/installed.css' rel='stylesheet'>
+    <link href='/css/microphones/cards.css' rel='stylesheet'>
 @endsection
 
 @section('content')
 
-<div class="col-12 text-center">
- <h2><em>Portable Microphones</em></h2>
+<div class="site-title col-12 text-center">
+ <h2>Portable Microphones</h2>
 </div>
       <ul class="cards">
            @if(count($microphones) == 0)
@@ -35,4 +35,3 @@
 @endsection
 
 
-  

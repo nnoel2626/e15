@@ -15,11 +15,13 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RolesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
-         $this->call(TagsTableSeeder::class);
+        $this->call(TagsTableSeeder::class);
+        $this->call(LocationsTableSeeder::class);
         $this->call(TableSeeder::class);
-        $this->call(MicrophonesTableSeeder::class);
 
-       // $this->call(RoleUserTableSeeder::class);
+        //$this->call(MicrophonesTableSeeder::class);
+
+
 
 
     }

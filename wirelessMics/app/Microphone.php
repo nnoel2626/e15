@@ -10,13 +10,21 @@ class Microphone extends Model
     //protected $guarded = array('id','created_at', 'updated_at');
 
     protected $fillable = [
-       'id', 'slug', 'building', 'room', 'make', 'model', 'band', 'frequency_range', 'serial_number', 'mic_type', 'group',
-        'channel', 'assigned_frequency', 'comments'
+       'id', 'slug', 'building', 'room', 'make', 'model',
+        'band', 'frequency_range', 'serial_number', 'mic_type',
+        'group', 'channel', 'assigned_frequency', 'comments',
+        'location_id'
     ];
 
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+
+    }
+
+      public function location()
+    {
+        return $this->belongsTo(Location::class);
     }
 
      public function hasAnyTags($tags)
@@ -39,5 +47,7 @@ class Microphone extends Model
 
         return false;
     }
+
+
 
 }

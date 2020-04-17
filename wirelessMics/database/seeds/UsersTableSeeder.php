@@ -53,6 +53,16 @@ class UsersTableSeeder extends Seeder
 
         ]);
 
+        $user = User::updateOrCreate(
+        ['email' => 'jill@harvard.edu', 'name' => 'Jill Harvard'],
+        ['password' => Hash::make('helloworld')
+        ]);
+
+        $user = User::updateOrCreate(
+        ['email' => 'jamal@harvard.edu', 'name' => 'Jamal Harvard'],
+        ['password' => Hash::make('helloworld')
+        ]);
+
 
         #retreive all different roles  from roles table
         $adminRole = Role::where('name', 'admin')->first();

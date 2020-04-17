@@ -1,3 +1,27 @@
+
+
+.skin-blue .main-header .navbar {
+    background-color: #3c8dbc;
+}
+
+#Original locations Table
+ Schema::create('locations', function (Blueprint $table) {
+          $table->id();
+            $table->bigInteger('microphone_id')->unsigned();
+           $table->string('building');
+           $table->string('street_address');
+           $table->string('room');
+           $table->string('city');
+           $table->string('state');
+           $table->string('postal_code');
+           $table->timestamps();
+           $table->foreign('microphone_id')->references('id')
+             ->on('microphones')
+         ->onDelete('cascade');
+        });
+
+
+
 <?php
 //useCarbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
@@ -141,3 +165,116 @@ class Equipment extends Eloquent {
 
 }
 
+//ddd( $microphones);
+
+        // $users = User::all();
+        // foreach($microphones as $microphone)
+        // {
+        // {{$microphone->name}}
+
+        // foreach($microphone->tags as $tag)
+        // {
+        // {{$tag->name}}
+        // }
+        // }
+ // ddd($microphones);
+        // $tags = array();
+        // foreach(Tag::all() as $tag){
+
+        // $tags[$tag->id] = $tag->name;
+        // }
+
+# First get a book to delete
+// $book = Book::where('author', '=', 'F. Scott Fitzgerald')->first();
+
+// if (!$book) {
+//     dump('Did not delete- Book not found.');
+// } else {
+//     $book->delete();
+//     dump('Deletion complete; check the database to see if it worked...');
+// }
+
+//   $validator = Validator::make($request->all(), [
+        //     'title' => 'required|unique:posts|max:255',
+        //     'body' => 'required',
+        // ]);
+
+    //     if ($validator->fails()) {
+    //         return redirect('admin/microphones/create')
+    //                     ->withErrors($validator)
+    //                     ->withInput();
+    //     }
+
+
+//     $articles = Article::whereHas('tags', function($query) use ($tagName) {
+//   $query->whereName($tagName);
+// })->get();
+
+
+             //ddd($microphone);
+            // try {
+			// 	$microphone = Equipment::findOrFail($microphone);
+			// 	}
+			// 	catch(Exception $e)
+			// 	{
+			// 	return Redirect::to('/admin.equipment.index')
+			// 	->with('flash_message', 'Equipment not found');
+			// 	}
+			// # Pass with the $Category object so we can do model binding on the form
+			// return View('/admin.equipment.edit', compact('equipment'));
+        //ddd($microphone);
+        //dump($request->all());
+
+
+         // if($validator->fails()) {
+        //     return redirect('admin/microphones/create')
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
+//    $request->session()->flash('success', $microphone->slug . ' ' . 'microphone has been updated');
+//         } else {
+//             $request->session()->flash('error', 'There was an error updating the microphone');
+//         }
+
+
+//   if (!$microphone) {
+
+//          $request->session()->flash('error', 'Error deleting the microphone.Microphone not found.');
+//         } else {
+
+//             $microphone->delete();
+//             $request->session()->flash('success', $microphone->slug . ' ' . 'microphone has been deleted');
+//         }
+
+
+// public function getDelete($id) {
+//           #return'form for deletion';
+//          try {
+//         $equipment = Equipment::findOrFail($id);
+//         }
+//          catch(Exception $e) {
+//         return Redirect::to('/equipment/index')
+//          ->with('flash_message', 'Equipment not found');
+//          }
+//              return View::make('/equipment/delete')
+//             ->with('equipment', $equipment);
+
+//         }
+
+
+//         public function postDelete() {
+
+//         try {
+//             $equipment = Equipment::findOrFail(Input::get('id'));
+//         }
+//         catch(exception $e) {
+//             return Redirect::to('/equipment/index')
+//             ->with('flash_message', 'Could not delete Equipment - not found.');
+//         }
+
+//         Equipment::destroy(Input::get('id'));
+
+//         return Redirect::to('/equipment/index')
+//         ->with('flash_message', 'Equipment deleted.');
+
+//     }

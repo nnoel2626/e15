@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Location;
 use App\Tag;
 use App\Microphone;
 use Gate;
@@ -23,15 +24,18 @@ class AdminMicsController extends Controller
     # Method for Admin Panel
     public function list()
     {
-        # Eager load categories
-        $microphones = Microphone::with('tags')
-        ->orderBy('building')
-        ->get();
-	   
-      return view('admin.microphones.list')
-        ->with([
-            'microphones'=> $microphones
-            ]);
+        # Eager load tags
+        $microphones = Microphone::with('tags')->get();
+
+
+
+
+        return view('admin.microphones.list')
+            ->with([
+                'microphones'=> $microphones,
+                // 'tags' => $tags
+                // 'locations' => $locations
+        ]);
     }
 
     /**
@@ -41,19 +45,17 @@ class AdminMicsController extends Controller
     # Method for Admin Panel
     public function create(Request $request)
     {
+        $locations = Location::orderBy('building')->select(['id', 'room', 'building'])->get();
+
         $microphones = Microphone::with('tags')->get();
-       // ddd($microphones);
-        // $tags = array();
-        // foreach(Tag::all() as $tag){
 
-        // $tags[$tag->id] = $tag->name;
-        // }
         $tags = Tag::all();
-
+        //ddd($microphones);
         return view('admin.microphones.create')
         ->with([
             'microphones' => $microphones,
-            'tags' => $tags
+            'tags' => $tags,
+            'locations' => $locations
         ]);
 
     }
@@ -66,7 +68,7 @@ class AdminMicsController extends Controller
     {   # Validate the request data The `$request->validate` method takes an array of data
         # where the keys are form inputs and the values are validation rules to apply to those inputs
         $request->validate([
-            'slug' => 'required',
+            'slug' => 'required | unique:microphones,slug|alpha_dash',
             'building'=> 'required',
             'room'=> 'required',
             'make'=> 'required',
@@ -84,10 +86,10 @@ class AdminMicsController extends Controller
         # Note: If validation fails, it will automatically redirect the visitor back to the form page
         # and none of the code that follows will execute.
 
-        $microphone = new Microphone;
+        $microphone = new Microphone();
 		$microphone->slug = $request->slug;
-        $microphone->building = $request->building;
-        $microphone->room  = $request->room;
+        // $microphone->building = $request->building;
+        // $microphone->room  = $request->room;
         $microphone->make = $request->make;
         $microphone->model = $request->model;
         $microphone->frequency_range = $request->frequency_range;
@@ -105,10 +107,8 @@ class AdminMicsController extends Controller
              $tag = $this->request->input('name');
              $microphone->tags()->attach($request->tag);
         }
-        # redirect to microphone list with message 
+        # redirect to microphone list with message
         return redirect()->route('admin.mics.list')->with('status', 'Microphnoe Created!');
-		
-
     }
 
 
@@ -118,6 +118,7 @@ class AdminMicsController extends Controller
      */
     public function show($slug)
      {
+
         $microphone = Arr::first($microphones, function ($value, $key) use ($slug) {
             return $key == $slug;
         });
@@ -133,7 +134,7 @@ class AdminMicsController extends Controller
     # Method for Admin Panel
     public function edit( Microphone $microphone)
      {
-       //dd($microphone);
+       ///($microphone);
         #Get all the tags and passing them through the session by using the "with method"
         $tags = Tag::all();
         return view('admin.microphones.edit')
@@ -145,8 +146,28 @@ class AdminMicsController extends Controller
 
     # Method for Admin Panel
      public function update(Request $request, Microphone $microphone)
-     {  # sync tags from request tags if any
+     {   # Check to see if the microphone already exist
+         $microphone = Microphone::where('id', $microphone->id)->first();
+         $id = $microphone->id;
+         # sync tags from request tags if any
         $microphone->tags()->sync($request->tags);
+          # Validate the inout request
+         $request->validate([
+            'slug' => 'required|alpha_dash',
+            'building'=> 'required',
+            'room'=> 'required',
+            'make'=> 'required',
+            'model'=> 'required',
+            'frequency_range'=> 'required',
+            'band'=> 'required',
+            'serial_number'=> 'required',
+            'type'=> 'required',
+            'group'=> 'required',
+            'channel'=> 'required',
+            'assigned_frequency'=> 'required',
+            'comments'=> 'min:8'
+        ]);
+
 
         # create Microphone from request input
         // $microphone->id = $request->id;
@@ -164,7 +185,9 @@ class AdminMicsController extends Controller
         $microphone->assigned_frequency = $request->assigned_frequency;
         $microphone->comments = $request->comments;
 
-        $microphone->save(); 
+        $microphone->save();
+
+
 
         # Once microphone is saved, attach the requested tag(s).
          if ($request->has('tag')) {
@@ -175,77 +198,20 @@ class AdminMicsController extends Controller
       return redirect()->route('admin.mics.list')->with('status', 'Microphnoe has been updated!');
     }
 
+
+
     # Method for Admin Panel
-     public function destroy(Request $request, Microphone $microphone)
+     public function destroy(Microphone $microphone )
      {
-        //$microphone = Microphone::where('author', '=', 'F. Scott Fitzgerald')->first();
+         //ddd($microphone);
+         //Microphone::find($id)->delete();
 
-         if (!$microphone) {
+        $microphone->delete();
 
-         $request->session()->flash('error', 'Error deleting the microphone.Microphone not found.');
-        } else {
+        return redirect()->route('admin.mics.list')
+        ->with('status', 'Microphone deleted.');
 
-            $microphone->delete();
-            $request->session()->flash('success', $microphone->slug . ' ' . 'microphone has been deleted');
-        }
-
-          return redirect()->route('admin.mics.list');
-
-        }
+    }
 
 }
 
-
-
-
-# First get a book to delete
-// $book = Book::where('author', '=', 'F. Scott Fitzgerald')->first();
-
-// if (!$book) {
-//     dump('Did not delete- Book not found.');
-// } else {
-//     $book->delete();
-//     dump('Deletion complete; check the database to see if it worked...');
-// }
-
-//   $validator = Validator::make($request->all(), [
-        //     'title' => 'required|unique:posts|max:255',
-        //     'body' => 'required',
-        // ]);
-
-    //     if ($validator->fails()) {
-    //         return redirect('admin/microphones/create')
-    //                     ->withErrors($validator)
-    //                     ->withInput();
-    //     }
-
-
-//     $articles = Article::whereHas('tags', function($query) use ($tagName) {
-//   $query->whereName($tagName);
-// })->get();
-
-
-             //ddd($microphone);
-            // try {
-			// 	$microphone = Equipment::findOrFail($microphone);
-			// 	}
-			// 	catch(Exception $e)
-			// 	{
-			// 	return Redirect::to('/admin.equipment.index')
-			// 	->with('flash_message', 'Equipment not found');
-			// 	}
-			// # Pass with the $Category object so we can do model binding on the form
-			// return View('/admin.equipment.edit', compact('equipment'));
-        //ddd($microphone);
-        //dump($request->all());
-
-
-         // if($validator->fails()) {
-        //     return redirect('admin/microphones/create')
-        //                 ->withErrors($validator)
-        //                 ->withInput();
-        // }
-//    $request->session()->flash('success', $microphone->slug . ' ' . 'microphone has been updated');
-//         } else {
-//             $request->session()->flash('error', 'There was an error updating the microphone');
-//         }

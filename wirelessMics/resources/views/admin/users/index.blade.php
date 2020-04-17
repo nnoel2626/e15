@@ -1,17 +1,28 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
+@section('head')
+      <link href='/css/microphones/list.css' rel='stylesheet'>
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Users</div>
 
-                <div class="card-body">
+@if (session('status'))
+    <div class="alert alert-success">{{ session('status') }}</div>
+    @endif
 
-                    <table class="table">
-                        <thead>
-                            <tr>
+        <div class="box">
+			<div class="box-header">
+				  <h3 class="card-header">Listing of Users </h3>
+			  </div>
+
+			    <div class="box-body">
+                      @if ($users->isEmpty())
+                         <p>There are no Roles! :(</p>
+                         @else
+
+                        <table class="table table-striped">
+                            <thead>
+                        <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
@@ -19,7 +30,7 @@
                             <th scope="col">Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+					               <tbody>
                             @foreach( $users as $user)
                             <tr>
                             <th scope="row">{{ $user->id }}</th>
@@ -27,24 +38,47 @@
                             <td> {{ $user->email  }}</td>
                             <td> {{ implode( ',', $user->roles()->get()->pluck('name')->toArray()) }}</td>
                             <td>
-                                <a href="{{ route ('admin.users.edit', $user->id) }}"><button type="button" class="btn btn-primary float-left">Edit</button></a>
 
+                            <a href="{{ route ('admin.users.edit', $user) }}" class="btn btn-primary">Edit</a>
 
-                                 @can('delete-users')
-                                    <form action= "{{ route ('admin.users.destroy', $user) }}" method="POST" class="float-left">
-                                    @csrf
-                                    {{ method_field('DELETE') }}
-                                    <button type="submit" class="btn btn-warning">Delete</button>
-                                    </form>
-                                 @endcan
+                             @can('delete-users')
+                              <button class="btn btn-danger btn-sml" data-userId={{$user->id}} data-toggle="modal" data-target="#deleteUser">Delete</button>
+                              @endcan
                             </td>
                             </tr>
                             @endforeach
-                        </tbody>
-                        </table>
-                </div>
-            </div>
-        </div>
+                          </tbody>
+                </table>
+            @endif
+         </div>
     </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal modal-danger fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
+      </div>
+      <form action="{{route('admin.users.destroy','test')}}" method="post">
+      		{{method_field('delete')}}
+      		{{csrf_field()}}
+	      <div class="modal-body">
+				<p class="text-center">
+					Are you sure you want to delete this?
+				</p>
+	      		<input type="hidden" name="user_id" id="user_id" value="">
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
+	        <button type="submit" class="btn btn-warning">Yes, Delete</button>
+	      </div>
+      </form>
+    </div>
+  </div>
 </div>
 @endsection
+

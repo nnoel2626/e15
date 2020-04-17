@@ -99,4 +99,28 @@ class UsersController extends Controller
 
         return redirect()->route('admin.users.index');
     }
+
+
+     /**
+     * GET /support
+     */
+    public function profile()
+    {
+         //$username
+
+        // $user = User::where('username', '=', $username);
+
+        // if($user->count()) {
+
+        //     $user = $user->first();
+
+        //     return View::Make('profile.user')
+        //         ->with('user', $user);
+        // }
+
+        // return App::abort(404);
+    //}
+
+        //return view('admin.users.profile');
+    }
 }

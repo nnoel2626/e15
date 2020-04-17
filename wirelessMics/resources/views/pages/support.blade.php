@@ -9,8 +9,8 @@
 @endsection
 
 @section('content')
-<div class="col-12 text-center">
+<div class="site-title col-12 text-center">
 
-    <h2><em>Contact</em></h2>
+    <h2>Contact</h2>
     <em>This page will display all the contact...</em>
 @endsection

@@ -25,8 +25,6 @@ class TableSeeder extends Seeder
           DB::table('microphones')->insert([
            [
             'slug' => 'barker_thompson_lav_mic_one',
-            'building'=> 'Barker Center',
-            'room'=> 'Thompson',
             'make'=> 'Shure',
             'model'=> 'ULX P4',
             'band'=> 'J1',
@@ -36,13 +34,14 @@ class TableSeeder extends Seeder
             'group'=> 'G2',
             'channel'=> 'CH20',
             'Assigned_frequency'=> '589.725 MHZ',
-            'comments'=> ''
+            'comments'=> '',
+            'location_id'=> '27'
         ],
         [
 
             'slug' => 'barker_thompson_handheld_mic_one',
-            'building'=> 'Barker Center',
-            'room'=> 'Thompson',
+            // 'building'=> 'Barker Center',
+            // 'room'=> 'Thompson',
             'make'=> 'Shure',
             'model'=> 'ULX P4',
             'band'=> 'J1',
@@ -52,12 +51,11 @@ class TableSeeder extends Seeder
             'group'=> 'G2',
             'channel'=> 'CH19',
             'assigned_frequency'=> '589.725 MHZ',
-            'comments'=> ''
+            'comments'=> '',
+            'location_id'=> '27'
         ],
         [
            'slug' => 'biolab_lav_mic_one',
-           'building'=> 'BioLab',
-           'room'=> 'Lecture H 1080',
            'make'=> 'Shure',
            'model'=> 'ULX P4',
            'band'=> 'J1',
@@ -67,13 +65,14 @@ class TableSeeder extends Seeder
            'group'=> 'G2',
            'channel'=> 'CH16',
            'assigned_frequency'=> '584.375MHZ',
-           'comments'=> ''
+           'comments'=> '',
+           'location_id'=> '44'
         ],
         [
 
             'slug' => 'biolab_handheld_mic_one',
-            'building'=> 'BioLab',
-            'room'=> 'Lecture H 1080',
+            // 'building'=> 'BioLab',
+            // 'room'=> 'Lecture H 1080',
             'make'=> 'Shure',
             'model'=> 'ULX P4',
             'band'=> 'J1',
@@ -83,12 +82,13 @@ class TableSeeder extends Seeder
             'group'=> 'G2',
             'channel'=> 'CH11',
             'assigned_frequency'=> '578.075MHZ',
-            'comments'=> ''
+            'comments'=> '',
+            'location_id'=> '44'
         ],
         [
             'slug' => 'boylston_lav_mic_one',
-            'building'=> 'Boylston Hall',
-            'room'=> 'Fong Auditorium',
+            // 'building'=> 'Boylston Hall',
+            // 'room'=> 'Fong Auditorium',
             'make'=> 'Shure',
             'model'=> 'ULX S4',
             'band'=> 'J1',
@@ -98,12 +98,13 @@ class TableSeeder extends Seeder
             'group'=> 'G2',
             'channel'=> 'Ch20',
             'assigned_frequency'=> '589.725 MHz',
-            'comments'=> ''
+            'comments'=> '',
+            'location_id'=> '58'
         ],
         [
             'slug' => 'boylston_handheld_mic_one',
-            'building'=> 'Boylston Hall',
-            'room'=> 'Fong Auditorium',
+            // 'building'=> 'Boylston Hall',
+            // 'room'=> 'Fong Auditorium',
             'make'=> 'Shure',
             'model'=> 'QLX-D',
             'band'=> 'G50',
@@ -113,12 +114,13 @@ class TableSeeder extends Seeder
             'group'=> 'G2',
             'channel'=> 'CH66',
             'assigned_frequency'=> '533.450 MHZ',
-            'comments'=> ''
+            'comments'=> '',
+            'location_id'=> '58'
         ],
         [
             'slug' => 'boylston_handheld_mic_two',
-            'building'=> 'Boylston Hall',
-            'room'=> 'Fong Auditorium',
+            // 'building'=> 'Boylston Hall',
+            // 'room'=> 'Fong Auditorium',
             'make'=> 'Shure',
             'model'=> 'QLX-D',
             'band'=> 'G50',
@@ -128,13 +130,14 @@ class TableSeeder extends Seeder
             'group'=> 'G2',
             'channel'=> 'CH67',
             'assigned_frequency'=> '533.820 MHZ',
-            'comments'=> ''
+            'comments'=> '',
+            'location_id'=> '58'
         ],
         [
 
             'slug' => 'boylston_lav_mic_one',
-            'building'=> 'Boylston Hall',
-            'room'=> 'Boylston 104',
+            // 'building'=> 'Boylston Hall',
+            // 'room'=> 'Boylston 104',
             'make'=> 'Shure',
             'model'=> 'ULX-S',
             'band'=> 'G3',
@@ -144,13 +147,14 @@ class TableSeeder extends Seeder
             'group'=> 'G5',
             'channel'=> 'CH9',
             'assigned_frequency'=> '',
-            'comments'=> ''
+            'comments'=> '',
+            'location_id'=> '56'
         ],
         [
 
             'slug' => 'capenter_lav_mic_one',
-            'building'=> 'Carpenter Center',
-            'room'=> 'Theater',
+            // 'building'=> 'Carpenter Center',
+            // 'room'=> 'Theater',
             'make'=> 'Shure',
             'model'=> 'ULX P4',
             'band'=> 'J1',
@@ -160,13 +164,14 @@ class TableSeeder extends Seeder
             'group'=> 'G2',
             'channel'=> 'CH17',
             'assigned_frequency'=> '587.500 MHz',
-            'comments'=> ''
+            'comments'=> '',
+            'location_id'=> '67'
         ],
         [
 
             'slug' => 'capenter_lav_mic_two',
-            'building'=> 'Carpenter Center',
-            'room'=> 'Theater',
+            // 'building'=> 'Carpenter Center',
+            // 'room'=> 'Theater',
             'make'=> 'Shure',
             'model'=> 'ULX P4',
             'band'=> 'J1',
@@ -177,11 +182,12 @@ class TableSeeder extends Seeder
             'channel'=> 'CH18',
             'assigned_frequency'=> '588.375 MHZ',
             'comments'=> '',
+            'location_id'=> '67'
         ],
         [
             'slug' =>'mts_office_axient_lav_mic_one',
-            'building'=> 'MTS Office',
-            'room'=> 'B02',
+            // 'building'=> 'MTS Office',
+            // 'room'=> 'B02',
             'make'=> 'Shure',
             'model'=> 'Axient Digital',
             'band'=> 'G57',
@@ -191,12 +197,13 @@ class TableSeeder extends Seeder
             'group'=> 'G5',
             'channel'=> 'CH243',
             'assigned_frequency'=> '602.350 MHZ',
-            'comments'=> ''
+            'comments'=> '',
+            'location_id'=> '324'
         ],
         [
             'slug' =>'mts_office_axient_handheld_mic_one',
-            'building'=> 'MTS Office',
-            'room'=> 'Thompson',
+            // 'building'=> 'MTS Office',
+            // 'room'=> 'Thompson',
             'make'=> 'Shure',
             'model'=> 'Axient Digital',
             'band'=> 'G57',
@@ -206,12 +213,13 @@ class TableSeeder extends Seeder
             'group'=> 'G5',
             'channel'=> 'CH245',
             'assigned_frequency'=> '603.700 MHZ',
-            'comments'=> ''
+            'comments'=> '',
+            'location_id'=> '27'
         ],
         [
             'slug' =>'mts_office_axient_lav_handhelp_two',
-            'building'=> 'Science Center',
-            'room'=> 'Thompson',
+            // 'building'=> 'Science Center',
+            // 'room'=> 'Thompson',
             'make'=> 'Shure',
             'model'=> 'Axient Digital',
             'band'=> 'G57',
@@ -221,12 +229,13 @@ class TableSeeder extends Seeder
             'group'=> 'G5',
             'channel'=> 'CH247',
             'assigned_frequency'=> '604.850 MHz',
-            'comments'=> ''
+            'comments'=> '',
+            'location_id'=> '27'
         ],
         [
             'slug' =>'mts_office_axient_handheld_mic_three',
-            'building'=> 'Barker Center',
-            'room'=> 'Thompson',
+            // 'building'=> 'Barker Center',
+            // 'room'=> 'Thompson',
             'make'=> 'Shure',
             'model'=> 'Axient Digital',
             'band'=> 'G57',
@@ -236,7 +245,8 @@ class TableSeeder extends Seeder
             'group'=> 'G5',
             'channel'=> 'CH249',
             'assigned_frequency'=> '605.875 MHz',
-            'comments'=> ''
+            'comments'=> '',
+            'location_id'=> '27'
         ],
 
         ]);

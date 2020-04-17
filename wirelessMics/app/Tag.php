@@ -9,13 +9,16 @@ class Tag extends Model
     public function microphones()
     {
         return $this->belongsToMany(Microphone::class);
+        // ->withTimestamps()
+        // ->withPivot('microphone_tag');
     }
 
     	# Model events...
 		# http://laravel.com/docs/eloquent#model-events
     public static function boot()
     {
-		 parent::boot();
+        parent::boot();
+
 		static::deleting(function($tag) {
 		DB::statement('DELETE FROM microphone_tag WHERE tag_id = ?', array($tag->id));
 		});

@@ -16,10 +16,10 @@ class CreateTagsTable extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             # General data....
-            $table->string('name', 64);
+            $table->string('name');
             # Important! FK has to be unsigned because the PK it will reference is auto-incrementing
 
-          
+
 
             # created_at, updated_at columns
             $table->timestamps();

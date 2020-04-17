@@ -5,7 +5,7 @@
 @endsection
 
 @section('head')
-
+    
 @endsection
 
 @section('content')

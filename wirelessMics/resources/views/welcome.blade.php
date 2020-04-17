@@ -27,12 +27,16 @@
 			}
 
 			.title {
-				color: #1C1109;
-				font-size: 86px;
+				color: rgb(144,26,43);
+				font-size: 70px;
 				margin-bottom: 50px;
+			font-weight: 900;
+			line-height: 1.1;
+			margin: 0 0 10px;
+			text-shadow: 1px 1px 2px rgba(0,0,0,.2);
 			}
             .subTitle {
-				color: #1C1109;
+				color: rgb(144,26,43);
 				font-size: 56px;
 				margin-bottom: 40px;
 			}

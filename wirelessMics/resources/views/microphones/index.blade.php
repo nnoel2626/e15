@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
 @section('head')
-     <link href='/css/microphones/installed.css' rel='stylesheet'>
+     <link href='/css/microphones/cards.css' rel='stylesheet'>
 @endsection
 
 @section('content')
-        <div class="col-12 text-center">
-            <h2><em>All Microphones</em></h2>
+        <div class="site-title col-12 text-center">
+            <h2>All Microphones</h2>
         </div>
      <ul class="cards">
             @if(count($microphones) == 0)

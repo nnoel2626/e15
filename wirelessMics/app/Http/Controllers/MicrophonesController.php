@@ -25,10 +25,11 @@ class MicrophonesController extends Controller
     {
         # Note: if validation fails, it will redirect
         # back to `/home` (page from which the form was submitted)
-            $request->validate([
-                'searchTerms' => 'required',
-                'searchType' => 'required',
-            ]);
+        $request->validate([
+           'searchTerms' => 'required',
+            'searchType' => 'required',
+        ]);
+
 
         # Start with an empty array of search results;
         $searchResults = [];
@@ -39,26 +40,25 @@ class MicrophonesController extends Controller
             $searchTerms = strtolower($request->input('searchTerms', null));
             $searchType = strtolower($request->input('searchType', null));
 
-            #retreive all wireless Mics Collection and convert it to array.
-            $microphones = Microphone::all()->toArray();
 
-            #use php array_filter function to filter the microphones
-            $searchResults = array_filter($microphones, function ($microphone) use ($searchTerms, $searchType) {
+            $microphones  = Microphone::where ('band','LIKE', '%'.$searchTerms.'%')
+             ->orwhereHas('location', function ($q) use ($searchTerms, $searchType){
+                $q->where('building', 'like', '%'.$searchTerms.'%')
+                  ->orWhere('room', 'like', '%'.$searchTerms.'%');
+             })->get();
 
-            return Str::contains( strtolower ( $microphone[$searchType] ), strtolower($searchTerms));
-
-        });
-
-
-
-            //ddd($searchResults);
-            # Redirect back to the form with data/results stored in the session
+            $searchResults = $microphones;
+                //ddd( $searchResults);
             return redirect('home')->with([
-                'searchTerms' => $searchTerms,
-                'searchType' => $searchType,
-                'searchResults' => $searchResults
+             'searchTerms' => $searchTerms,
+             'searchType' => $searchType,
+             'searchResults' => $searchResults
+
             ]);
-        }
+
+         }
+
+
     }
         /**
          * GET /installed-list
@@ -68,20 +68,11 @@ class MicrophonesController extends Controller
         # Retrieve all $tags
         $tags = Tag::all();
 
-        // $microphones = Microphone:: with('locations')->whereHas('tags', function ($query) use($tags) {
-        // $query->where('name','Installed');
-        //  })->orderBy('assigned_frequency')
-        //  ->get()
-        //  ->toArray();
-
-
         #Retrieve all $microphones with at least one tag_name containing words installed
         $microphones = Microphone::whereHas('tags', function ($query) use($tags) {
         $query->where('name','Installed');
          })->orderBy('assigned_frequency')
          ->get();
-
-
 
         return view('microphones.installed')->with([
            'tags' => $tags,
@@ -116,7 +107,7 @@ class MicrophonesController extends Controller
     public function index()
     {
         #eager loading to reduce the number of queries
-        $microphones = Microphone::all();
+        $microphones = Microphone::with('tags')->get();
         # Alphabetize the microphones
         // $microphones = Arr::sort($microphoneData, function ($value) {
         //     return $value['slug'];
@@ -230,5 +221,95 @@ class MicrophonesController extends Controller
         // foreach(Tag::all() as $tag){
         // $tags[$tag->id] = $tag->name;
         // }
+
+
+ // $searchString       = Input::get('search');
+
+            // if($searchTerms)
+            // {
+            //     $locations = Location::with('microphones')->orderBy($order, $by)->whereHas('microphones', function ($query) use ($searchTerms, $searchType){
+            //         $query->where('name', 'like', '%'.$searchTerms.'%');
+            //     })->get();
+            // }
+            // else {
+            //     $locations     = Location::with('microphones')->orderBy($order, $by)->get();
+            // }
+            // ddd($locations );
+
+            // if ($stype = 'building')  {
+            //  $searchType = Location::where('building','=', $stype)->get();
+            // }
+
+            // if ($sType = 'room')  {
+            //     $searchType = Location::where('room','=', $stypes)->get();
+            // }
+             //ddd($searchType);
+           // ddd($locations);
+               // foreach ($locations as $location) {
+
+                    // if ($request->has('building'))  {
+
+
+                        //return $searchType;
+                   // }
+                        // $searchType = Location::where('building', '=', 'building')->get();
+                        // return $searchType;
+                    // }
+                    // if (strpos($searchType, 'room')!== false) {
+                    //      $searchType = Location::where('room', '=', 'room')->get();
+                    //     return $searchType;
+
+            //              ->orWhere('room', $searchTerms)
+            // //                 ->orWhere('frequency_band', $searchTerms)
+            // //                 ->orWhere( $searchType, $searchType)
+            // //                 ->get();
+                    //}
+
+                //}
+
+                #retreive all wireless Mics Collection and convert it to array.
+            #retreive all wireless Mics Collection and convert it to array.
+
+                //ddd($microphoneData);
+
+                // if ($searchType = 'building' | $searchType = 'room'){
+                //     foreach ($microphoneData as $microphone) {
+                //    $building = $microphone->location->building;
+                //    $room = $microphone->location->room;
+
+                //    //ddd($room);
+                //     }
+                //  }
+              //  }
+
+
+            // $microphones = Microphone::all()->toArray();
+            // #use php array_filter function to filter the microphones
+            // $searchResults = array_filter($microphones, function ($microphone) use ($searchTerms, $searchType) {
+            // return Str::contains( strtolower ( $microphone[$searchType] ), strtolower($searchTerms));
+
+            // });
+
+
+         //dump($searchResults);
+
+            # Redirect back to the form with data/results stored in the session
+        //    return redirect('home')->with([
+        //         'searchTerms' => $searchTerms,
+        //         'searchType' => $searchType,
+        //         'searchResults' => $searchResults
+
+
+        //     ]);
+
+
+
+//         Machine::orderBy('created_at', 'desc')
+// ->where('serial', 'LIKE', '%' . $search . '%')
+// ->orWhere('type', 'LIKE', '%' . $search . '%')
+// ->with('warranty')
+// ->whereHas('warranty' , function($query) use ($search) {
+//    $query->where('first_name', 'LIKE', '%' . $search . '%');
+// })->get();
 
 

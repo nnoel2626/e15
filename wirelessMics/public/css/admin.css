@@ -22,8 +22,10 @@
 	font-weight: normal;
 	font-style: normal;
 }
- * -------------------------
- *
+
+
+
+
 html,
 body {
   height: 100%;
@@ -160,7 +162,7 @@ body {
 }
 /* Content */
 .content {
-  min-height: 250px;
+  min-height:720px;
   padding: 15px;
   margin-right: auto;
   margin-left: auto;

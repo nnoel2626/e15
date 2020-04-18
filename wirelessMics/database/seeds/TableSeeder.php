@@ -119,8 +119,6 @@ class TableSeeder extends Seeder
         ],
         [
             'slug' => 'boylston_handheld_mic_two',
-            // 'building'=> 'Boylston Hall',
-            // 'room'=> 'Fong Auditorium',
             'make'=> 'Shure',
             'model'=> 'QLX-D',
             'band'=> 'G50',
@@ -146,7 +144,7 @@ class TableSeeder extends Seeder
             'type'=> 'Lapel',
             'group'=> 'G5',
             'channel'=> 'CH9',
-            'assigned_frequency'=> '',
+            'assigned_frequency'=>'533.820 MHZ',
             'comments'=> '',
             'location_id'=> '56'
         ],

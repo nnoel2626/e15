@@ -15,7 +15,10 @@
             </div>
                 <form method='GET' action='/search'>
 
-                    <h2>Search for Microphone(s)</h2>
+                    <div class="site-title col-12 text-center">
+                    <h1>Search for Microphone(s)</h1>
+                    </div>
+
                      <h4>Note: If you are searching by building, enter building name and select the corresponding radio button. </h4>
 
 
@@ -59,7 +62,7 @@
                         <label for='frequency_band'>Frequency Band</label>
 
                        </fieldset>
-                       <input type='submit' class='btn fill' value='Search'>
+                       <input type='submit' class='btn search' value='Search'>
                         @if(count($errors) > 0)
                         <ul class='alert alert-danger error'>
                             @foreach ($errors->all() as $error)
@@ -88,7 +91,9 @@
                         @foreach($searchResults as $slug => $microphones)
                        <li class="card_items bg-light mb-3" style="max-width: 20rem;">
                            <div class="card_content">
-                               <h3 class="card_heading">{{ $microphones ['assigned_frequency'] }} </h3>
+                               <p class="card-text ">{{ $microphones->location->building }}</p>
+                               <p class="card-text">{{ $microphones->location->room }}</p>
+                               <p class="card_heading">{{ $microphones ['assigned_frequency'] }} </p>
                                <p class="card-text">Shure: {{$microphones['model'] }}</p>
                                 <p class="card-text">Band: {{ $microphones ['band']}} </p>
                              </div>

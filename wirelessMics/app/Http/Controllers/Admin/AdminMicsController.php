@@ -27,9 +27,6 @@ class AdminMicsController extends Controller
         # Eager load tags
         $microphones = Microphone::with('tags')->get();
 
-
-
-
         return view('admin.microphones.list')
             ->with([
                 'microphones'=> $microphones,

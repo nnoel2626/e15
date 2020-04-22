@@ -34,15 +34,17 @@
                             @foreach( $users as $user)
                             <tr>
                             <th scope="row">{{ $user->id }}</th>
-                            <td> {{ $user->name  }}</td>
+                            <th> {{ $user->name  }}</th>
                             <td> {{ $user->email  }}</td>
                             <td> {{ implode( ',', $user->roles()->get()->pluck('name')->toArray()) }}</td>
                             <td>
 
-                            <a href="{{ route ('admin.users.edit', $user) }}" class="btn btn-primary">Edit</a>
+
+
+                            <a href="{{ route ('admin.users.edit', $user) }}" class="btn btn-primary"><i class="fa fa-edit"></i>Edit</a>
 
                              @can('delete-users')
-                              <button class="btn btn-danger btn-sml" data-userId={{$user->id}} data-toggle="modal" data-target="#deleteUser">Delete</button>
+                              <button class="btn btn-danger btn-sml" data-userId={{$user->id}} data-toggle="modal" data-target="#deleteUser"><i class="fa fa-trash"></i>Delete</button>
                               @endcan
                             </td>
                             </tr>

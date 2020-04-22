@@ -121,6 +121,6 @@ class UsersController extends Controller
         // return App::abort(404);
     //}
 
-        //return view('admin.users.profile');
+        return view('admin.users.profile');
     }
 }

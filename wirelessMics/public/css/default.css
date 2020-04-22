@@ -26,10 +26,11 @@ body {
 }
 
 section#main {
-     flex: 1;
+    flex: 1;
     text-align: center;
     width: 80%;
     max-width: 1200px;
+    min-height: 650px;
     margin: auto;
     padding-bottom: 50px;
     /* background-color: #537375; */
@@ -37,12 +38,10 @@ section#main {
 
 header {
     text-align: center;
-    margin-top: 20px;
+    margin-bottom: 2em;
 }
 
-#logo {
-    width: 316px;
-}
+
 
 footer {
     text-align: center;
@@ -62,14 +61,17 @@ Nav bar
   list-style: none;
 }
 
+
 nav {
 display: flex;
 width: 100%;
-height: 70px;
+/* height: 70px; */
 background: #a51c30;
 border-color: #7c0516;
-margin-bottom: 20px;
+border-bottom: 5px solid rgb(41,51,82);
+margin-bottom: 5em;
 }
+
 navbar-right{
 float: right;
 }
@@ -84,9 +86,9 @@ font-family: 'Cabin Condensed', sans-serif;
 text-decoration: none;
 text-shadow: 3px 3px 3px #1C1109;
 }
-nav ul li {
+ ul li {
     display: inline-block;
-     padding: 13px;
+     padding: 10px;
 }
 nav ul a {
 color: #fff;
@@ -121,6 +123,23 @@ p {
 h1 {
     text-align: center;
     font-size: 3.0rem;
+}
+h1.card_heading {
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #616161;
+  border-bottom:  thin rgb(61, 18, 18) solid;
+   text-shadow: #3b3a3a 1px 1px 0;
+}
+ .site-title {
+    font-size: 80px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-top: 30px;
+    margin-bottom:30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.2);
 }
 
 h2 {
@@ -235,3 +254,12 @@ Misc
     *zoom: 1;
 }
 
+/* Add your logo image insidea.navbar-brand
+You can set the logo width and height bywidth="",height="" attributes.
+Add one of .align-top .align-middle .align-bottom classes to vertically adapt adjacent text with the image.
+Snippet by Bootstrapious */
+
+img#logo {
+    width: 50 px;
+    height: 50 px;
+}

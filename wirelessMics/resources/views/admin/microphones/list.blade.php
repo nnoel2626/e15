@@ -31,36 +31,29 @@
                                 <th scope="col">Assigned Frequency</th>
                                 <th scope="col">Tag Name</th>
                                 <th scope="col">Actions</th>
-                                </tr>
+                            </tr>
                             </thead>
 
                             <tbody>
                                 @foreach( $microphones as $microphone)
                                 <tr>
                                 <th scope="row">{{ $microphone->id }}</th>
-
                                 <th> {{ $microphone->location->building }} </th>
                                 <td> {{ $microphone->location->room }}</td>
-
                                 <td> {{ $microphone->model }}</td>
                                 <td> {{ $microphone->band }}</td>
                                 <td> {{ $microphone->assigned_frequency }}</td>
-
-                                @foreach($microphone->tags as $tag)
                                 <td class="cell-breakWord">
-                                   {{-- {{ $tag->pluck('name')->contains($tag->name)}} --}}
-                             <div class="label label-info label-many col='3' ">{{ $tag->name }}</div>
+                                    <div class="label label-info label-many">
+                                    {{ implode( ',', $microphone->tags()->pluck('name')->toArray()) }}
+                                    </div>
                                </td>
-                               @endforeach
-
-                            {{-- <td> {{ implode( ',', $microphone->tags()->get()->pluck('name')->toArray()) }}</td> --}}
-                                {{--  --}}
                                 <td>
-                                <a href="{{ route('admin.mics.create') }}" class="btn btn-info btn-sml">Add </a>
+                                <a href="{{ route('admin.mics.create') }}" class="btn btn-info btn-sml"><i class="fa fa-plus"></i>Create</a>
 
-                                <a href="{{ route ('admin.mics.edit', $microphone) }}"><button type="button" class="btn btn-primary btn-sml">Edit</button></a>
+                                <a href="{{ route ('admin.mics.edit', $microphone) }}"><button type="button" class="btn btn-primary btn-sml"><i class="fa fa-edit"></i>Edit</button></a>
 
-                                <button class="btn btn-danger btn-sml" data-microphoneId={{$microphone->id}} data-toggle="modal" data-target="#deleteMic">Delete</button>
+                                <button class="btn btn-danger btn-sml" data-microphoneId={{$microphone->id}} data-toggle="modal" data-target="#deleteMic"><i class="fa fa-trash"></i>Delete</button>
                                 </td>
                                 </tr>
                             @endforeach

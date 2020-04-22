@@ -1,9 +1,5 @@
 
-
-
-
 /*---------- CARDS LAYOUT ----------*/
-
 
 /* #Cologame
 
@@ -13,20 +9,11 @@
  #666666; */
  /* text= #777777; */
 
- .site-title {
-    font-size: 80px;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-weight: 900;
-    line-height: 1.1;
-    margin-top: 30px;
-    margin-bottom:30px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,.2);
-}
 
  ul.cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 16px;
+    grid-gap: 14px;
     list-style-type: none;
 
 
@@ -49,7 +36,7 @@ li.card_items {
     color: #292626;
     /* text-shadow: #615050 1px 1px 0; */
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 16px ;
+    font-size: 14px ;
     font-weight: 300;
  }
 
@@ -60,15 +47,7 @@ li.card_items {
     flex-direction: column;
     padding:.5em;
 }
-h4.card_heading {
-  text-transform: capitalize;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #616161;
-  border-bottom:  thin rgb(61, 18, 18) solid;
-    /* background: #bababa; */
-    text-shadow: #e0e0e0 1px 1px 0;
-}
+
  button, .btn {
     background: #901A2B;
     color: #FFFFFF;

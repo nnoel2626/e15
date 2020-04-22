@@ -15,7 +15,7 @@
                  @foreach ($microphones as $microphone)
                 <li class="card_items">
                         <div class="card_content">
-                            <h4 class="card_heading">Shure: {{$microphone[ 'model']}}</h4>
+                            <h4 class="card_heading">Shure: {{ $microphone[ 'model']}}</h4>
                             <p class="card-text ">{{ $microphone->location->building }}</p>
                             <p class="card-text">{{ $microphone->location->room }}</p>
                             <p class="card-text ">Band: {{ $microphone['band'] }} </h4>

@@ -6,7 +6,9 @@
 
 @section('content')
           <div class="card card-primary">
-              <div class="card-header">
+              {{-- <div class="site-title col-12 text-center"> --}}
+
+               <div class="site-title col-12 text-center">
                 <h3 class="card-title">Create a Location</h3>
               </div>
               <!-- /.card-header -->

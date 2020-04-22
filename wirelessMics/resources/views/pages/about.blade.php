@@ -10,7 +10,7 @@
 
 @section('content')
      <div class="site-title col-12 text-center">
-    <h2>About</h2>
+    <h1>About</h1>
     </div>
 
     <em>This page will display about on...</em>

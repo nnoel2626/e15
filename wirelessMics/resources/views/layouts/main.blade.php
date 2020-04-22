@@ -14,11 +14,13 @@
 </head>
 <body>
     <header>
-      {{-- <a href='/'><img src='/images/bookmark-logo@2x.png' id='logo' alt='bookmark Logo'></a> --}}
-         <nav>
+         {{-- <a class="navbar-brand"   href="/">
+            <img src='/images/fasshield_4_0.jpg' height="50" id='logo' alt='bookmark Logo'>
+            </a> --}}
+         <nav class ="navbar-nav">
             <ul>
               <li class="{{Request::path()=== '/' ? 'current_page_item': ''}}">
-                <a class="nav-link" href="{{ route('home') }}">Home</a>
+             <a class="nav-link" href="{{ route('home') }}">Home</a>
             </li>
                 <li class="{{Request::is('index') ? 'current_page_item': ''}}">
                     <a class="nav-link" href="{{ route('index') }}">All Microphones</a>

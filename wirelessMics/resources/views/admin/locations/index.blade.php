@@ -10,43 +10,51 @@
     <div class="alert alert-success">{{ session('status') }}</div>
     @endif
         <div class="box">
-			<div class="box-header"><h3 class="card-header">Listing of Locations </h3></div>
+            <div class="box-header">
+                <h3 class="card-header">Listing of Locations </h3>
+            </div>
+
 			    <div class="box-body">
+
                       @if ($locations->isEmpty())
+
                          <p>There are no Tags! :(</p>
                          @else
+
                          <table class="table table-striped">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th>Building</th>
-                                <th>Room</th>
-                                <th>City</th>
-                                <th>State</th>
-                                <th>Postal Code</th>
-                                <th>Action</th>
+                                <th scope="col">Building</th>
+                                <th scope="col">Room</th>
+                                <th scope="col">City</th>
+                                <th scope="col">State</th>
+                                <th scope="col">Postal Code</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($locations as $location)
                             <tr>
-                                <td>{{ $location->id }}</td>
+                                <th scope="row">{{ $location->id }}</<th>
                                 <td>{{ $location->building }}</td>
                                 <td>{{ $location->room }}</td>
                                 <td>{{ $location->city }}</td>
                                 <td>{{ $location->state }}</td>
                                 <td>{{ $location->postal_code }}</td>
                             <td>
-                        <a href="{{ route('admin.locations.create') }}" class="btn btn-info">Add </a>
-                        <a href="{{ route('admin.locations.edit', $location) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('admin.locations.create') }}" class="btn btn-info"><i class="fa fa-plus"></i>Create </a>
+                        <a href="{{ route('admin.locations.edit', $location) }}" class="btn btn-primary"><i class="fa fa-edit"></i> Edit</a>
                         {{-- <a href="{{ route('admin.tags.destroy',$location->id)}}" class="btn btn-danger">Delete</a> --}}
-                        <button class="btn btn-danger btn-sml" data-tagId={{$location->id}} data-toggle="modal" data-target="#deleteLocation">Delete</button>
-                            <br>
+                        <button class="btn btn-danger btn-sml" data-tagId={{$location->id}} data-toggle="modal" data-target="#deleteLocation"><i class="fa fa-trash"></i> Delete</button>
+
                             </td>
                             </tr>
                             @endforeach
                         </tbody>
                         </table>
+
+                        {{-- {{ $locations>links(10) }} --}}
                         @endif
 
                 </div>

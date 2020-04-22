@@ -5,25 +5,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Admin Panel | Wireless Mics Inventory</title>
+     <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!-- Font Awesome -->
-  {{-- <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css"> --}}
-  <!-- Ionicons -->
-  {{-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> --}}
-  <!-- Theme style -->
-  {{-- <link rel="stylesheet" href="../../dist/css/adminlte.min.css"> --}}
-  <!-- Google Font: Source Sans Pro -->
-  {{-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> --}}
-   <!-- CSRF Token -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" /> --}}
-     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
+    <!-- CSRF Token -->
+     <link rel="stylesheet" href="{{asset('css/admin/admin_panel.css')}}">
+     <link href={{ asset('css/admin/microphones/panel.css')}} rel='stylesheet'>
+
   <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> --}}
 
 
 @yield('head')
@@ -44,14 +39,16 @@
       <span class="logo-lg"><b>Inventory</b>Management</span>
     </a>
 
+
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-
     </nav>
+
+
   </header>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
@@ -84,15 +81,15 @@
         <a class="nav-link" href="{{ route('admin.users.index') }}"><i class="fa fa-users"></i>Users</a>
         </li>
          <li class="{{Request::path()=== '/users' ? 'current_page_item': ''}}">
-        <a class="nav-link" href="{{ route('admin.roles.index') }}"><i class="fa fa-users"></i>Roles</a>
+        <a class="nav-link" href="{{ route('admin.roles.index') }}"><i class="fa fa-tasks"></i>Roles</a>
         </li>
          <li class="{{Request::path()=== '/tags' ? 'current_page_item': ''}}">
-        <a class="nav-link" href="{{ route('admin.tags.index') }}"><i class="fa fa-users"></i>Tags</a>
+        <a class="nav-link" href="{{ route('admin.tags.index') }}"><i class="fa fa-tag"></i>Tags</a>
         </li>
         <li class="{{Request::path()=== '/locations' ? 'current_page_item': ''}}">
-        <a class="nav-link" href="{{ route('admin.locations.index') }}"><i class="fa fa-users"></i>Locations</a>
+        <a class="nav-link" href="{{ route('admin.locations.index') }}"><i class="fa fa-map-marker"></i>Locations</a>
          <li class="{{Request::path()=== '/list' ? 'current_page_item': ''}}">
-        <a class="nav-link" href="{{ route('admin.mics.list') }}"><i class="fa fa-users"></i>Microphones</a>
+        <a class="nav-link" href="{{ route('admin.mics.list') }}"><i class="fa fa-microphone"></i>Microphones</a>
         </li>
 
         @endcan
@@ -101,11 +98,11 @@
         <li class="header">ACCOUNT</li>
         {{-- <li><a href="#"><i class="fa fa-users"></i> <span></span></a></li> --}}
         <li class="{{Request::is('/admin/users/profile ') ? 'current_page_item': ''}}">
-            <a class="nav-link" href="{{ route('admin.users.profile') }}"><i class="fa fa-users"></i> <span>Profile</span></a>
+            <a class="nav-link" href="{{ route('admin.users.profile') }}"><i class="fa fa-address-card-o"></i> <span>Profile</span></a>
         </li>
 
          <li class="{{Request::is('home') ? 'current_page_item': ''}}">
-        <a class="nav-link" href="{{ route('home') }}"><i class="fa fa-power-off text-red"></i> Home</a>
+        <a class="nav-link" href="{{ route('home') }}"><i class="fa fa-home "></i> Home</a>
         </li>
         @endcan
         <li class="">

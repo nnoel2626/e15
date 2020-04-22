@@ -10,7 +10,7 @@
     <div class="alert alert-success">{{ session('status') }}</div>
     @endif
         <div class="box">
-			<div class="box-header"><h3 class="card-header">Listing of all Tags </h3></div>
+			<div class="box-header"><h3 class="card-header">Listing of Tags </h3></div>
 			    <div class="box-body">
                       @if ($tags->isEmpty())
                          <p>There are no Tags! :(</p>
@@ -28,15 +28,16 @@
                         <tbody>
                             @foreach($tags as $tag)
                             <tr>
-                                <td>{{ $tag->id }}</td>
-                                <td>{{ $tag->name }}</td>
+                                <th>{{ $tag->id }}</th>
+                                <th>{{ $tag->name }}</th>
                                 <td>{{ $tag->created_at }}</td>
                                 <td>{{ $tag->updated_at }}</td>
                             <td>
-                        <a href="{{ route('admin.tags.create') }}" class="btn btn-info">Add </a>
-                        <a href="{{ route('admin.tags.edit', $tag) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('admin.tags.create') }}" class="btn btn-info"><i class="fa fa-plus"></i>Create </a>
+                        <a href="{{ route('admin.tags.edit', $tag) }}" class="btn btn-primary"><i class="fa fa-edit"></i>Edit</a>
                         {{-- <a href="{{ route('admin.tags.destroy',$tag->id)}}" class="btn btn-danger">Delete</a> --}}
-                        <button class="btn btn-danger btn-sml" data-tagId={{$tag->id}} data-toggle="modal" data-target="#deleteTag">Delete</button>
+
+                        <button class="btn btn-danger btn-sml" data-tagId={{$tag->id}} data-toggle="modal" data-target="#deleteTag"><i class="fa fa-trash"></i>Delete</button>
                             <br>
                             </td>
                             </tr>

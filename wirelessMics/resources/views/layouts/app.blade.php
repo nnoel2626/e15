@@ -10,24 +10,24 @@
     <title>{{ config('app.name', 'Harvard Wireless Mics') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     @yield('head')
-    {{-- <script src="/js/bootstrap-confirmation.js" defer></script>
-    @yield('scripts') --}}
+   <script src="/js/bootstrap-confirmation.js" defer></script>
+    @yield('scripts')
 
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container"> --}}
+                {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Harvard Wireless Mics') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -85,36 +85,16 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
 
         <main class="py-4">
-
-            <div> @include('partials.alerts') </div>
+            {{-- <div> @include('partials.alerts') </div> --}}
             <div>@yield('content')</div>
         </main>
     </div>
 
     {{-- <script src="{{asset('js/app.js')}}"></script> --}}
 
-<script>
-
-//   $('#edit').on('show.bs.modal', function (event) {
-//       var button = $(event.relatedTarget)
-//       var title = button.data('mytitle')
-//       var description = button.data('mydescription')
-//       var cat_id = button.data('catid')
-//       var modal = $(this)
-//       modal.find('.modal-body #title').val(title);
-//       modal.find('.modal-body #des').val(description);
-//       modal.find('.modal-body #cat_id').val(cat_id);
-// })
-  $('#delete').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
-      var microphone_id = button.data('microphoneId')
-      var modal = $(this)
-      modal.find('.modal-body #microphone_id').val(microphone_id);
-})
-</script>
 
 
 </body>

@@ -36,22 +36,21 @@ All the Roles
                             <tbody>
                                 @foreach($roles as $role)
                                 <tr>
-                                    <td>{{ $role->id }}</td>
-                                    <td>{{ $role->name }}</td>
+                                    <th>{{ $role->id }}</th>
+                                    <th>{{ $role->name }}</th>
                                     <td>{{ $role->created_at }}</td>
                                     <td>{{ $role->updated_at }}</td>
                                     <td>
-                                <a href="{{ route('admin.roles.create') }}" class="btn btn-info">Add</a>
-                                <a href="{{ route('admin.roles.edit', $role) }}" class="btn  btn-primary">Edit</a>
+                                <a href="{{ route('admin.roles.create') }}" class="btn btn-info"><i class="fa fa-plus"></i>Create</a>
+                                <a href="{{ route('admin.roles.edit', $role) }}" class="btn  btn-primary"><i class="fa fa-edit"></i>Edit</a>
                                 {{-- <a href="{{ route ('admin.roles.destroy', $role->id) }}" class="btn btn-danger">Delete</a> --}}
-                                <button class="btn btn-danger btn-sml" data-roleId={{$role->id}} data-toggle="modal" data-target="#deleteRole">Delete</button>
+                                <button class="btn btn-danger btn-sml" data-roleId={{$role->id}} data-toggle="modal" data-target="#deleteRole"><i class="fa fa-trash"></i>Delete</button>
 
                                 <br>
                                 </td>
                                 </tr>
                             @endforeach
                             </tbody>
-
                   </table>
             @endif
 

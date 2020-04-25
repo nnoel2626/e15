@@ -20,11 +20,11 @@ class LocationsController extends Controller
 
      public function index()
 	{
-          $locations = Location::all();
+          $locations = Location::paginate(10);
         //ddd(  $locations);
 
 		return View ('admin.locations.index')
-		->with([ 'locations'=>   $locations]);
+		->with([ 'locations' => $locations]);
 	}
 
 	/**

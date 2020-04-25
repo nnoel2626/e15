@@ -58,8 +58,8 @@
                                 </tr>
                             @endforeach
                             </tbody>
-
                         </table>
+                        {{ $microphones->links() }}
                     @endif
          </div>
     </div>

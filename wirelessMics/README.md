@@ -1,6 +1,6 @@
-*Any instructions/notes in italics should be removed from the template before submitting*
 
 # Project 3
+
 + By: *Norcius Noel*
 + Production URL: <http://wirelessmics.nnoel.xyz>
 
@@ -16,7 +16,9 @@
 + Create Form has both browser and sever validation.
 + Edit Form has browser validation.
 + Create TableSeeders to seed microphones, tags, microphone_tag, users, roles, role_user tables and locations tables
-  
++ implemented delete confirmation form.
++ implement pagination feature to both location and microphone list.
+
 ## Database summary
 
 *Describe the tables and relationships used in your database. Delete the examples below and replace with your own info.*
@@ -27,8 +29,6 @@
 + There's a belongsTo/hasMany relationship between `Microphone` and `Location`
 
 ## Outside resources
-
-*How to implement delete confirmation*
 
 + https://github.com/Hujjat/laravel-crud/blob/master/resources/views/category/index.blade.php
 

@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang='en'>
 
 <head>
@@ -10,4 +10,4 @@
 	<h1>Hello from my XAMPP-powered server!</h1>
 </body>
 
-</html>
+</html> -->

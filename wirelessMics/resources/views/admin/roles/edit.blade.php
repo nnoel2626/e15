@@ -6,8 +6,8 @@ Edit Role
 
 @section('content')
 <div class="card card-primary">
-    <h3 class="card-title">Edit a Role</h3>  
-       
+    <h3 class="card-title">Edit a Role</h3>
+
                <form  role="form"action = "{{ route ('admin.roles.update', $role ) }}" method="POST">
                  {{ csrf_field() }}
                   {{ method_field('PUT') }}
@@ -31,6 +31,6 @@ Edit Role
               </form>
 
             </div>
-          
+
 @endsection
 

@@ -52,19 +52,16 @@
                             </tr>
                             @endforeach
                         </tbody>
-                        </table>
 
-                        {{-- {{ $locations>links(10) }} --}}
+                        </table>
+                        {{ $locations->links() }}
+                        {{-- <div class="pagination">{{ $locations->links() }}</div> --}}
                         @endif
 
                 </div>
             </div>
 
 	<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
- 	Add New Tag
-</button>
-
 <!-- Modal -->
 <div class="modal modal-danger fade" id="deleteLocation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">

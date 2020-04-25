@@ -100,11 +100,14 @@ class TagsController extends Controller
 	public function update(Request $request, Tag $tags)
 	{
 		try {
-		$tag = Tag::findOrFail(Input::get('id'));
+		$tag = Tag::findOrFail($Input::get('id'));
 		}
 		catch(Exception $e) {
-		return Redirect::to('/admin.tags/')
-		->with('flash_message', 'tag not found');
+
+        return Redirect::to('admin.tags.edit')
+
+        ->with('flash_message', 'tag not found');
+
 		}
 
 		$tag->name = Input::get('name');

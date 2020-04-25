@@ -102,15 +102,18 @@ class RolesController extends Controller
 	 */
 	public function update(Request $request, Role $roles)
 	{
+       // ddd($request->role);
 		try {
-		$role = Tag::findOrFail(Input::get('id'));
+        $role = Role::findOrFail($request->role);
+
+
 		}
 		catch(Exception $e) {
-		return Redirect::to('/admin.roles/')
-		->with('flash_message', 'role not found');
-		}
+		    return redirect()->route('admin.roles.edit')
+		        ->with('status', 'role not found');
+		     }
 
-		$role->name = Input::get('name');
+		//  $role = $request->role;
 		$role->save();
 
 		 return redirect()->route('admin.roles.index')

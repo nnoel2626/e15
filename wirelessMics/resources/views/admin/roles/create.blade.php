@@ -16,18 +16,25 @@
                      {{ csrf_field() }}
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputName">Role Name</label>
-                    <input type="Name" class="form-control" id="exampleInputName" placeholder="Enter Tag name">
+                    <label for="name">Role Name</label>
+                    <input type="name" class="form-control" id="name" placeholder="Enter Tag name">
+                     @include('includes.error-field', ['fieldName' => 'name'])
                   </div>
+
+
                   <div class="form-group">
-                    <label for="exampleInputCreated_at">Created_ at</label>
-                    <input type="Created_ at" class="form-control" id="exampleInputCreated_ at" placeholder="Created_ at">
+                    <label for="created_ at">Created_ at</label>
+                    <input type="created_ at" class="form-control" id="created_ at" placeholder="Created_ at">
+                     @include('includes.error-field', ['fieldName' => 'created_at'])
+
                   </div>
 
                    <div class="form-group">
-                    <label for="exampleInputUpdated_at">Updated_at</label>
-                    <input type="Updated_at" class="form-control" id="exampleInputUpdated_at" placeholder="Updated_at">
+                    <label for="updated_at">Updated_at</label>
+                    <input type="updated_at" class="form-control" id="updated_at" placeholder="Updated_at">
+                    @include('includes.error-field', ['fieldName' => 'updated_at'])
                   </div>
+
                    <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>

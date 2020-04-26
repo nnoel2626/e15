@@ -33,6 +33,7 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
+        $user = User::where('id', '=', $user->id)->first();
         #Check the user object contain the id
         //ddd($user);
         #if current user is not admin redirect to Admin Panel.
@@ -43,7 +44,6 @@ class UsersController extends Controller
         #Get all the roles and passing them through the session by using the "with method"
         $roles = Role::all();
         return view('admin.users.edit')
-
         ->with([
              'user' => $user,
             'roles' => $roles
@@ -59,20 +59,22 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+
+        ]);
+
+        $user = User::where('id', '=', $user->id)->first();
         $user->roles()->sync($request->roles);
+
+
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->save();
 
-
-        if ($user->save()) {
-            $request->session()->flash('success', $user->name . ' ' . 'user has been updated');
-        } else {
-            $request->session()->flash('error', 'There was an error updating the user');
-        }
-
-        // $request->session()->flash('warning', 'Testing warning flash message');
-
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')
+        ->with('status','The User has been updated.');
     }
 
     /**
@@ -83,6 +85,7 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
+        $user = User::where('id', '=', $user->id)->first();
 
         #if current user is not admin, redirect to Admin Panel.
         if (Gate::denies('delete-users')) {
@@ -124,3 +127,10 @@ class UsersController extends Controller
         return view('admin.users.profile');
     }
 }
+
+//     $request->session()->flash('success', $user->name . ' ' . 'user has been updated');
+        // } else {
+        //     $request->session()->flash('error', 'There was an error updating the user');
+        // }
+
+        // $request->session()->flash('warning', 'Testing warning flash message');

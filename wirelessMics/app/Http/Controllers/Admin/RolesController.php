@@ -18,10 +18,9 @@ class RolesController extends Controller
 
 
     public function index()
-	{
+	{   #retreive all the roles
         $roles = Role::all();
-            //ddd($roles);
-        //return "this is the form ";
+
 		return view ('admin.roles.index')
 		->with('roles', $roles);
 	}
@@ -41,37 +40,24 @@ class RolesController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(Request $request, Role $role)
 	{
-        //$request->validate([
-		$validator = Validator::make(Input::all());
-		if( $validator->passes()){
-			$role = new Tag();
-			$role->name = Input::get('name');
+            $request->validate([
+            'name' => 'required|unique:role, name',
+            'created_at' => 'required',
+            'updated_at' => 'required',
+            ]);
+
+			$role = new Role();
+            $role->name = $request->name;
+            $role->created_at = $request->created_at;
+            $role->updated_at = $request->updated_at;
 			$role->save();
 
 			 return redirect()->route('admin.roles.index')
-			->with('flash_message','Your tag been added.');
-			}
-	}
+			->with('status','The role been added.');
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	// public function show(Tag $roles)
-	// {
-	// 	 try {
-	// 	$role = Tag::findOrFail($id);
-	// 	 }
-	// 	 catch(Exception $e) {
-	// 	 return Redirect::to('admin.roles')
-	// 	 ->with('flash_message', 'Tag not found');
-	// 	 }
-	// 	 return View ('admin.roles.show')->with('tag', $role);
-	// }
+	}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -79,16 +65,10 @@ class RolesController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit(Request $request, $id)
+	public function edit(Role $role)
 	{
-		try {
-			$role = Role::findOrFail($id);
-			}
-			catch(Exception $e)
-			{
-        return redirect()->route('admin.roles.index')->with('status', 'Role not found !');
+		$role = Role::where('id', '=', $role->id)->first();
 
-		}
 		# Pass with the $role object so we can do model binding on the form
 		return View('admin.roles.edit')
 		->with('role', $role);
@@ -100,24 +80,26 @@ class RolesController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request, Role $roles)
-	{
-       // ddd($request->role);
-		try {
-        $role = Role::findOrFail($request->role);
+	public function update(Request $request, Role $role)
+	{  #retrieve this role name from the database
+        //ddd($request->all());
+        $role = Role::where('id', '=', $role->id)->first();
+        //ddd($role);
+         $request->validate([
+            'name' => 'required',
+            'created_at' => 'required',
+            'updated_at' => 'required',
+        ]);
 
-
-		}
-		catch(Exception $e) {
-		    return redirect()->route('admin.roles.edit')
-		        ->with('status', 'role not found');
-		     }
-
-		//  $role = $request->role;
+            // $author->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
+            // $author->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
+        $role->name = $request->name;
+        $role->created_at = $request->created_at;
+        $role->updated_at = $request->updated_at;
 		$role->save();
 
 		 return redirect()->route('admin.roles.index')
-		->with('flash_message','Your Tag has been saved.');
+		->with('status',' Role has been saved.');
 	}
 
 	/**
@@ -126,21 +108,13 @@ class RolesController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy(Request $request, $id)
+	public function destroy(Role $role)
 	{
-		try {
-		$role = Tag::findOrFail(Input::get('id'));
-		}
-		catch(Exception $e) {
-		return Redirect::to('/admin.roles/')
-		->with('flash_message', 'Role not found');
-		}
-		# Note there's a `deleting` Model event which makes sure
-		//category_equipmemt entries are also destroyed
-		# See Category.php for more details
-		Tag::destroy(Input::get('id'));
+        $role = Role::where('name', '=', $role->name)->first();
+
+        $role->delete();
 
 		 return redirect()->route('admin.roles.index')
-		->with('flash_message','Your Tag has been deleted.');
+		->with('status',' Role has been deleted.');
 	}
 }

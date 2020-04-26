@@ -6,38 +6,52 @@
 
 @section('content')
           <div class="card card-primary">
-              {{-- <div class="site-title col-12 text-center"> --}}
+
 
                <div class="site-title col-12 text-center">
                 <h3 class="card-title">Create a Location</h3>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
+
                <form role="form" action= "{{ route('admin.locations.store') }}" method="POST">
                      {{ csrf_field() }}
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputBuilding">Building</label>
-                    <input type="Building" class="form-control" id="exampleInputBuilding" placeholder="Building">
+                    <label for="building">Building</label>
+                    <input type="building" class="form-control" id="building" name="building" placeholder="Building">
+                     @include('includes.error-field', ['fieldName' => 'building'])
                   </div>
+
+
                   <div class="form-group">
-                    <label for="exampleInputRoom">Room</label>
-                    <input type="Room" class="form-control" id="exampleInputRoom" placeholder="Room">
+                    <label for="room">Room</label>
+                    <input type="room" class="form-control" id="room"  name="room"placeholder="Room">
+                     @include('includes.error-field', ['fieldName' => 'room'])
                   </div>
+
+
                    <div class="form-group">
-                    <label for="exampleInputCity">City</label>
-                    <input type="City" class="form-control" id="exampleInputCity" placeholder="City">
+                    <label for="city">City</label>
+                    <input type="city" class="form-control" id="city"
+                    name="city" placeholder="City">
+                     @include('includes.error-field', ['fieldName' => 'city'])
+                  </div>
+
+
+                   <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="state" class="form-control" id="state"
+                    name="state" placeholder="state">
+                     @include('includes.error-field', ['fieldName' => 'state'])
+
                   </div>
 
                    <div class="form-group">
-                    <label for="exampleInputState">State</label>
-                    <input type="State" class="form-control" id="exampleInputState" placeholder="State">
+                    <label for="postal_code">Postal Code</label>
+                    <input type="postal_code" class="form-control" id="postal_code"
+                    name="postal_code" placeholder="Postal_code">
+                     @include('includes.error-field', ['fieldName' => 'postal_code'])
                   </div>
 
-                   <div class="form-group">
-                    <label for="exampleInputPostal_code">Postal Code</label>
-                    <input type="Postal_code" class="form-control" id="exampleInputPostal_code" placeholder="Postal_code">
-                  </div>
                    <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>

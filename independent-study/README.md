@@ -2,12 +2,12 @@
 
 Before we can start creating the Laravel package, I think it would useful to first describe what is a package and how it gets used in a Laravel project.
 
-A package is a  stand-alone source code that developers create that can be integrated into a project that provides additional functionalities which Laravel does not provide out of the box.. developers only need to import by "require" the package through Composer and adapt it to their projects.
+A package is a  stand-alone source code that developers create that can be integrated into a project that provides additional functionalities which Laravel does not provide out of the box.. Developers only need to import by "require" the package through Composer and adapt it to their projects.
 
 ## Creating Laravel Packages
 
  I created a Laravel package just to make it easy to understand the process. The package is a contact form that sends alerts to the Admin each time it gets used. The form submission request also gets saved to the database. I will provide a step by step instructions on how it was done.  
- As I just mentioned, you are going to need Composer, an account with (<https://packagist.org)> where you publish the package, a GitHub account which most of you already have, a fresh install of Laravel project to host the package. Let's get started.
+ As I just mentioned, you are going to need Composer, an account with (<https://packagist.org)> where you publish the package, a GitHub account which most of you already have, and fresh install of Laravel project to host the package. Let's get started.
 
 ### Create a new Laravel project
 
@@ -51,7 +51,7 @@ In the root directory of the newly created project which I will call the "host" 
     "php artisan make:provider ContactFormServiceProvider.php"
 ```
 
-+ Note that the service provider class that you just created, is inside the provider folder of the "host" project.  You need to copy the file from the service provider folder and paste it inside the "src" folder. Make sure that you namespace the ContactFormServiceProvider class file correctly so that Composer can access it during the autoload process. Also, you should register this new root namespace by adding this code below in the autoload section in your composer.json file.
++ Note that the service provider class that you just created is inside the provider folder of the "host" project.  You need to copy the file from the service provider folder and paste it inside the "src" folder. Make sure that you namespace the ContactFormServiceProvider class file correctly so that Composer can access it during the autoload process. Also, you should register this new root namespace by adding this code below in the autoload section in your composer.json file.
 
 ```PHP
       "autoload": {
@@ -62,7 +62,6 @@ In the root directory of the newly created project which I will call the "host" 
 ```
 
 + You also need to add the path of the new class in the host Laravel project composer file under autoload-dev so it can autoload it as well. See sample code below:
-
 
 ```PHP
         "autoload-dev": {
@@ -129,7 +128,7 @@ The controller will be created in the "host" controller folder. Copy and paste t
 
 ### * Model
 
-+ Use the Laravel artisan command PHP artisan make:model to create a model and use the -m flag to create a migration. Copy and paste the model in the model folder inside the package. And again, make adjust the name of the model to the correct namespace.
++ Use the Laravel artisan command PHP artisan make:model to create a model and use the -m flag to create a migration. Copy and paste the model in the model folder inside the package. And again, make adjustments to the model namespace.
 
 ``` PHP
    " php artisan make:model contact -m"
@@ -137,7 +136,7 @@ The controller will be created in the "host" controller folder. Copy and paste t
 
 ### * migration
 
-+ Again, we need to set the path in the boot method the boot method on the ContactFormService file.
++ Again, we need to set the path in the boot method on the ContactFormService file.
 
 ``` PHP
     $this->loadMigrationsFrom(__DIR__.'/database/migrations');
@@ -223,18 +222,18 @@ and configure any of the mail transport drivers that come with Laravel. Since I 
     }
 ```
 
-And your package folder structure should like this:
+And your package folder structure should look like this:
 
 ![](images/folder_structure.png)
 
 
 ### Bonus tips
 
- You should be testing at every in the configuration process by run `PHP artisan serve` in your project root directory.  The Laravel development server started: <http://127.0.0.1:8000>. If everything tests fine, you are ready to publish to GitHub and then to <https://packagist.org>. 
+ You should be testing at every point during the configuration process by running `PHP artisan serve` in your project root directory. The Laravel development server started: <http://127.0.0.1:8000>. If everything tests fine, you are ready to publish to GitHub and then to <https://packagist.org>. 
 
 ## Publishing your package
 
-The last thing is if you want to show your package to the world so that other people would add it to their composer.json file. Here are the basic steps to publish it. Make package auto-discovery.
+The last thing is if you want to show your package to the world so that other people could add it to their composer.json file. Here are the basic steps to publish it. Make package auto-discovery.
 
     1. Create a repository and upload it to GitHub(<https://github.com)>
 

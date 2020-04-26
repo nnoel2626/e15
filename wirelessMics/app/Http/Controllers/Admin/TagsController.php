@@ -14,10 +14,11 @@ class TagsController extends Controller
     {
         $this->middleware('auth');
     }
+
+
      public function index()
-	{
+	{   #retrieve all tags
         $tags = Tag::all();
-        //ddd($tags);
 
 		return View ('admin.tags.index')
 		->with(['tags'=> $tags]);
@@ -38,83 +39,57 @@ class TagsController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(Request $request, Tag $tag)
 	{
-        //$request->validate([
-		$validator = Validator::make(Input::all());
-		if( $validator->passes()){
-			$tag = new Tag();
-			$tag->name = Input::get('name');
-			$tag->save();
 
-			return Redirect::to('admin.tags.index')
-			->with('flash_message','Your tag been added.');
-			}
+        $request->validate([
+            'name' => 'required|unique:tags,name',
+            'created_at' => 'required',
+            'updated_at' => 'required',
+        ]);
+
+		$tag = new Tag();
+        $tag->name = $request->name;
+        $tag->created_at = $request->created_at;
+        $tag->updated_at = $request->updated_at;
+		$tag->save();
+
+		return redirect()->route('admin.tags.index')
+			->with('status','The tag been added.');
+
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	// public function show(Tag $tags)
-	// {
-	// 	 try {
-	// 	$tag = Tag::findOrFail($id);
-	// 	 }
-	// 	 catch(Exception $e) {
-	// 	 return Redirect::to('admin.tags')
-	// 	 ->with('flash_message', 'Tag not found');
-	// 	 }
-	// 	 return View ('admin.tags.show')->with('tag', $tag);
-	// }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit(Request $request, $id)
+	public function edit(Tag $tag)
 	{
-		try {
-			$tag = Tag::findOrFail($id);
-			}
-			catch(Exception $e)
-			{
-        return redirect()->route('admin.tags.index')->with('status', 'Tag not found !');
+       $tag = Tag::where('id', '=', $tag->id)->first();
 
-		}
+       //ddd($tag);
+
 		# Pass with the $tag object so we can do model binding on the form
 		return View('admin.tags.edit')
 		->with('tag', $tag);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update(Request $request, Tag $tags)
-	{
-		try {
-		$tag = Tag::findOrFail($Input::get('id'));
-		}
-		catch(Exception $e) {
 
-        return Redirect::to('admin.tags.edit')
+	public function update( Request $request, Tag $tag)
+    {
+        $tag = Tag::where('id', '=', $tag->id)->first();
 
-        ->with('flash_message', 'tag not found');
+         $request->validate([
+            'name' => 'required',
+            'created_at' => 'required',
+            'updated_at' => 'required',
+        ]);
 
-		}
+        $tag->name = $request->name;
+        $tag->created_at = $request->created_at;
+        $tag->updated_at = $request->updated_at;
+        $tag->save();
 
-		$tag->name = Input::get('name');
-		$tag->save();
 
-		return Redirect::action('TagsController@index')
-		->with('flash_message','Your Tag has been saved.');
+		return redirect()->route('admin.tags.index')
+		->with('status','The Tag has been saved.');
 	}
 
 	/**
@@ -123,21 +98,13 @@ class TagsController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy(Request $request, $id)
+	public function destroy(Request $request, Tag $tag)
 	{
-		try {
-		$tag = Tag::findOrFail(Input::get('id'));
-		}
-		catch(Exception $e) {
-		return Redirect::to('/admin.tags/')
-		->with('flash_message', 'Tag not found');
-		}
-		# Note there's a `deleting` Model event which makes sure
-		//category_equipmemt entries are also destroyed
-		# See Category.php for more details
-		Tag::destroy(Input::get('id'));
+        $tag = Tag::where('id', '=', $tag->id)->first();
 
-		return Redirect::action('TagsController@index')
-		->with('flash_message','Your Tag has been deleted.');
+        $tag->delete();
+
+		return redirect()->route('admin.tags.index')
+		->with('status','The Tag has been deleted.');
 	} //
 }

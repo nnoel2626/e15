@@ -19,9 +19,8 @@ class LocationsController extends Controller
 
 
      public function index()
-	{
-          $locations = Location::paginate(10);
-        //ddd(  $locations);
+	{   #retrieve 10 locations at a time
+        $locations = Location::paginate(10);
 
 		return View ('admin.locations.index')
 		->with([ 'locations' => $locations]);
@@ -44,45 +43,34 @@ class LocationsController extends Controller
 	 */
 	public function store(Request $request)
 	{
-        //$request->validate([
-		$validator = Validator::make(Input::all());
-		if( $validator->passes()){
-			$location = new Tag();
-			$location->name = Input::get('name');
-			$location->save();
+        $request->validate([
+            'building' => 'required',
+            'room'=> 'required',
+            'city'=> 'required',
+            'state'=> 'required',
+            'postal_code'=> 'required',
+        ]);
 
-			return Redirect::to('admin.locations.index')
-			->with('flash_message','Your tag been added.');
-			}
+        $location = new Location();
+		$location->building = $request->building;
+        $location->room = $request->room;
+        $location->city = $request->city;
+        $location->state = $request->state;
+        $location->postal_code = $request->postal_code;
+
+		$location->save();
+
+        return redirect()->route('admin.locations.index')
+			->with('status','The Location been added.');
+
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit(Request $request, $id)
+	public function edit(Location $location)
 	{
-		try {
-			$location = Location::findOrFail($id);
-			}
-			catch(Exception $e)
-			{
-        return redirect()->route('admin.locations.index')->with('status', 'Tag not found !');
-
-		}
+        $location = Location::where('id', '=', $location->id)->first();
 		# Pass with the $location object so we can do model binding on the form
 		return View('admin.locations.edit')
-		->with('tag', $location);
+		->with('location', $location);
 	}
 
 	/**
@@ -91,21 +79,26 @@ class LocationsController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request, Tag   $locations)
+	public function update(Request $request, Location $location)
 	{
-		try {
-		$location = Location::findOrFail(Input::get('id'));
-		}
-		catch(Exception $e) {
-		return Redirect::to('/admin.locations/')
-		->with('flash_message', 'tag not found');
-		}
+         $request->validate([
+            'building' => 'required',
+            'room'=> 'required',
+            'city'=> 'required',
+            'state'=> 'required',
+            'postal_code'=> 'required',
+        ]);
 
-		$location->name = Input::get('name');
+
+        $location->building = $request->building;
+        $location->room = $request->room;
+        $location->city = $request->city;
+        $location->state = $request->state;
+        $location->postal_code = $request->postal_code;
 		$location->save();
 
-		return Redirect::action('locationsController@index')
-		->with('flash_message','Your Tag has been saved.');
+		return redirect()->route('admin.locations.index')
+		->with('status','The Location has been saved.');
 	}
 
 	/**
@@ -115,20 +108,13 @@ class LocationsController extends Controller
 	 * @return Response
 	 */
 	public function destroy(Request $request, $id)
-	{
-		try {
-		$location = Location::findOrFail(Input::get('id'));
-		}
-		catch(Exception $e) {
-		return Redirect::to('/admin.locations/')
-		->with('flash_message', 'Tag not found');
-		}
-		# Note there's a `deleting` Model event which makes sure
-		//category_equipmemt entries are also destroyed
-		# See Category.php for more details
-		Location::destroy(Input::get('id'));
+	{   #retreive the location from the database
+        $location = Location::where('id', '=', $location->id)->first();
 
-		return Redirect::action('locationsController@index')
-		->with('flash_message','Your Tag has been deleted.');
-	} //
+        #delete locations
+        $location->delete();
+
+		return redirect()->route('admin.locations.index')
+		->with('status','The Location has been deleted.');
+	}
 }

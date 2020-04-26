@@ -11,32 +11,45 @@ Edit Location
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-               <form role="form" action= "{{ route('admin.locations.update', $location ?? '') }}" method="POST">
-                    {{ csrf_field() }}
-                    {{ method_field('PUT') }}
+               <form role="form" action= "{{ route ('admin.locations.update', $location) }}" method="POST">
+                   {{ csrf_field() }}
+                {{ method_field('PUT') }}
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputBuilding">Building</label>
-                    <input type="Building" class="form-control" id="exampleInputBuilding" placeholder="Building">
+
+                    <label for="building">Building</label>
+                    <input type="building" class="form-control" id="building"
+                    name = "building"  value="{{old ('building', $location->building)}}" placeholder="Building">
                   </div>
+                  @include('includes.error-field', ['fieldName' => 'building'])
+
                   <div class="form-group">
-                    <label for="exampleInputRoom">Room</label>
-                    <input type="Room" class="form-control" id="exampleInputRoom" placeholder="Room">
+                    <label for="room">Room</label>
+                    <input type="room" class="form-control" id="room"  name="room" value="{{old ('room', $location->room)}}" placeholder="Room">
                   </div>
-                   <div class="form-group">
-                    <label for="exampleInputCity">City</label>
-                    <input type="City" class="form-control" id="exampleInputCity" placeholder="City">
-                  </div>
+                  @include('includes.error-field', ['fieldName' => 'room'])
 
                    <div class="form-group">
-                    <label for="exampleInputState">State</label>
-                    <input type="State" class="form-control" id="exampleInputState" placeholder="State">
+                    <label for="city">City</label>
+                    <input type="city" class="form-control" id="city" value="{{old ('city', $location->city)}}"
+                    name="city" placeholder="City">
                   </div>
+                   @include('includes.error-field', ['fieldName' => 'city'])
 
                    <div class="form-group">
-                    <label for="exampleInputPostal_code">Postal Code</label>
-                    <input type="Postal_code" class="form-control" id="exampleInputPostal_code" placeholder="Postal_code">
+                    <label for="state">State</label>
+                    <input type="state" class="form-control" id="state" name="state" value="{{old ('state', $location->state)}}"
+                     placeholder="State">
                   </div>
+                  @include('includes.error-field', ['fieldName' => 'state'])
+
+                   <div class="form-group">
+                    <label for="postal_Code">Postal Code</label>
+                    <input type="postal_code" class="form-control" name="postal_code" value="{{old ('postal_code', $location->postal_code)}}"
+                    id="postal_code" placeholder="Postal_code">
+                  </div>
+                   @include('includes.error-field', ['fieldName' => 'postal_code'])
+
                    <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>

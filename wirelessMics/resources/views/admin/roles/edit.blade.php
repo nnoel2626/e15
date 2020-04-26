@@ -13,18 +13,24 @@ Edit Role
                   {{ method_field('PUT') }}
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputName">Role Name</label>
-                    <input type="Name" class="form-control" value="{{ $role->name }}"id="exampleInputName" placeholder="Enter Tag name">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputCreated_at">Created_ at</label>
-                    <input type="Created_ at" class="form-control" value="{{ $role->created_at }}"id="exampleInputCreated_ at" placeholder="Created_ at">
+                    <label for="name">Role Name</label>
+                    <input type="name" class="form-control" value="{{old('name', $role->name )}}"id="name" placeholder="Enter Tag name">
+                     @include('includes.error-field', ['fieldName' => 'name'])
                   </div>
 
-                   <div class="form-group">
-                    <label for="exampleInputUpdated_at">Updated_at</label>
-                    <input type="Updated_at" class="form-control" value="{{ $role->updated_at }}"id="exampleInputUpdated_at" placeholder="Updated_at">
+                  <div class="form-group">
+                    <label for="created_at">Created_ at</label>
+                    <input type="created_at" class="form-control" value="{{ old('created_at', $role->created_at )}}" id="created_at" placeholder="Created_at">
+                    @include('includes.error-field', ['fieldName' => 'created_at'])
                   </div>
+
+
+                   <div class="form-group">
+                    <label for="updated_at">Updated_at</label>
+                    <input type="updated_at" class="form-control" value="{{old('updated_at', $role->updated_at) }}" id="updated_at" placeholder="Updated_at">
+                    @include('includes.error-field', ['fieldName' => 'updated_at'])
+                  </div>
+
                    <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>

@@ -21,7 +21,7 @@
                             <p class="card-text ">Band: {{ $microphone['band'] }} </h4>
                             <p class="card-text">{{ $microphone['assigned_frequency'] }} </p>
                             <hr>
-                            <a href="{{ action('MicrophonesController@show', $microphone['id']) }}" class="btn btn-warning">See details</a>
+                             <a href="{{ route ('show', $microphone->slug) }}" class="btn fill">See details</a>
                         </div>
                 </li>
                  @endforeach

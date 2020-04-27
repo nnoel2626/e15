@@ -119,9 +119,10 @@ class MicrophonesController extends Controller
     }
 
 
-    public function show($slug) {
+    public function show( Microphone $microphone, $slug ) {
+
          $microphone = Microphone::where('slug', '=', $slug)->first();
-        //$microphone = Microphone::findOrFail($id);
+
 
         return view('microphones.show')->with([
             'microphone'=> $microphone,

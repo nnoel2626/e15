@@ -17,7 +17,7 @@
 
 <h1>{{ $book->title }}</h1>
 
-@if($book->author) --}}
+@if($book->author) 
     <p>By {{ $book->author->first_name. ' ' . $book->author->last_name }}</p>
 @endif
 

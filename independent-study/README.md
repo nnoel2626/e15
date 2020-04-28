@@ -1,4 +1,6 @@
-# How to Create a Laravel Package
+# How to Create a Laravel Package 
+
+### *By Norcius Noel*
 
 Before we can start creating the Laravel package, I think it would useful to first describe what is a package and how it gets used in a Laravel project.
 

@@ -136,7 +136,7 @@ The controller will be created in the "host" controller folder. Copy and paste t
    " php artisan make:model contact -m"
 ```
 
-### * migration
+### * Migration
 
 + Again, we need to set the path in the boot method on the ContactFormService file.
 

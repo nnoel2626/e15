@@ -106,7 +106,7 @@ In the root directory of the newly created project which I will call the "host" 
     $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 ```
 
-### * Views
+### * View
 
 + Package views are referenced using the `package::view"` syntax convention. So, once your view path is registered in a service provider, you may load the admin view from the contact-form package like so:
 

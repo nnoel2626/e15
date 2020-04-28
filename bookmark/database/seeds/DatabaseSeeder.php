@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
          # authors should be seeded first
          $this->call(AuthorsTableSeeder::class);
          $this->call(BooksTableSeeder::class);
+         # Because this seeder is dependent on Books and Users, it should be invoked last
+         $this->call(BookUserTableSeeder::class);
     }
 }

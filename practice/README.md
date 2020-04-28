@@ -49,6 +49,7 @@ Before we run this code through the validator, skim through it and see how many 
 
 
 ## Using the validator
+
 There are three ways to run your code through the W3C Validator:
 
 1. **Validate by URI**: Enter a URL to a web page that is online; the validator will read and validate the source of that page

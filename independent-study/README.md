@@ -2,14 +2,16 @@
 
 Before we can start creating the Laravel package, I think it would useful to first describe what is a package and how it gets used in a Laravel project.
 
-A package is a  stand-alone source code that developers create that can be integrated into a project that provides additional functionalities which Laravel does not provide out of the box.. Developers only need to import by "require" the package through Composer and adapt it to their projects.
+A package is a  stand-alone source code that developers create that can be integrated into a project that provides additional functionalities which Laravel does not provide out of the box. Developers only need to import by "require" the package through Composer and adapt it to their projects.
 
-## Creating Laravel Packages
+## Create Laravel Packages
 
- I created a Laravel package just to make it easy to understand the process. The package is a contact form that sends alerts to the Admin each time it gets used. The form submission request also gets saved to the database. I will provide a step by step instructions on how it was done.  
- As I just mentioned, you are going to need Composer, an account with (<https://packagist.org)> where you publish the package, a GitHub account which most of you already have, and fresh install of Laravel project to host the package. Let's get started.
+ I created a Laravel package just to make it easy to understand the process. The package is a contact form that sends an email alert to the Administrator each time the form get used. The form submission request also get saved to the database. This guide will provide a step by step instruction on how to create such a package.  
+ As I just mentioned previously, you are going to need Composer, an account with (<https://packagist.org)> where you publish the package, a GitHub account which most of you already have, and fresh install of Laravel project to host the package. Let's get started.
 
 ### Create a new Laravel project
+
+Refer to the Laravel documentation if you need further assistance. <https://Laravel.com/docs/7.x/packages/>
 
 + Create a new Laravel project with package "name-it-what-ever-you-want" by running this code below.
 
@@ -17,7 +19,7 @@ A package is a  stand-alone source code that developers create that can be integ
     "composer create-project Laravel/Laravel form-package"
 ```
 
-In the root directory of the newly created project which I will call the "host" from now on, create a  folder and name it "src".  Inside the "src" folder, you are going to create composer.json  and service provider files. Depending on the sophistication of your package, you are going to need at least these files on your package. In some instances, you may also create a `dist` branch if you are compiling your assets for a production server. In this way, developers that will be using your package will have an option to choose between the source files in the src folder or the distribution files in the `dist` folder when installing your package through Composer.
+In the root directory of the newly created project which I will call the "host" from now on, create a  folder and name it "src".  Inside the "src" folder, you are going to create composer.json and service provider files. Depending on the sophistication of your package, you are going to need at least these two files on your package. In some instances, you may also create a `dist` branch if you are compiling your assets for a production server. In this way, developers that will be using your package will have an option to choose between the source files in the src folder or the distribution files in the `dist` folder when installing your package through Composer.
 
 + To Create the composer.json file, navigate inside the "src" run this command and follow the prompt: 
 
@@ -45,13 +47,13 @@ In the root directory of the newly created project which I will call the "host" 
     }
 ```
 
-+ Now let's create the ServiceProvider class for the contact_form. At the command prompt run:
++ Now let's create the ServiceProvider class for the contact form. At the command prompt run:
 
 ```PHP
     "php artisan make:provider ContactFormServiceProvider.php"
 ```
 
-+ Note that the service provider class that you just created is inside the provider folder of the "host" project.  You need to copy the file from the service provider folder and paste it inside the "src" folder. Make sure that you namespace the ContactFormServiceProvider class file correctly so that Composer can access it during the autoload process. Also, you should register this new root namespace by adding this code below in the autoload section in your composer.json file.
++ The service provider class that you just created is inside the provider folder of the "host" project.  You need to copy the file from the service provider folder and paste it inside the "src" folder. Make sure that you namespace the ContactFormServiceProvider class file correctly so that Composer can access it during the autoload process. Also, you should register this new root namespace by adding this code below in the autoload section in your composer.json file.
 
 ```PHP
       "autoload": {
@@ -61,13 +63,13 @@ In the root directory of the newly created project which I will call the "host" 
              }
 ```
 
-+ You also need to add the path of the new class in the host Laravel project composer file under autoload-dev so it can autoload it as well. See sample code below:
++ You also need to add the path of the new class in the host Laravel project composer file under autoload-dev so it can be loaded in the "host" project as well. See sample code below:
 
 ```PHP
         "autoload-dev": {
             "psr-4": {
                     "Laravel\\Tinker\\Tests\\": "tests/",
-                    "Nnoel\\ContactForm\\": "package/contact-    form/src/"
+                    "Nnoel\\ContactForm\\": "package/contact-form/src/"
                 }
             }
 ```
@@ -77,8 +79,6 @@ In the root directory of the newly created project which I will call the "host" 
 ```PHP
  "composer dump-autoload"
 ```
-
-Refer to the Laravel documentation if you need further assistance. <https://Laravel.com/docs/7.x/packages/>
 
 + The next step is to declare the new class name in a service provider. Go to Config/app and register the form-contact provider class to the provider classes like so: 
 
@@ -92,9 +92,9 @@ Refer to the Laravel documentation if you need further assistance. <https://Lara
         "composer dump-autoload"
 ```
 
-### Using the package in the Host Project
+### Configure the package in the "host" Project
 
-+ To configure the contact-form package locally, we need to create several services: need a migration file,  a route for the contact-form,  a view file, a model, a controller, and finally,  a mailable class. So we need to replicate the same folder structure of the "host" project. In the ContactFormServiceProvider.php file, there two methods: a boot method and a register method. You need to configure the boot method by providing the different directories path for these services to work.
++ To configure the contact-form package locally, we need to create the following items: need a migration file,  a route for the contact-form,  a view file, a model, a controller, and finally a mailable class. So we need to replicate the same folder structure of the "host" project. In the ContactFormServiceProvider.php file, there two methods: a boot method and a register method. You need to configure the boot method by providing the different directories path for these files to work.
 
 ### * Route
 
@@ -106,8 +106,6 @@ Refer to the Laravel documentation if you need further assistance. <https://Lara
 
 ### * Views
 
-See documentation at <https://Laravel.com/docs/7.x/packages/Views.>
-
 + Package views are referenced using the `package::view"` syntax convention. So, once your view path is registered in a service provider, you may load the admin view from the contact-form package like so:
 
 ```PHP
@@ -115,6 +113,8 @@ See documentation at <https://Laravel.com/docs/7.x/packages/Views.>
     return view('courier::admin');
     });
 ```
+
+Also check the documentation at <https://Laravel.com/docs/7.x/packages/Views.>
 
 ### * Controller
 
@@ -180,8 +180,7 @@ and configure any of the mail transport drivers that come with Laravel. Since I 
 
 ### * Publish configuration file for contact-form
 
- Publishing your package's configuration file to the application's config directory will allow users to easily override your default configuration options. 
-
++ Publishing your package's configuration file to the application's config directory will allow users to easily override your default configuration options.
 
 + As the documentation shows we have to provide a config_path in order the publish the package. Add this code to the boot method of the ContactFormServiceProvider file. See documentation at <https://Laravel.com/docs/7.x/packages/#configuration.>
 
@@ -222,28 +221,33 @@ and configure any of the mail transport drivers that come with Laravel. Since I 
     }
 ```
 
-And your package folder structure should look like this:
+ + Your package folder structure should look like this:
 
 ![](images/folder_structure.png)
 
 
++ Lastly, your contactForm should look like this:
+
+![](images/contact_form.png)
+
+
 ### Bonus tips
 
- You should be testing at every point during the configuration process by running `PHP artisan serve` in your project root directory. The Laravel development server started: <http://127.0.0.1:8000>. If everything tests fine, you are ready to publish to GitHub and then to <https://packagist.org>. 
+ You should be testing at every point during the configuration process by running `PHP artisan serve` in your project root directory. The Laravel development server started: <http://127.0.0.1:8000/contact-form>. If everything tests fine, you are ready to publish to GitHub and then to <https://packagist.org>. 
 
 ## Publishing your package
 
-The last thing is if you want to show your package to the world so that other people could add it to their composer.json file. Here are the basic steps to publish it. Make package auto-discovery.
+The last thing you need to do is to publish your package to the world so that other people could add it to their project file. Here are the basic steps to publish it. Make package auto-discovery.
 
-    1. Create a repository and upload it to GitHub(<https://github.com)>
+1. **Create a repository and upload it to GitHub <https://github.com>**
 
-    2. You register on <https://packagist.org>
+2. **You register on <https://packagist.org>**
 
-    3.  You make sure that your composer.json contains all necessary information;
+3. **You make sure that your composer.json contains all necessary information.**
 
-    4. You submit a link to your GitHub repository to packagist.org
+4. **You submit a link to your GitHub repository to <packagist.org>.**
 
-    5. For all detailed information about composer.json fields, package versioning, and other topics – see (<https://packagist.org/about)> documentation.
+5. **For all detailed information about composer.json fields, package versioning, and other topics – see (<https://packagist.org/about)> documentation.**
 
 
 ### link to  contact-form package on <packagist.org> 

@@ -14,9 +14,9 @@
     <h2>Microphone Details</h2>
     </div>
 
-    {{-- @if(!$microphone)
+    @if(!$microphone)
                 No microphone with this specific name...
-    @else --}}
+    @else
     <div class="row justify-content-center">
      <div class="col-md-6"
      <div class="card bg-light mb-2">
@@ -41,7 +41,7 @@
     </div>
  </div>
 
-{{-- @endif --}}
+@endif
 @endsection
 
 

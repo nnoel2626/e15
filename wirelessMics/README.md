@@ -7,6 +7,7 @@
 ## Feature summary
 
 + Full Auth implementation where user can register, logIn, reset password.
++ Browser and server Validations for all form inputs
 + Regular Users can search for microphones in their collection, view installed and portable mics. 
 + Admin users have access to both the front and back end of the Application. In the back-end, depending on the admin access level, they can manage users, microphones, and assisting listening devices.
 + Each user has their own account page where they can view their bio, email, password

@@ -9,6 +9,70 @@ use Str;
 class PracticeController extends Controller
 {
 
+    public function practice28()
+    {
+        # As an example, grab a user we know has books on their list
+        $user = User::where('email', '=', 'jill@harvard.edu')->first();
+
+        # Grab the first book on their list
+        $book = $user->books()->first();
+
+        # Update and save the notes for this relationship
+        $book->pivot->notes = "New note...";
+        $book->pivot->save();
+
+        dump($book->toArray());
+
+        return 'Update complete';
+    }
+
+
+    public function practice27()
+    {
+        # As an example, grab a user we know has books on their list
+        $user = User::where('email', '=', 'jill@harvard.edu')->first();
+
+        # Grab the first book on their list
+        $book = $user->books()->first();
+
+        # Delete the relationship
+        $book->pivot->delete();
+
+        dump($book->toArray());
+
+        return 'Delete complete';
+    }
+
+
+    public function practice26()
+    {
+        # Eager load users to reduce number of queries
+        $books = Book::with('users')->get();
+
+        foreach ($books as $book) {
+            if ($book->users->count() == 0) {
+                dump($book->title . ' is not on any user’s list');
+            } else {
+                dump($book->title . ' is on the following user’s lists:');
+
+                foreach ($book->users as $user) {
+                    dump($user->email);
+                }
+            }
+        }
+    }
+
+    public function practice25()
+{
+    $user = User::where('email', '=', 'jill@harvard.edu')->first();
+
+    dump($user->name.' has the following books on their list: ');
+
+    # Note how we can treate the `books` relationship as a dynamic propert ($user->books)
+    foreach ($user->books as $book) {
+        dump($book->title);
+    }
+}
 
     public function practice22()
     { # Eager load the author with the book

@@ -6,7 +6,7 @@ Before we can start creating the Laravel package, I think it would useful to fir
 
 A package is a  stand-alone source code that developers create that can be integrated into a project that provides additional functionalities which Laravel does not provide out of the box. Developers only need to import by "require" the package through Composer and adapt it to their projects.
 
-## Create Laravel Packages
+## Create Laravel Package
 
  I created a Laravel package just to make it easy to understand the process. The package is a contact form that sends an email alert to the Administrator each time the form get used. The form submission request also get saved to the database. This guide will provide a step by step instruction on how to create such a package.  
  As I just mentioned previously, you are going to need Composer, an account with (<https://packagist.org)> where you publish the package, a GitHub account which most of you already have, and fresh install of Laravel project to host the package. Let's get started.

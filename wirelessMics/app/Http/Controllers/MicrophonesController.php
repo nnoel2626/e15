@@ -70,7 +70,7 @@ class MicrophonesController extends Controller
         // $tags = Tag::all();
 
         #Retrieve all $microphones with at least one tag_name containing words installed
-        $microphones = Microphone::whereHas('tags', function ($query) use($tags) {
+        $microphones = Microphone::with('tags')->whereHas('tags', function ($query) use($tags) {
          $query->where('name','Portable');
         })->orderBy('assigned_frequency')
          ->get();
@@ -125,7 +125,6 @@ class MicrophonesController extends Controller
     public function show( Microphone $microphone, $slug ) {
 
          $microphone = Microphone::where('slug', '=', $slug)->first();
-
 
         return view('microphones.show')->with([
             'microphone'=> $microphone,

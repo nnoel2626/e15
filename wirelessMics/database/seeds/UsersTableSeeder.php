@@ -27,6 +27,8 @@ class UsersTableSeeder extends Seeder
 
         ]);
 
+
+
         $staff = User::create([
             'name'  => 'Dave Harris',
             // 'username' => 'Dave',
@@ -53,8 +55,9 @@ class UsersTableSeeder extends Seeder
 
         ]);
 
-        $user = User::updateOrCreate(
-        ['email' => 'jill@harvard.edu', 'name' => 'Jill Harvard'],
+        $admin = User::updateOrCreate(
+        ['email' => 'jill@harvard.edu',
+        'name' => 'Jill Harvard'],
         ['password' => Hash::make('helloworld')
         ]);
 

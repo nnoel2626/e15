@@ -38,8 +38,10 @@
                                 @foreach( $microphones as $microphone)
                                 <tr>
                                 <th scope="row">{{ $microphone->id }}</th>
+                                @if($microphone->location)
                                 <th> {{ $microphone->location->building }} </th>
                                 <td> {{ $microphone->location->room }}</td>
+                                @endif
                                 <td> {{ $microphone->model }}</td>
                                 <td> {{ $microphone->band }}</td>
                                 <td> {{ $microphone->assigned_frequency }}</td>
@@ -48,12 +50,19 @@
                                     {{ implode( ',', $microphone->tags()->pluck('name')->toArray()) }}
                                     </div>
                                </td>
+                               {{-- @foreach( $microphone->tags as $tag)
+                               <td class="cell-breakWord">
+                                    <div class="label label-info label-many">
+                                    {{ $tag['name'] }}
+                                    </div>
+                               </td>
+                                @endforeach --}}
                                 <td>
                                 <a href="{{ route('admin.mics.create') }}" class="btn btn-info btn-sml"><i class="fa fa-plus"></i>Create</a>
 
                                 <a href="{{ route ('admin.mics.edit', $microphone) }}"><button type="button" class="btn btn-primary btn-sml"><i class="fa fa-edit"></i>Edit</button></a>
 
-                                <button class="btn btn-danger btn-sml" data-microphoneId={{$microphone->id}} data-toggle="modal" data-target="#deleteMic"><i class="fa fa-trash"></i>Delete</button>
+                                 <a href="{{ route ('admin.microphones.delete',$microphone) }}" class="btn btn-danger btn-sml"><i class="fa fa-trash"></i> Delete</a>
                                 </td>
                                 </tr>
                             @endforeach
@@ -65,31 +74,6 @@
     </div>
 
 
-    <!-- Modal -->
-<div class="modal modal-danger fade" id="deleteMic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
-      </div>
-      <form action="{{route('admin.mics.destroy',$microphone)}}" method="post">
-      		{{method_field('delete')}}
-      		{{csrf_field()}}
-	        <div class="modal-body">
-				<p class="text-center">
-					Are you sure you want to delete this?
-				</p>
-	      		<input type="hidden" name="microphone_id" id="microphone_id" value="">
-
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
-	        <button type="submit" class="btn btn-warning">Yes, Delete</button>
-	      </div>
-      </form>
-    </div>
-  </div>
 
  @endsection
 

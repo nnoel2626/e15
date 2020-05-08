@@ -68,7 +68,6 @@ class UsersController extends Controller
         $user = User::where('id', '=', $user->id)->first();
         $user->roles()->sync($request->roles);
 
-
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
@@ -77,60 +76,73 @@ class UsersController extends Controller
         ->with('status','The User has been updated.');
     }
 
+      public function delete(User $user)
+        {
+             $user = User::where('id', '=', $user->id)->first();
+           // ddd($user);
+
+            if (!$user) {
+                return redirect()->route('admin.users.index')->with([
+                    'status' => 'User not found'
+                ]);
+            }
+
+            return view('admin.users.delete')->with([
+                'user' => $user
+            ]);
+        }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
-    {
-        $user = User::where('id', '=', $user->id)->first();
+        public function destroy(User $user)
+        {
+            $user = User::where('id', '=', $user->id)->first();
 
-        #if current user is not admin, redirect to Admin Panel.
-        if (Gate::denies('delete-users')) {
-            return redirect(route('admin.users.index'));
+            #if current user is not admin, redirect to Admin Panel.
+            if (Gate::denies('delete-users')) {
+                return redirect(route('admin.users.index'));
+                }
+
+            #Remove all roles for this current user.
+        //     if($user->roles()){
+        //     $user->roles()->detach($role);
+        //    }
+
+
+            #Delete user from DB
+            $user->delete();
+
+            return redirect()->route('admin.users.index')->with([
+                        'status' => 'User has been deleted'
+                    ]);
         }
 
-        //dd($user);
 
-        #Remove all roles for this current user.
-        //$user-roles()->detach($role);
+        /**
+         * GET /support
+         */
+        public function profile()
+        {
+            //$username
 
-        #Delete user from DB
-        $user->delete();
+            // $user = User::where('username', '=', $username);
 
-        return redirect()->route('admin.users.index');
-    }
+            // if($user->count()) {
 
+            //     $user = $user->first();
 
-     /**
-     * GET /support
-     */
-    public function profile()
-    {
-         //$username
+            //     return View::Make('profile.user')
+            //         ->with('user', $user);
+            // }
 
-        // $user = User::where('username', '=', $username);
+            // return App::abort(404);
+        //}
 
-        // if($user->count()) {
-
-        //     $user = $user->first();
-
-        //     return View::Make('profile.user')
-        //         ->with('user', $user);
-        // }
-
-        // return App::abort(404);
-    //}
-
-        return view('admin.users.profile');
-    }
+            return view('admin.users.profile');
+        }
 }
 
-//     $request->session()->flash('success', $user->name . ' ' . 'user has been updated');
-        // } else {
-        //     $request->session()->flash('error', 'There was an error updating the user');
-        // }
-
-        // $request->session()->flash('warning', 'Testing warning flash message');

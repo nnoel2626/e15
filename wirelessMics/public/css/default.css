@@ -263,3 +263,16 @@ img#logo {
     width: 50 px;
     height: 50 px;
 }
+
+
+.cancel {
+    margin-top: 20px;
+}
+
+.cover {
+    width: 100px;
+    height: 137px;
+    background-color: #eee;
+    margin-right: 10px;
+}
+

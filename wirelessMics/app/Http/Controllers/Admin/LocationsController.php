@@ -89,7 +89,7 @@ class LocationsController extends Controller
             'postal_code'=> 'required',
         ]);
 
-
+           // ddd($request->all());
         $location->building = $request->building;
         $location->room = $request->room;
         $location->city = $request->city;
@@ -101,13 +101,30 @@ class LocationsController extends Controller
 		->with('status','The Location has been saved.');
 	}
 
+
+     public function delete(Location $location)
+     {
+             $location = Location::where('id', '=', $location->id)->first();
+           //ddd($location);
+
+            if (!$location) {
+                return redirect()->route('admin.locations.index')->with([
+                    'status' => 'location not found'
+                ]);
+            }
+
+            return view('admin.locations.delete')->with([
+                'location' => $location
+            ]);
+     }
+
 	/**
 	 * Remove the specified resource from storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy(Request $request, $id)
+	public function destroy(Location $location)
 	{   #retreive the location from the database
         $location = Location::where('id', '=', $location->id)->first();
 

@@ -41,7 +41,7 @@ class MicrophonesController extends Controller
             $searchType = strtolower($request->input('searchType', null));
 
 
-            $microphones  = Microphone::where ('band','LIKE', '%'.$searchTerms.'%')
+            $microphones  = Microphone::with('tags')->where('band','LIKE', '%'.$searchTerms.'%')
              ->orwhereHas('location', function ($q) use ($searchTerms, $searchType){
                 $q->where('building', 'like', '%'.$searchTerms.'%')
                   ->orWhere('room', 'like', '%'.$searchTerms.'%');
@@ -70,7 +70,7 @@ class MicrophonesController extends Controller
         // $tags = Tag::all();
 
         #Retrieve all $microphones with at least one tag_name containing words installed
-        $microphones = Microphone::with('tags')->whereHas('tags', function ($query) use($tags) {
+        $microphones = Microphone::with('tags')->whereHas('tags', function ($query) {
          $query->where('name','Portable');
         })->orderBy('assigned_frequency')
          ->get();
@@ -88,11 +88,10 @@ class MicrophonesController extends Controller
          */
     public function installed(Request $request)
     {
-        # Retrieve all $tags
+        # Retrieve all $tags while reteiving mics through Eager loading
         // $tags = Tag::all();
-
         #Retrieve all $microphones with at least one tag_name containing words installed
-        $microphones = Microphone::with('tags')->whereHas('tags', function ($query) use($tags) {
+        $microphones = Microphone::with('tags')->whereHas('tags', function ($query) {
         $query->where('name','Installed');
          })->orderBy('assigned_frequency')
          ->get();
@@ -118,13 +117,12 @@ class MicrophonesController extends Controller
 
         return view('microphones.index')
         ->with('microphones', $microphones);
-
     }
 
 
-    public function show( Microphone $microphone, $slug ) {
-
-         $microphone = Microphone::where('slug', '=', $slug)->first();
+    public function show( Microphone $microphone, $slug )
+    {
+     $microphone = Microphone::where('slug', '=', $slug)->first();
 
         return view('microphones.show')->with([
             'microphone'=> $microphone,

@@ -71,13 +71,20 @@
  //});
 
     #resources route for Admin
-    Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function () {
+    Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function ()
+    {
+
+    # Show the page to confirm deletion of a user
+    Route::get('/users/{user}/delete', 'UsersController@delete')->name('users.delete');
     # Routes to Manage User resources
     Route::resource('/users', 'UsersController', ['except' =>['show']]);
     Route::get('/users/profile', 'UsersController@profile')->name('users.profile');
 
+
     # Routes to Manage Microphone resources
     Route::get('/microphones', 'AdminMicsController@list')->name('mics.list');
+    # Show the page to confirm deletion of a user
+    Route::get('/microphones/{microphone}/delete', 'AdminMicsController@delete')->name('microphones.delete');
 
     Route::resource('/microphones', 'AdminMicsController', [
           'only' => [ 'create', 'store', 'edit', 'update','destroy'],
@@ -86,18 +93,29 @@
                      'destroy' => 'mics.destroy' ]
     ]);
 
+
+    # Show the page to confirm deletion of a user
+    Route::get('/tags/{tag}/delete', 'TagsController@delete')->name('tags.delete');
     # Routes to Manage Tag resources
     Route::resource('/tags', 'TagsController', [
      'only' => [ 'index','create', 'store', 'edit', 'update','destroy']
     ]);
 
+
+     # Show the page to confirm deletion of a user
+    Route::get('/roles/{role}/delete', 'RolesController@delete')->name('roles.delete');
     # Routes to Manage Role resources
     Route::resource('/roles', 'RolesController',
         ['only' =>['index','create','store', 'edit', 'update', 'destroy']
     ]);
+
+
+    # Show the page to confirm deletion of a user
+    Route::get('/locations/{location}/delete', 'LocationsController@delete')->name('locations.delete');
     # Routes to Manage Role resources
     Route::resource('/locations', 'LocationsController',
         ['only' =>['index','create','store', 'edit', 'update', 'destroy']
     ]);
+
 
     });

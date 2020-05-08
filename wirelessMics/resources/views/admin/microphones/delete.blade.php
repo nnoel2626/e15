@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Confirm deletion: {{ $tag->name }}
+    Confirm deletion: {{ $microphone->name }}
 @endsection
 
 @section('content')
@@ -18,15 +18,16 @@
         <div class="box-body card_content">
             <div class="site-title col-12 text-center">
 
-            <h4>Are you sure you want to delete <strong>{{ $tag->name }}</strong>?</h4>
-            <form action="{{route('admin.tags.destroy',$tag->id)}}" method="post">
+            <h4>Are you sure you want to delete <strong>{{ $microphone->name }}</strong>?</h4>
+
+            <form action="{{ route ('admin.mics.destroy', $microphone->id) }}" method="post">
       		{{method_field('delete')}}
       		{{csrf_field()}}
-                <input type='submit' value='Yes, delete it!' class='btn btn-danger btn-small'>
+            <input type='submit' value='Yes, delete it!' class='btn btn-danger btn-small'>
             </form>
 
             <h4 class='cancel'>
-                <a href='/tags/{{ $tag->id }}'>No, I changed my mind.</a>
+                <a href='/microphones/{{ $microphone->id }}'>No, I changed my mind.</a>
             </h4>
             </div>
     </div>

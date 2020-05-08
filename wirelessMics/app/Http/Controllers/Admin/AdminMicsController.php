@@ -57,8 +57,11 @@ class AdminMicsController extends Controller
     * Process the form for adding a new book
     */
     public function store( Request $request, Microphone $microphone)
-    {   # Validate the request data The `$request->validate` method takes an array of data
+    {
+        # Validate the request data The `$request->validate` method takes an array of data
         # where the keys are form inputs and the values are validation rules to apply to those inputs
+        # Note: If validation fails, it will automatically redirect the visitor back to the form page
+        # and none of the code that follows will execute.
         $request->validate([
             'slug' => 'required | unique:microphones,slug|alpha_dash',
             'make'=> 'required',
@@ -70,37 +73,33 @@ class AdminMicsController extends Controller
             'group'=> 'required',
             'channel'=> 'required',
             'assigned_frequency'=> 'required',
-            'location_id' => 'required',
+            'location_id' => 'required|integer',
             'comments'=> 'min:8'
         ]);
 
-        # Note: If validation fails, it will automatically redirect the visitor back to the form page
-        # and none of the code that follows will execute.
+        $newMicrophone = new Microphone();
+		$newMicrophone->slug = $request->slug;
+        $newMicrophone->make = $request->make;
+        $newMicrophone->model = $request->model;
+        $newMicrophone->frequency_range = $request->frequency_range;
+        $newMicrophone->band = $request->band ;
+        $newMicrophone->serial_number = $request->serial_number;
+        $newMicrophone->type = $request->type;
+        $newMicrophone->group = $request->group;
+        $newMicrophone->channel = $request->channel;
+        $newMicrophone->assigned_frequency = $request->assigned_frequency;
+        $newMicrophone->comments = $request->comments;
+        $newMicrophone->location_id = $request->location_id;
+        $newMicrophone->save();
 
-        $microphone = new Microphone();
-		$microphone->slug = $request->slug;
-        $microphone->make = $request->make;
-        $microphone->model = $request->model;
-        $microphone->frequency_range = $request->frequency_range;
-        $microphone->band = $request->band ;
-        $microphone->serial_number = $request->serial_number;
-        $microphone->type = $request->type;
-        $microphone->group = $request->group;
-        $microphone->channel = $request->channel;
-        $microphone->assigned_frequency = $request->assigned_frequency;
-        $microphone->comments = $request->comments;
 
-        $microphone->save();
-        # Once microphone is create, attach the requested tag(s).
-         if ($request->has('tag')) {
-             $tag = $this->request->input('name');
-             $microphone->tags()->attach($request->tag);
-        }
 
-        //  if ($request->has('location_id')) {
-        //     $location_id = $this->request->location_id;
-        //     $microphone->location->id->attach($request->location_id);
-        //  }
+        # After the new microphone is created, attach the requested tag name and location.
+         if ($request->has('tags')) {
+             $tags = $request->input('tags');
+             $newMicrophone->tags()->attach($tags);
+            }
+
         # redirect to microphone list with message
         return redirect()->route('admin.mics.list')
             ->with('status', 'Microphnoe Created!');
@@ -130,35 +129,23 @@ class AdminMicsController extends Controller
     public function edit( Microphone $microphone)
      {
        ///($microphone);
+        $microphone = Microphone::with('location')->where('id', '=', $microphone->id)->first();
         #Get all the tags and passing them through the session by using the "with method"
         $tags = Tag::all();
-         //$locations = Location::all();
 
         return view('admin.microphones.edit')
         ->with([
             'microphone' => $microphone,
-            'tags' => $tags
+            'tags' => $tags,
         ]);
     }
 
     # Method for Admin Panel
      public function update(Request $request, Microphone $microphone)
      {
-        dump($microphone);
-        # Check to see if the microphone already exist
-         $microphone = Microphone::where('id', $microphone->id)->first();
-         $id = $microphone->id;
-         # sync tags from request tags if any
-        $microphone->tags()->sync($request->tags);
-
-        # F. Scott Fitzgerald => ['F.', 'Scott', 'Fitzgerald'] => 'Fitzgerald'
-            // $name = explode(' ', $bookData['author']);
-            // $lastName = array_pop($name);
-
-            // # Find that author in the authors table
-            // $author_id = Author::where('last_name', '=', $lastName)->pluck('id')->first();
-
-       // $microphone->location->id->attach($location_id);
+        //ddd($microphone);
+        //ddd($request->all());
+        // $microphone = Microphone::with('locations')->where('id', '=', $microphone->id)->first();
           # Validate the inout request
          $request->validate([
             'slug' => 'required|alpha_dash',
@@ -171,11 +158,16 @@ class AdminMicsController extends Controller
             'group'=> 'required',
             'channel'=> 'required',
             'assigned_frequency'=> 'required',
-            'location_id' => 'required',
+            'location_id' => 'required|integer',
             'comments'=> 'min:8'
         ]);
 
-
+              # Check to see if the microphone already exist
+        // $microphone = Microphone::with('locations')->where('id', '=', $microphone->id)->first();
+        $microphone = Microphone::where('id', '=', $microphone->id)->first();
+         //$id = $microphone->id;
+         # sync tags from request tags if any
+        $microphone->tags()->sync($request->tags);
         # create Microphone from request input
     // $microphone->id = $request->id;
         $microphone->slug = $request->slug;
@@ -193,24 +185,47 @@ class AdminMicsController extends Controller
 
         $microphone->save();
 
-
+        // # Find that location in the locations table
+       // $location_id = Location::where('id', '=', $location_id)->pluck('id')->first();
+      // $location = Location::where('id', '=', $request->location_id)->first();
+       //ddd($location->id);
+        //$location_id = $location_id;
+       // $microphone->location->attach($location->id);
 
         # Once microphone is saved, attach the requested tag(s).
-         if ($request->has('tag')) {
-             $tag = $this->request->input('name');
-             $microphone->tags()->attach($request->tag);
-        }
+        //  if ($request->has('tag')) {
+        //      $tag = $this->request->input('name');
+        //      $microphone->tags()->attach($request->tag);
+        // }
         #redirect to microphone list with status
       return redirect()->route('admin.mics.list')->with('status', 'Microphnoe has been updated!');
     }
 
 
 
+     public function delete(Microphone $microphone)
+    {
+             $microphone = Microphone::where('id', '=', $microphone->id)->first();
+           // ddd($microphone);
+
+            if (!$microphone) {
+                return redirect()->route('admin.mics.list')->with([
+                    'status' => 'microphone not found'
+                ]);
+            }
+
+            return view('admin.microphones.delete')->with([
+                'microphone' => $microphone
+            ]);
+    }
+
+
     # Method for Admin Panel
      public function destroy(Microphone $microphone )
      {
+         $microphone = Microphone::where('id', '=', $microphone->id)->first();
          //ddd($microphone);
-         //Microphone::find($id)->delete();
+
 
         $microphone->delete();
 

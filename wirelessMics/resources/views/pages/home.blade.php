@@ -21,7 +21,6 @@
 
                      <h4>Note: If you are searching by building, enter building name and select the corresponding radio button. </h4>
 
-
                         <fieldset>
                             <label for='searchTerms'>
                                 Search terms:

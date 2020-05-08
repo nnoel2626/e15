@@ -25,6 +25,11 @@
                                     <p class="card-text">{{ $microphone->location->room }}</p>
                                     <p class="card-text ">Band: {{ $microphone->band }} </h4>
                                     <p class="card-text">{{ $microphone->assigned_frequency }} </p>
+
+                                     @foreach ($microphone->tags as $tag)
+                                          <p class="card-text ">  Tag:{{ $tag->name }}</p>
+                                    @endforeach
+
                                     <hr>
                                      <a href="{{ route ('show', $microphone->slug) }}" class="btn fill">See details</a>
                                 </div>

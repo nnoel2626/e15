@@ -17,22 +17,24 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputName">Tag Name</label>
-                    <input type="Name" class="form-control" id="exampleInputName" placeholder="Enter Tag name">
-                    @include('includes.error-field', ['fieldName' => 'name'])
+                    <input type="Name" class="form-control" name="name" id="exampleInputName" value="{{ old('name') }}" placeholder="Enter Tag name">
+
                   </div>
+                  @include('includes.error-field', ['fieldName' => 'name'])
 
                   <div class="form-group">
                     <label for="created_at">Created_ at</label>
-                    <input type="created_at" class="form-control" id="created_at" placeholder="created_at">
-                     @include('includes.error-field', ['fieldName' => 'created_at'])
-                  </div>
+                    <input type="created_at" class="form-control" name="created_at" value="{{ old('created_at') }}" id="created_at" placeholder="created_at">
 
+                  </div>
+                  @include('includes.error-field', ['fieldName' => 'created_at'])
 
                    <div class="form-group">
                     <label for="updated_at">Updated_at</label>
-                    <input type="updated_at" class="form-control" id="updated_at" placeholder="Updated_at">
-                    @include('includes.error-field', ['fieldName' => 'updated_at'])
+                    <input type="updated_at" class="form-control" name="updated_at" value="{{ old('updated_at') }}"id="updated_at" placeholder="Updated_at">
+
                   </div>
+                  @include('includes.error-field', ['fieldName' => 'updated_at'])
 
                    <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>

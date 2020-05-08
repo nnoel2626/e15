@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model
 {
+    protected $fillable = [
+         'building','room','city','state',
+    ];
+
     public function microphones()
     {
         return $this->hasMany(Microphone::class);
@@ -27,7 +31,6 @@ class Location extends Model
 
 #read Method
 // $phone = Phone::find(1);
-
 // $user = User::find(10);
 
 // $phone->user()->associate($user)->save();

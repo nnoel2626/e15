@@ -31,7 +31,7 @@ class TagsController extends Controller
 	 */
 	public function create(Request $request)
 	{
-		return View ('admin.tags.create');
+        return View ('admin.tags.create');
 	}
 
 	/**
@@ -41,6 +41,7 @@ class TagsController extends Controller
 	 */
 	public function store(Request $request, Tag $tag)
 	{
+
 
         $request->validate([
             'name' => 'required|unique:tags,name',
@@ -92,13 +93,30 @@ class TagsController extends Controller
 		->with('status','The Tag has been saved.');
 	}
 
+     public function delete(Tag $tag)
+    {
+             $tag = Tag::where('id', '=', $tag->id)->first();
+           // ddd($tag);
+
+            if (!$tag) {
+                return redirect()->route('admin.tags.index')->with([
+                    'status' => 'tag not found'
+                ]);
+            }
+
+            return view('admin.tags.delete')->with([
+                'tag' => $tag
+            ]);
+    }
+
+
 	/**
 	 * Remove the specified resource from storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy(Request $request, Tag $tag)
+	public function destroy(Tag $tag)
 	{
         $tag = Tag::where('id', '=', $tag->id)->first();
 

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Confirm deletion: {{ $tag->name }}
+    Confirm deletion: {{ $user->name }}
 @endsection
 
 @section('content')
@@ -18,15 +18,17 @@
         <div class="box-body card_content">
             <div class="site-title col-12 text-center">
 
-            <h4>Are you sure you want to delete <strong>{{ $tag->name }}</strong>?</h4>
-            <form action="{{route('admin.tags.destroy',$tag->id)}}" method="post">
+            <h4>Are you sure you want to delete <strong>{{ $user->name }}</strong>?</h4>
+            {{-- <form method='POST' action='/users/{{ $user->id }}'> --}}
+{{-- <a href="{{ route ('admin.users.delete',$user) }}" --}}
+            <form action="{{route('admin.users.destroy',$user->id)}}" method="post">
       		{{method_field('delete')}}
       		{{csrf_field()}}
                 <input type='submit' value='Yes, delete it!' class='btn btn-danger btn-small'>
             </form>
 
             <h4 class='cancel'>
-                <a href='/tags/{{ $tag->id }}'>No, I changed my mind.</a>
+                <a href='/users/{{ $user->id }}'>No, I changed my mind.</a>
             </h4>
             </div>
     </div>

@@ -40,14 +40,16 @@ class RolesController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request, Role $role)
+    public function store(Request $request, Role $role)
 	{
+
             $request->validate([
-            'name' => 'required|unique:role, name',
+            'name' => 'required|unique:roles,name',
             'created_at' => 'required',
             'updated_at' => 'required',
             ]);
 
+            //ddd($request->all());
 			$role = new Role();
             $role->name = $request->name;
             $role->created_at = $request->created_at;
@@ -101,6 +103,24 @@ class RolesController extends Controller
 		 return redirect()->route('admin.roles.index')
 		->with('status',' Role has been saved.');
 	}
+
+
+     public function delete(Role $role)
+    {
+             $role = Role::where('id', '=', $role->id)->first();
+           // ddd($role);
+
+            if (!$role) {
+                return redirect()->route('admin.roles.index')->with([
+                    'status' => 'role not found'
+                ]);
+            }
+
+            return view('admin.roles.delete')->with([
+                'role' => $role
+            ]);
+    }
+
 
 	/**
 	 * Remove the specified resource from storage.

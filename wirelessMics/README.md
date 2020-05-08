@@ -16,7 +16,8 @@
 + Adding four feature tests to test login, redirectIfNotLoginTest.
 + Create Form has both browser and sever validation.
 + Edit Form has browser validation.
-+ Create TableSeeders to seed microphones, tags, microphone_tag, users, roles, role_user tables and locations tables
++ CRUD functionality at the back-end of the application where Admin Users can manage all resources
++ TableSeeders to seed microphones, tags, microphone_tag, users, roles, role_user tables and locations tables
 + implemented delete confirmation form.
 + implement pagination feature to both location and microphone list.
 
@@ -28,6 +29,12 @@
 + There's a many-to-many relationship between `User` and `Role`
 + There's a many-to-many relationship between `Microphone` and `Tag`
 + There's a belongsTo/hasMany relationship between `Microphone` and `Location`
+
+## Testing
+
+    + Browser AuthTest: register, login, registerFailTest, loginFailTest, AuthorizationRequiredTest
+         
+    + Browser MicrophonesTest:   
 
 ## Outside resources
 

@@ -32,8 +32,20 @@
             name="slug" value="{{old('slug', $microphone->slug) }}" required autocomplete="slug" autofocus/>
             @include('includes.error-field', ['fieldName' => 'slug'])
             </div>
-                    <div class="form-group">
-                        <label  for="building">Building</label>
+
+             <div class="form-group">
+             <label for='location_id'>Select a location from dropdown list:  </label>
+                <select name='location_id'>
+                    {{-- <option value=''>Choose location</option> --}}
+                    {{-- @foreach($microphone->location as $location) --}}
+                    <option value='{{$microphone->location->id }}' {{ (old('location_id') == $microphone->location->id) ? 'selected' : '' }}>{{ $microphone->location->building.' '.$microphone->location->room }}</option>
+                     {{-- @endforeach --}}
+                 </select>
+                 </div>
+             @include('includes.error-field', ['fieldName' => 'location_id'])
+
+                    {{-- <div class="form-group">
+                        <label  for="building">Building</label> --}}
 
                         {{-- <input class="form-control" type="text" name="building" id="building" placeholder="building"  name="building" value="{{ old('building', $microphone->building)}}" required autocomplete="building" autofocus/>
                              @if ($errors->has('building'))
@@ -59,43 +71,49 @@
 
                      <input type="make" class="form-control" name="make" id="make" placeholder="make"
                     value="{{old('make', $microphone->make) }}" required autocomplete="make" autofocus/>
-                    @include('includes.error-field', ['fieldName' => 'make'])
                     </div>
+                    @include('includes.error-field', ['fieldName' => 'make'])
+
 
                     <div class="form-group">
                     <label for="model">Model</label>
                      <input type="model" class="form-control" name="model" id="model" placeholder=" model" value="{{ old('model',$microphone->model) }}" required autocomplete="model" autofocus/>
+                     </div>
                     @include('includes.error-field', ['fieldName' => 'model'])
-                    </div>
+
 
                     <div class="form-group">
                     <label for="frequency band">Frequency Band</label>
                     <input type="band" class="form-control" name="band" id="band" placeholder="frequency band" value="{{ old('band',$microphone->band)}}" required autocomplete="band" autofocus/>
-                    @include('includes.error-field', ['fieldName' => 'band'])
                     </div>
+                    @include('includes.error-field', ['fieldName' => 'band'])
+
 
 
                     <div class="form-group">
                     <label for="frequency_range">Frequency Range</label>
                     <input type="frequency_range" class="form-control" name="frequency_range" id="frequency_range" placeholder="frequency range" value="{{ old('frequency_range', $microphone->frequency_range) }}" required autocomplete="frequency_range" autofocus/>
+                     </div>
                     @include('includes.error-field', ['fieldName' => 'frequency_range'])
-                    </div>
+
 
 
                     <div class="form-group">
                     <label for="make">Serial Number</label>
                     <input type="serial_number" class="form-control" name="serial_number" id="serial_number" placeholder="serial number" autocomplete="serial_number"
                     value="{{ old('serial_number', $microphone->serial_number) }}" required  autofocus/>
+                     </div>
                     @include('includes.error-field', ['fieldName' => 'serial_number'])
-                    </div>
+
 
 
                     <div class="form-group ">
                     <label for="type">Microphone type</label>
                     <input type="type" class="form-control" name="type" id="type" placeholder="microphone type"
                         value="{{ old('type', $microphone->type) }}" required autocomplete="type" autofocus/>
-                    @include('includes.error-field', ['fieldName' => 'type'])
                     </div>
+                    @include('includes.error-field', ['fieldName' => 'type'])
+
 
 
                     <div class="form-group">
@@ -103,36 +121,40 @@
 
                     <input type="group" class="form-control" name="group" id="group" placeholder="group"
                     value="{{ old('group', $microphone->group) }}" required autocomplete="group" autofocus/>
+                     </div>
                     @include('includes.error-field', ['fieldName' => 'group'])
-                    </div>
+
 
 
                     <div class="form-group">
                     <label for="channel">Channel</label>
                     <input type="channel" class="form-control" name="channel" id="channel" placeholder="channel" value="{{ old('channel', $microphone->channel) }}" required autocomplete="channel" autofocus/>
-                    @include('includes.error-field', ['fieldName' => 'channel'])
                     </div>
+
+
+                    @include('includes.error-field', ['fieldName' => 'channel'])
+
 
 
                     <div class="form-group">
                     <label for="assigned_frequency">Assigned Frequency</label>
                     <input type="assigned_frequency" class="form-control" name="assigned_frequency" id="assigned_frequency" placeholder="assigned frequency"
                     value="{{ old('assigned_frequency', $microphone->assigned_frequency) }}" required autocomplete="assigned_frequency" autofocus/>
-                    @include('includes.error-field', ['fieldName' => 'assigned_frequency'])
                     </div>
-
-                    <div class="form-group">
+                     @include('includes.error-field', ['fieldName' => 'assigned_frequency'])
+                    {{-- <div class="form-group">
                     <label for='location_id'>* Location:  </label>
                      <input type='location' name='location' id='location' value='{{ old('location_id', $microphone->location_id)}}'>
                     @include('includes.error-field', ['fieldName' => 'location_id'])
-                    </div>
+                    </div> --}}
 
                     <div class="form-group">
                     <label  for="comments">microphone comments</label>
-                    <textarea class="form-control" rows="4" cols="50" name="comments" id="comments" placeholder="comments" value="{{ old('comments', $microphone->comments) }}" required  autocomplete="comments" autofocus>
+                    <textarea class="form-control" rows="4" cols="50" name="comments" id="comments" placeholder="comments" required  autocomplete="comments" autofocus>{{{ old('comments',$microphone->comments) }}}
                     </textarea>
+                     </div>
                     @include('includes.error-field', ['fieldName' => 'comments'])
-                    </div>
+
 
                         <br/>
                    <br/>
@@ -142,8 +164,12 @@
                         <div class="col-md-6">
                             @foreach( $tags as $tag)
                                 <div class ="form-check checkbox-inline">
-                                    <input type ="checkbox" name="tags[]" value ="{{old('tags', $tag->id) }}"
-                                    @if($tags->pluck('id')->contains($tag->id)) @endif>
+
+                                     {{-- @if($user->roles->pluck('id')->contains($role->id)) checked @endif>
+                                    <label>{{ $role->name }}</label> --}}
+
+                                    <input type ="checkbox" name="tags[]" value="{{old('tag', $tag->id) }}"
+                                    @if($microphone->tags->pluck('id')->contains($tag->id))checked @endif>
                                     <label>{{ $tag->name }}</label>
                                 </div>
                             @endforeach

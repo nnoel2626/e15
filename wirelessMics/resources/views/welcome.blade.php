@@ -26,8 +26,8 @@
 				<div class="link">
                 {{-- <li><a href="{{ url('/register') }}"><span>SignUp</span></a> |
                 <a href="{{ url('/login') }}"><span>LogIn</span></a></li> --}}
-                <li><a href="{{ route('register') }}"><span>SignUp</span></a> |
-				<a href="{{ route ('login') }}"><span>LogIn</span></a></li>
+                <li dusk="register-link" ><a  href="{{ route('register') }}"><span>SignUp</span></a> |
+				<a  dusk="logIn-link" href="{{ route ('login') }}"><span>LogIn</span></a></li>
 				</div>
 			</div>
 		</div>

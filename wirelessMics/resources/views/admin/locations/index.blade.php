@@ -45,8 +45,8 @@
                             <td>
                         <a href="{{ route('admin.locations.create') }}" class="btn btn-info"><i class="fa fa-plus"></i>Create </a>
                         <a href="{{ route('admin.locations.edit', $location) }}" class="btn btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                        {{-- <a href="{{ route('admin.tags.destroy',$location->id)}}" class="btn btn-danger">Delete</a> --}}
-                        <button class="btn btn-danger btn-sml" data-tagId={{$location->id}} data-toggle="modal" data-target="#deleteLocation"><i class="fa fa-trash"></i> Delete</button>
+                       
+                         <a href="{{ route ('admin.locations.delete',$location) }}" class="btn btn-danger btn-sml"><i class="fa fa-trash"></i> Delete</a>
 
                             </td>
                             </tr>
@@ -60,34 +60,6 @@
 
                 </div>
             </div>
-
-	<!-- Button trigger modal -->
-<!-- Modal -->
-<div class="modal modal-danger fade" id="deleteLocation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
-      </div>
-      <form action="{{route('admin.locations.destroy','delete')}}" method="post">
-      		{{method_field('delete')}}
-      		{{csrf_field()}}
-	      <div class="modal-body">
-				<p class="text-center">
-					Are you sure you want to delete this?
-				</p>
-	      		<input type="hidden" name="location_id" id="location_id" value="">
-
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
-	        <button type="submit" class="btn btn-warning">Yes, Delete</button>
-	      </div>
-      </form>
-    </div>
-  </div>
-</div>
 
  @endsection
 

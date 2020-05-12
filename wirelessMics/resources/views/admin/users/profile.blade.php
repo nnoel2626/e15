@@ -1,13 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-{{-- <div class="">
-		{{-- <div class="box">
-			<div class="box-header">
-				<h3 class="box-title"> <h3>Welcome, {{$user->name}}</h3> Profile</h3>
-			</div>  --}}
 
-		<div class="container">
+
+<div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="well well-sm">

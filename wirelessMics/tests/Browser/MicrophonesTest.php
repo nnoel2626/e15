@@ -7,111 +7,132 @@ use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
 use Illuminate\Foundation\Testing\WithFaker;
-
+use Faker\Generator as Faker;
 
 use App\Microphone;
 use App\User;
+use App\Role;
+use App\Tag;
+use App\Location;
+use Arr;
+use Str;
 
 class MicrophonesTest extends DuskTestCase
 {
+        use withFaker;
+
+        /**
+         *
+         */
+        public function testAddingMicrophone()
+        {
+            $this->browse(function (Browser $browser) {
+
+
+                # generate three random words example green-park-balloon
+                 $micSlug = $this->faker->words(rand(3, 6), true);
+                # add dashes btween the words
+                  $slug = Str::slug($micSlug, '-'); #
+                # Create an Admin user to create a new Microphone. to access the back-end.
+                 $user = factory(User::class)->state('withRole')->create();
+
+                         $browser->loginAs($user->id)
+                        ->visit('/admin/microphones/create')
+                         ->assertSee('Create a Microphone')
+                        ->type('slug', $slug)
+                        ->select('location_id')
+                        ->type('make', 'shure')
+                        ->type( 'model','axient digital')
+                        ->type('band','G57')
+                        ->type('frequency_range', '470- 616 MHZ')
+                        ->type('serial_number','12345678')
+                        ->type('type', 'Lapel')
+                        ->type( 'group', 'G5')
+                        ->type( 'channel', 'CH243')
+                        ->type('assigned_frequency','602.350 MHZ')
+                        ->type('comments', 'This item is actually a test, and fulfills no requirement of any plan');
+                        $browser->script('window.scrollTo(0, 400);');
+                        $browser->press('Add microphone');
+                        $browser->visit('/microphones/'.$slug)
+                        ->assertSee('Microphone Details');
+                    });
+
+            }
+
+
+                /**
+                 *
+                 */
+                public function testAddingMicrophoneWithExistingSlug()
+                {
+                $this->browse(function (Browser $browser) {
+
+                    # Generate an existing Microphone
+                   $microphone = factory(Microphone::class)->state('withTag')->create();
+
+                      # Create an Admin user to create a new Microphone. to access the back-end.
+                    $user = factory(User::class)->state('withRole')->create();
+
+                    $browser->loginAs($user->id)
+                        ->visit('/admin/microphones/create')
+                        ->assertSee('Create a Microphone')
+                        ->value('@slug-input', $microphone->slug)# Existing Slug
+                        ->select('location_id')
+                        ->value('@make-input', $microphone->make)
+                        ->value('@model-input', $microphone->model)
+                        ->value('@band-input', $microphone->band)
+                        ->value('@frequency_range-input', $microphone->frequency_range)
+                        ->value('@serial_number-input', $microphone->serial_number)
+                        ->value('@type-input', $microphone->type)
+                        ->value('@group-input', $microphone->group)
+                        ->value('@channel-input', $microphone->channel)
+                        ->value('@assigned_frequency-input',$microphone->assigned_frequency)
+                        ->value('@comments-input', $microphone->comments);
+                       
+                       #if element button is not visible on the page, the press command will not work
+                         $browser->script('window.scrollTo(0, 400);');
+                         $browser->press('@add-button')
+                        ->assertPresent('@error-field-slug');
+                     });
+               }
 
 
 
-    use withFaker;
-   // use DatabaseMigrations;
 
-    /**
-     *
-     */
-    public function testLoadingMicrophoneWithTags()
-    {
-        $this->browse(function (Browser $browser) {
-            $microphone = factory(Microphone::class)->create();
+            public function testEditingMicrophone()
+            {
+                $this->browse(function (Browser $browser) {
 
-            $user = factory(User::class)->create();
+                # generate three random words example green-park-balloon
+                 $micSlug = $this->faker->words(rand(3, 6), true);
+                # add dashes btween the words
+                  $slug = Str::slug($micSlug, '-'); #
+                # Create an Admin user to create a new Microphone. to access the back-end.
+                 $user = factory(User::class)->state('withRole')->create();
 
-            $browser->loginAs($user->id)
-                    ->visit('/Microphones/' . $microphone->slug)
-                    ->assertSee($microphone->title)
-                    ->assertPresent('@author-info');
-        });
-    }
+                  $browser->loginAs($user->id)
+                        ->visit('/admin/microphones')
+                        ->click('@edit-button')
+                        ->type('slug', $slug)
+                        ->type('serial_number', '12345678')
+                        ->type('comments', 'This item is actually a test, and fulfills no requirement of any plan');
+                       #if element button is not visible on the page, the press command will not work
+                         $browser->script('window.scrollTo(0, 400);');
+                         //$browser->press('@add-button')
+                         $browser->press('@edit-button');
+                        $browser->visit('/admin/microphones')
 
-    /**
-     *
-     */
-    public function testLoadingMicrophoneWithNoAuthor()
-    {
-        $this->browse(function (Browser $browser) {
-            $microphone = factory(Microphone::class)->states('withUser', 'withoutAuthor')->create();
+                         ->assertSee('Listing of Microphones');
+                });
 
-            $user = $microphone->users()->first();
+            }
 
-            $browser->loginAs($user->id)
-                    ->visit('/Microphones/' . $microphone->slug)
-                    ->assertMissing('@author-info');
-        });
-    }
 
-    /**
-     *
-     */
-    public function testAddingMicrophone()
-    {
-        $this->browse(function (Browser $browser) {
 
-            # Let our Microphone factory generate a Microphone for us
-            $microphone = factory(Microphone::class)->states('withoutAuthor')->create();
 
-            # We'll grab the data from this Microphone to fill in the form
-            $data = $microphone->toArray();
 
-            # And delete it so it won't conflict with what we're about to add
-            $microphone->delete();
-
-            # Create a user to create a new Microphone as
-            $user = factory(User::class)->create();
-
-            $browser->loginAs($user->id)
-                    ->visit('/Microphones/create')
-                    ->value('@slug-input', $data['slug'])
-                    ->value('@title-input', $data['title'])
-                    ->value('@published-year-input', $data['published_year'])
-                    ->value('@cover-url-input', $data['cover_url'])
-                    ->value('@info-url-input', $data['info_url'])
-                    ->value('@purchase-url-input', $data['purchase_url'])
-                    ->value('@description-input', $data['description'])
-                    ->click('@add-button')
-                    ->assertPathIs('/Microphones/'.$data['slug'])
-                    ->assertSeeIn('@Microphone-title-heading', $microphone['title']);
-        });
-    }
-
-    /**
-     *
-     */
-    public function testAddingMicrophoneWithExistingSlug()
-    {
-        $this->browse(function (Browser $browser) {
-
-            # Generate an existing Microphone
-            $microphone = factory(Microphone::class)->create();
-
-            # Create a user to create a new Microphone as
-            $user = factory(User::class)->create();
-
-            $browser->loginAs($user->id)
-                    ->visit('/Microphones/create')
-                    ->value('@slug-input', $microphone->slug) # Existing Slug
-                    ->value('@title-input', $microphone->title)
-                    ->value('@published-year-input', $microphone->published_year)
-                    ->value('@cover-url-input', $microphone->cover_url)
-                    ->value('@info-url-input', $microphone->info_url)
-                    ->value('@purchase-url-input', $microphone->purchase_url)
-                    ->value('@description-input', $microphone->description)
-                    ->click('@add-button')
-                    ->assertPresent('@error-field-slug');
-        });
-    }
 }
+
+
+
 

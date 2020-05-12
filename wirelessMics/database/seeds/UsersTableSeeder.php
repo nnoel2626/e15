@@ -18,13 +18,20 @@ class UsersTableSeeder extends Seeder
 
         $users = [];
 
-        // // $now = date('Y-m-d H:i:s');
-        $admin = User::create([
-            'name'  => 'Norcius Noel',
-            // 'username' => 'Norcius',
-            'email'  => 'mensah33@gmail.com',
-            'password' => \Hash::make('Admin'),
 
+
+        // // $now = date('Y-m-d H:i:s');
+        $admin = User::updateOrCreate(
+            ['name'  => 'Norcius Noel',
+            'email'  => 'mensah33@gmail.com'],
+            ['password' => Hash::make('Admin')
+
+        ]);
+
+        $admin = User::updateOrCreate(
+        ['email' => 'jill@harvard.edu',
+        'name' => 'Jill Harvard'],
+        ['password' => Hash::make('helloworld')
         ]);
 
 
@@ -36,6 +43,12 @@ class UsersTableSeeder extends Seeder
             'password' => \Hash::make('Staff'),
 
 
+        ]);
+
+         $user = User::updateOrCreate([
+        'email' => 'jamal@harvard.edu',
+        'name' => 'Jamal Harvard'],
+        ['password' => Hash::make('helloworld')
         ]);
 
         $user = User::create([
@@ -55,16 +68,8 @@ class UsersTableSeeder extends Seeder
 
         ]);
 
-        $admin = User::updateOrCreate(
-        ['email' => 'jill@harvard.edu',
-        'name' => 'Jill Harvard'],
-        ['password' => Hash::make('helloworld')
-        ]);
 
-        $user = User::updateOrCreate(
-        ['email' => 'jamal@harvard.edu', 'name' => 'Jamal Harvard'],
-        ['password' => Hash::make('helloworld')
-        ]);
+
 
 
         #retreive all different roles  from roles table
@@ -82,5 +87,33 @@ class UsersTableSeeder extends Seeder
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -45,7 +45,7 @@
                             <td>
                         <a href="{{ route('admin.locations.create') }}" class="btn btn-info"><i class="fa fa-plus"></i>Create </a>
                         <a href="{{ route('admin.locations.edit', $location) }}" class="btn btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                       
+
                          <a href="{{ route ('admin.locations.delete',$location) }}" class="btn btn-danger btn-sml"><i class="fa fa-trash"></i> Delete</a>
 
                             </td>
@@ -55,7 +55,7 @@
 
                         </table>
                         {{ $locations->links() }}
-                        {{-- <div class="pagination">{{ $locations->links() }}</div> --}}
+                       
                         @endif
 
                 </div>

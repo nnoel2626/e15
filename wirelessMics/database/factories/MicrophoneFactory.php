@@ -8,58 +8,47 @@ use App\Location;
 use App\User;
 use Faker\Generator as Faker;
 
-$factory->define(Microphone::class, function (Faker $faker) {
-    return [
-        //
-    ];
-});
 
+    $factory->define(Microphone::class, function (Faker $faker) {
+        $micSlug = $faker->words(rand(3, 6), true); # green park balloon
+        $slug = Str::slug($micSlug, '-'); # green-park-balloon
+        return [
+            'slug' => $slug,
+            // one-to-many locations
+            'location_id' => function () {
+                return factory(Location::class)->create()->id;
+            },
+            'make'=> 'shure',
+            'model'=> 'axient digital',
+            'band'=> 'G57',
+            'frequency_range'=> '470- 616 MHZ',
+            'serial_number'=> '12345678',
+            'type'=> 'Lapel',
+            'group'=> 'G5',
+            'channel'=> 'CH243',
+            'assigned_frequency'=> '602.350 MHZ',
+            'comments' => $faker->text($maxNbChars = 200),
 
-
-
-// $factory->define(Book::class, function (Faker $faker) {
-//     $title = $faker->words(rand(3, 6), true); # green park balloon
-//     $slug = Str::slug($title, '-'); # green-park-balloon
-//     return [
-//         'slug' => $slug,
-//         'title' => $title,
-//         'published_year' => $faker->year,
-//         'cover_url' => 'https://hes-bookmark.s3.amazonaws.com/cover-placeholder.png',
-//         'info_url' => 'https://en.wikipedia.org/wiki/' . $slug,
-//         'purchase_url' => 'https://www.barnesandnoble.com/' . $slug,
-//         'description' => $faker->paragraphs(2, true),
-
-//         // one-to-many
-//         'author_id' => function () {
-//             return factory(Author::class)->create()->id;
-//         },
-//     ];
-// });
+        ];
+    });
 
 # Factory states
 # https://laravel.com/docs/database-testing#factory-states
 # allow you to define “discrete modifications” of your model factories
 # Examples:
 
-# Add a special state to create books without an author
-// $factory->state(Book::class, 'withoutAuthor', [
-//     'author_id' => null,
-// ]);
 
-// # Add a special state to create books with 1 user
-// $factory->state(Book::class, 'withUser', []);
-// $factory->afterCreatingState(Book::class, 'withUser', function ($book) {
-//     $user = factory(User::class)->create();
-//     $book->users()->sync([$user->id]);
-// });
+ # Add a special state to create microphones with multiple tag
+ $factory->state(Microphone::class, 'withTag', []);
 
-// # Add a special state to create books with multiple user
-// $factory->state(Book::class, 'withUsers', []);
-// $factory->afterCreatingState(Book::class, 'withUsers', function ($book) {
-//     for ($i = 0; $i < 5; $i++) {
-//         $user = factory(User::class)->create();
-//         $userIds[] = $user->id;
-//     }
+ $factory->afterCreatingState( microphone::class, 'withTag', function ($microphone) {
+   $tag = factory(Tag::class)->create(
+        [ "name" => "installed",
+          "updated_at" => "2018-04-09 01:35:38",
+          "created_at" => "2018-04-09 01:35:38",
+        ]);
 
-//     $book->users()->sync($userIds);
-// });
+    $microphone->tags()->attach($tag);
+
+ });
+

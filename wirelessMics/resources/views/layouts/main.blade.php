@@ -81,7 +81,7 @@
 {{-- </main> --}}
 
     <footer>
-        &copy; Harvard Wireless Microphones.
+        &copy; Harvard Wireless Microphones. Questions? Email us at {{ config('mail.supportEmail') }}
     </footer>
 
 </body>

@@ -10,9 +10,8 @@
 
 @section('content')
 
-    <div class="site-title col-12 text-center">
-                    <h1>Contact</h1>
-        </div>
-
+    <div class="site-title col-12" dusk="contact-info"><h2>Contact</h2></div>
+    <p>Email:support@wirelessMics.com</p>
+    <p>Phone: 555-555-5555</p>
     This page will display all the contact...
 @endsection

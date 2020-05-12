@@ -11,8 +11,7 @@
 |
 */
     # To disable Auth feature
-    //Auth::routes(['register' => false]);.
-    //->middleware(['guest'])
+   
 
     #test route to check Database connection
     Route::get('/debug', function () {

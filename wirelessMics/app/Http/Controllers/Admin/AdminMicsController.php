@@ -64,6 +64,7 @@ class AdminMicsController extends Controller
         # and none of the code that follows will execute.
         $request->validate([
             'slug' => 'required | unique:microphones,slug|alpha_dash',
+            'location_id' => 'required|integer',
             'make'=> 'required',
             'model'=> 'required',
             'frequency_range'=> 'required',
@@ -73,7 +74,6 @@ class AdminMicsController extends Controller
             'group'=> 'required',
             'channel'=> 'required',
             'assigned_frequency'=> 'required',
-            'location_id' => 'required|integer',
             'comments'=> 'min:8'
         ]);
 
@@ -143,9 +143,7 @@ class AdminMicsController extends Controller
     # Method for Admin Panel
      public function update(Request $request, Microphone $microphone)
      {
-        //ddd($microphone);
-        //ddd($request->all());
-        // $microphone = Microphone::with('locations')->where('id', '=', $microphone->id)->first();
+        
           # Validate the inout request
          $request->validate([
             'slug' => 'required|alpha_dash',
@@ -185,18 +183,7 @@ class AdminMicsController extends Controller
 
         $microphone->save();
 
-        // # Find that location in the locations table
-       // $location_id = Location::where('id', '=', $location_id)->pluck('id')->first();
-      // $location = Location::where('id', '=', $request->location_id)->first();
-       //ddd($location->id);
-        //$location_id = $location_id;
-       // $microphone->location->attach($location->id);
 
-        # Once microphone is saved, attach the requested tag(s).
-        //  if ($request->has('tag')) {
-        //      $tag = $this->request->input('name');
-        //      $microphone->tags()->attach($request->tag);
-        // }
         #redirect to microphone list with status
       return redirect()->route('admin.mics.list')->with('status', 'Microphnoe has been updated!');
     }

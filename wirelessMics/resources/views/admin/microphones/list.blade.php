@@ -50,17 +50,11 @@
                                     {{ implode( ',', $microphone->tags()->pluck('name')->toArray()) }}
                                     </div>
                                </td>
-                               {{-- @foreach( $microphone->tags as $tag)
-                               <td class="cell-breakWord">
-                                    <div class="label label-info label-many">
-                                    {{ $tag['name'] }}
-                                    </div>
-                               </td>
-                                @endforeach --}}
+                              
                                 <td>
                                 <a href="{{ route('admin.mics.create') }}" class="btn btn-info btn-sml"><i class="fa fa-plus"></i>Create</a>
 
-                                <a href="{{ route ('admin.mics.edit', $microphone) }}"><button type="button" class="btn btn-primary btn-sml"><i class="fa fa-edit"></i>Edit</button></a>
+                                <a dusk="edit-button" href="{{ route ('admin.mics.edit', $microphone) }}"><button type="button" class="btn btn-primary btn-sml"><i class="fa fa-edit"></i>Edit</button></a>
 
                                  <a href="{{ route ('admin.microphones.delete',$microphone) }}" class="btn btn-danger btn-sml"><i class="fa fa-trash"></i> Delete</a>
                                 </td>

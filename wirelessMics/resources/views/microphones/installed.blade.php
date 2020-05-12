@@ -11,7 +11,7 @@
 
 @section('content')
     <div class="site-title col-12 text-center">
-    <h1>Installed Wireless Micrrophones</h1>
+    <h1>Installed Wireless Microphones</h1>
     </div>
      <ul class="cards">
           @if(count($microphones) == 0)

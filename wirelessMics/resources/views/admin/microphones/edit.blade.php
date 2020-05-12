@@ -36,35 +36,12 @@
              <div class="form-group">
              <label for='location_id'>Select a location from dropdown list:  </label>
                 <select name='location_id'>
-                    {{-- <option value=''>Choose location</option> --}}
-                    {{-- @foreach($microphone->location as $location) --}}
                     <option value='{{$microphone->location->id }}' {{ (old('location_id') == $microphone->location->id) ? 'selected' : '' }}>{{ $microphone->location->building.' '.$microphone->location->room }}</option>
                      {{-- @endforeach --}}
                  </select>
                  </div>
-             @include('includes.error-field', ['fieldName' => 'location_id'])
+                   @include('includes.error-field', ['fieldName' => 'location_id'])
 
-                    {{-- <div class="form-group">
-                        <label  for="building">Building</label> --}}
-
-                        {{-- <input class="form-control" type="text" name="building" id="building" placeholder="building"  name="building" value="{{ old('building', $microphone->building)}}" required autocomplete="building" autofocus/>
-                             @if ($errors->has('building'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('building') }}</strong>
-                                    </span>
-                                @endif
-                        </div>
-                    <div class="form-group">
-                        <label for="room">Room</label>
-
-                            <input type="text" class="form-control" id="room" placeholder="room"
-                             name="room" value="{{ old('room', $microphone->room) }}" required autocomplete="room" autofocus/>
-                             @if ($errors->has('room'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('room') }}</strong>
-                                    </span>
-                                @endif
-                        </div> --}}
 
                     <div class="form-group">
                     <label for="make">Make</label>
@@ -142,11 +119,7 @@
                     value="{{ old('assigned_frequency', $microphone->assigned_frequency) }}" required autocomplete="assigned_frequency" autofocus/>
                     </div>
                      @include('includes.error-field', ['fieldName' => 'assigned_frequency'])
-                    {{-- <div class="form-group">
-                    <label for='location_id'>* Location:  </label>
-                     <input type='location' name='location' id='location' value='{{ old('location_id', $microphone->location_id)}}'>
-                    @include('includes.error-field', ['fieldName' => 'location_id'])
-                    </div> --}}
+
 
                     <div class="form-group">
                     <label  for="comments">microphone comments</label>
@@ -181,7 +154,7 @@
                        <br/>
                     <div class="form-group">
                         <div class=" col-md-6 text-md-right">
-                            <button type="submit" class="btn btn-success btn-lg btn-block lg-auto"> Update microphone </button>
+                            <button type="submit" dusk="edit-button" class="btn btn-success btn-lg btn-block lg-auto"> Update microphone </button>
                         </div>
                     </div>
 

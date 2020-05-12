@@ -6,7 +6,7 @@
 
 @section('content')
 
-<!-- Main content -->
+
     <section class="content">
 
       <!-- Default box -->
@@ -19,8 +19,7 @@
             <div class="site-title col-12 text-center">
 
             <h4>Are you sure you want to delete <strong>{{ $user->name }}</strong>?</h4>
-            {{-- <form method='POST' action='/users/{{ $user->id }}'> --}}
-{{-- <a href="{{ route ('admin.users.delete',$user) }}" --}}
+
             <form action="{{route('admin.users.destroy',$user->id)}}" method="post">
       		{{method_field('delete')}}
       		{{csrf_field()}}

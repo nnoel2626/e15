@@ -11,7 +11,7 @@
 
 @section('content')
     <div class="site-title col-12 text-center">
-    <h2>Microphone Details</h2>
+    <h2 dusk="Microphone-details-heading">Microphone Details</h2>
     </div>
 
     @if(!$microphone)

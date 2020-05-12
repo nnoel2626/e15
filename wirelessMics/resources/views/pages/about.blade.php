@@ -5,7 +5,7 @@
 @endsection
 
 @section('head')
-     {{-- <link href='/css/microphones/cards.css' rel='stylesheet'> --}}
+     
 @endsection
 
 @section('content')

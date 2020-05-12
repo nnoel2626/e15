@@ -19,8 +19,7 @@
             <div class="site-title col-12 text-center">
 
             <h4>Are you sure you want to delete <strong>{{ $role->name }}</strong>?</h4>
-            {{-- <form method='POST' action='/roles/{{ $role->id }}'> --}}
-{{-- <a href="{{ route ('admin.roles.delete',$role) }}" --}}
+         
             <form action="{{route('admin.roles.destroy',$role->id)}}" method="post">
       		{{method_field('delete')}}
       		{{csrf_field()}}

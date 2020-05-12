@@ -4,10 +4,6 @@
       <link href='/css/microphones/list.css' rel='stylesheet'>
 @endsection
 
-{{-- @section('title')
-All the Roles
-@endsection --}}
-
 @section('content')
 @if (session('status'))
     <div class="alert alert-success">{{ session('status') }}</div>

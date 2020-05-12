@@ -93,8 +93,8 @@ class RolesController extends Controller
             'updated_at' => 'required',
         ]);
 
-            // $author->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
-            // $author->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
+        // $role->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
+        // $role->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
         $role->name = $request->name;
         $role->created_at = $request->created_at;
         $role->updated_at = $request->updated_at;

@@ -5,7 +5,7 @@
 <div class="card card-primary">
     <h3 class="card-title">Edit User</h3>
 
-     {{-- <div class="card-header">Edit user {{ $user->name }}</div> --}}
+     
                  <form role="form" action= "{{ route ('admin.users.update', $user) }}" method="POST">
                  {{ csrf_field() }}
                   {{ method_field('PUT') }}

@@ -6,23 +6,49 @@ use App\Tag;
 use Faker\Generator as Faker;
 
 $factory->define(Tag::class, function (Faker $faker) {
+     return [
+        'name' => "installed",
+        "updated_at" => "2018-04-09 01:35:38",
+        "created_at" => "2018-04-09 01:35:38",
 
+         ];
 
-
-
-
-    return [
-        //
-    ];
 });
 
 
-//  $firstName = $faker->firstName;
-//     $lastName = $faker->lastName;
 
-//     return [
-//         'first_name' => $firstName,
-//         'last_name' => $lastName,
-//         'birth_year' => $faker->numberBetween(1950, 2020),
-//         'bio_url' => 'https://en.wikipedia.org/wiki/' . $firstName . '-' . $lastName,
-//     ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//date and time
+// $faker->year;
+// $faker->month; //number representation of a month
+// $faker->monthName;
+// $faker->timezone; //valid php timezone (http://php.net/manual/en/timezones.php)
+// $faker->time; //string time
+// $faker->dateTime; //datetime object
+// $faker->unixTime; //unix timestamp
+// 'created_at' => $faker->dateTimeThisDecade(),
+//  'updated_at' => $faker->dateTimeThisDecade()
+

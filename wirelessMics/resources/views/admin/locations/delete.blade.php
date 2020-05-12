@@ -18,8 +18,7 @@
             <div class="site-title col-12 text-center">
 
             <h4>Are you sure you want to delete <strong>{{ $location->name }}</strong>?</h4>
-            {{-- <form method='POST' action='/locations/{{ $location->id }}'> --}}
-{{-- <a href="{{ route ('admin.locations.delete',$location) }}" --}}
+            
             <form action="{{route('admin.locations.destroy',$location->id)}}" method="post">
       		{{method_field('delete')}}
       		{{csrf_field()}}

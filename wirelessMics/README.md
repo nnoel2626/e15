@@ -2,7 +2,7 @@
 # Project 3
 
 + By: *Norcius Noel*
-+ Production URL: <http://wirelessmics.nnoel.xyz>
++ Production URL: <https://wirelessmics.nnoel.xyz>
 
 ## Feature summary
 

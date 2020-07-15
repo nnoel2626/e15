@@ -18,9 +18,9 @@
         <!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
         <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
           <ul>
-            <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/it_service/slide1.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Complete Energy Solutions" data-description="">
+            <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="/images/it_service/slide1.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Complete Energy Solutions" data-description="">
               <!-- MAIN IMAGE -->
-              <img src="images/it_service/slide1.jpg"  alt="#"  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+              <img src="/images/it_service/slide1.jpg"  alt="#"  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
               <!-- LAYERS -->
               <!-- LAYER NR. BG -->
               <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0"
@@ -94,9 +94,9 @@
                               data-responsive_offset="on"
                               style="z-index: 7; white-space: nowrap;">More than fifty years of Experience </div>
             </li>
-            <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/it_service/slide2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Easy To Use & Customize" data-description="">
+            <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="/images/it_service/slide2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Easy To Use & Customize" data-description="">
               <!-- MAIN IMAGE -->
-              <img src="images/it_service/slide2.jpg"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+              <img src="/images/it_service/slide2.jpg"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
               <!-- LAYERS -->
               <!-- LAYER NR. BG -->
               <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0"
@@ -170,9 +170,9 @@
                               data-responsive_offset="on"
                               style="z-index: 7; white-space: nowrap;">Wind and Solar Energy </div>
             </li>
-            <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/it_service/slide3.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Perfectly Responsive" data-description="">
+            <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="/images/it_service/slide3.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Perfectly Responsive" data-description="">
               <!-- MAIN IMAGE -->
-              <img src="images/it_service/slide3.jpg"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+              <img src="/images/it_service/slide3.jpg"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
               <!-- LAYERS -->
               <!-- LAYER NR. BG -->
               <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0"
@@ -271,7 +271,7 @@
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="full text_align_center margin_bottom_30">
           <div class="center">
-            <div class="icon"> <img src="images/it_service/i1.png" alt="#" /> </div>
+            <div class="icon"> <img src="/images/it_service/i1.png" alt="#" /> </div>
           </div>
           <h4 class="theme_color">Complete Energy Solutions</h4>
           <p>GES is becoming a reference in multi-user solar-hybrid (MSG) micro-grids for rural electrification, housing and commercial use, setting new standards</p>
@@ -280,7 +280,7 @@
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="full text_align_center margin_bottom_30">
           <div class="center">
-            <div class="icon"> <img src="images/it_service/i2.png" alt="#" /> </div>
+            <div class="icon"> <img src="/images/it_service/i2.png" alt="#" /> </div>
           </div>
           <h4 class="theme_color">Most Exprienced Team</h4>
           <p>Our in-house team of experts strives to produce top-notch and innovative solar designs and installations</p>
@@ -289,7 +289,7 @@
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="full text_align_center margin_bottom_30">
           <div class="center">
-            <div class="icon"> <img src="images/it_service/i3.png" alt="#" /> </div>
+            <div class="icon"> <img src="/images/it_service/i3.png" alt="#" /> </div>
           </div>
           <h4 class="theme_color">Best and Affordable Products</h4>
           <p>Because of our extensive partnership with top solar manufacturers, we have access to the best products based on highest standards in reliability, extendibility and low failure rate</p>
@@ -298,7 +298,7 @@
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="full text_align_center margin_bottom_30 margin_0">
           <div class="center">
-            <div class="icon"> <img src="images/it_service/i4.png" alt="#" /> </div>
+            <div class="icon"> <img src="/images/it_service/i4.png" alt="#" /> </div>
           </div>
           <h4 class="theme_color">Unrival Costumer Service</h4>
           <p>we are able to provide a complete spectrum of services for projects from viability studies to commissioning</p>

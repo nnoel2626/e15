@@ -3251,7 +3251,8 @@ span.skill {
 	-------------------------------------------------------------------*/
 
 .testmonial_section {
-	background-image: url('../images/it_service/test_bg.png');
+    background-image: url('../images/it_service/test_bg.');
+    background: rgb(55,160,3);
 	background-size: cover;
 	padding-bottom: 185px;
 }

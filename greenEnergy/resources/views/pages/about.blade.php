@@ -426,8 +426,90 @@
   </div>
 </div>
 <!-- end section -->
+
+ <section id="clients" class="section-bg">
+
+      <div class="container">
+
+            <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
+
+
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon9.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon2.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon3.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon4.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon5.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon6.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon7.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon8.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon10.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon11.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon12.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon1.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+            </div>
+  </div>
+</div>
+<!-- end section -->
 <!-- section -->
-<div class="section padding_layout_1" style="padding: 50px 0;">
+{{-- <div class="section padding_layout_1" style="padding: 50px 0;">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -443,7 +525,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 <!-- end section -->
 <!-- Modal -->
 <div class="modal fade" id="search_bar" role="dialog">

@@ -171,11 +171,11 @@
     <div class="row">
       <div class="col-md-4 service_blog">
         <div class="full">
-          <div class="service_img"> <img class="img-responsive" src="/images/it_service/post-01.jpg" alt="#" /> </div>
+          <div class="service_img"> <img class="img-responsive" src="/images/it_service/complete-Sunny-Boy-control.png" alt="#" /> </div>
           <div class="service_cont">
-            <h3 class="service_head">Data recovery</h3>
+            <h3 class="service_head">System Installation</h3>
             <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Details</a> </div>
           </div>
         </div>
       </div>
@@ -183,7 +183,7 @@
         <div class="full">
           <div class="service_img"> <img class="img-responsive" src="/images/it_service/post-02.jpg" alt="#" /> </div>
           <div class="service_cont">
-            <h3 class="service_head">Computer repair</h3>
+            <h3 class="service_head">Solar Panel Installation</h3>
             <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
             <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
           </div>
@@ -193,7 +193,7 @@
         <div class="full">
           <div class="service_img"> <img class="img-responsive" src="/images/it_service/post-03.jpg" alt="#" /> </div>
           <div class="service_cont">
-            <h3 class="service_head">Network solutions</h3>
+            <h3 class="service_head">Batteries Installation</h3>
             <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
             <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
           </div>

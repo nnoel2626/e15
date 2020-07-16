@@ -313,19 +313,17 @@
               <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fa fa-bar-chart" aria-hidden="true"></i> Complete Recovery from Local & External Drive<i class="fa fa-angle-down"></i></a> </p>
+                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fa fa-bar-chart" aria-hidden="true"></i> Complete Energy Solutions for your Business<i class="fa fa-angle-down"></i></a> </p>
                   </div>
                   <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="panel-body">
-                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it
-                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-                        consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                      <p>We provide comprehensive energy solutions through project design, implementation and technology support services. Already an authority in its field, GES is becoming a reference in multi-user solar-hybrid (MSG) micro-grids for rural electrification, housing and commercial use, setting new standards..</p>
                     </div>
                   </div>
                 </div>
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="fa fa-plane"></i> Recovery Photo, Image, Video and Audio<i class="fa fa-angle-down"></i></a> </p>
+                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="fa fa-plane"></i> Need to renew your Batteries<i class="fa fa-angle-down"></i></a> </p>
                   </div>
                   <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
@@ -337,7 +335,7 @@
                 </div>
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><i class="fa fa-star"></i> Mobile Phone Recovery<i class="fa fa-angle-down"></i></a> </p>
+                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><i class="fa fa-star"></i> Need Energy Solar Kit<i class="fa fa-angle-down"></i></a> </p>
                   </div>
                   <div id="collapseThree" class="panel-collapse collapse">
                     <div class="panel-body">
@@ -349,7 +347,7 @@
                 </div>
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><i class="fa fa-bar-chart" aria-hidden="true"></i> Complete Recovery from Local & External Drive<i class="fa fa-angle-down"></i></a> </p>
+                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><i class="fa fa-bar-chart" aria-hidden="true"></i>Only need Solar Energy products<i class="fa fa-angle-down"></i></a> </p>
                   </div>
                   <div id="collapseFour" class="panel-collapse collapse in">
                     <div class="panel-body">
@@ -366,7 +364,7 @@
       </div>
       <div class="col-md-4">
         <div class="full" style="margin-top: 35px;">
-          <h3>Need file recovery?</h3>
+          <h3>Need Solar Panel installation?</h3>
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
             quasi architecto beatae vitae dicta sunt explicabo.. </p>
           <p><a class="btn main_bt" href="#">Read More</a></p>
@@ -387,7 +385,7 @@
       <div class="container">
 
         {{-- <div class="section-header"> --}}
-             <div class="main_heading text_align_center">
+    <div class="main_heading text_align_center">
             <h2>Some Of Our Partners</h2>
 
           <p>Over the years, we have acquired distribution agreements from the most reputable manufacturers in the field of renewable energy.</p>
@@ -496,7 +494,6 @@
 
     </section>
 
-
 <!-- section -->
 <div class="section padding_layout_1 testmonial_section white_fonts">
   <div class="container">
@@ -570,7 +567,7 @@
       <div class="col-md-12">
         <div class="full">
           <div class="contact_us_section">
-            <div class="call_icon"> <img src="images/it_service/phone_icon.png" alt="#" /> </div>
+             <div class="call_icon"> <img src="images/it_service/phone_icon.png" alt="#" /> </div>
             <div class="inner_cont">
               <h2>REQUEST A FREE QUOTE</h2>
               <p>Get answers and advice from people you want it from.</p>
@@ -590,22 +587,97 @@
 
 
 
+
+
+
+
 <!-- section -->
-<div class="section padding_layout_1" style="padding: 50px 0;">
+{{-- <div class="section padding_layout_1" style="size:200px padding:50px 0;">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="full">
-          <ul class="brand_list">
-            <li><img src="images/it_service/brand_icon1.png" alt="#" /></li>
-            <li><img src="images/it_service/brand_icon2.png" alt="#" /></li>
-            <li><img src="images/it_service/brand_icon3.png" alt="#" /></li>
-            <li><img src="images/it_service/brand_icon4.png" alt="#" /></li>
-            <li><img src="images/it_service/brand_icon5.png" alt="#" /></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <div class="row"> --}}
+      {{-- <div class="col-md-12">
+        <div class="full"> --}}
+
+ <section id="clients" class="section-bg">
+
+      <div class="container">
+
+            <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
+
+
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon9.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon2.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon3.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon4.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon5.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon6.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon7.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon8.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon10.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon11.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon12.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                            <img src="/images/clients/brand_icon1.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+            </div>
+
+
   </div>
 </div>
 <!-- end section -->

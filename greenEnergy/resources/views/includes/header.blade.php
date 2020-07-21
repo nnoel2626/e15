@@ -60,13 +60,13 @@
             </li>
             <li class="{{Request::path()=== '/pages/service' ? 'current_page_item': ''}}">
              <a class="nav-link" href="{{ route('service') }}">Service</a>
-            </li>
+            {{-- </li>
                <li class="{{Request::path()=== '/pages/shop' ? 'current_page_item': ''}}">
              <a class="nav-link" href="{{ route('shop') }}">Shop</a>
-            </li>
-            <li class="{{Request::path()=== '/pages/blog' ? 'current_page_item': ''}}">
+            </li> --}}
+            {{-- <li class="{{Request::path()=== '/pages/blog' ? 'current_page_item': ''}}">
              <a class="nav-link" href="{{ route('blog') }}">Blog</a>
-            </li>
+            </li> --}}
 
             </div>
             <div class="search_icon">

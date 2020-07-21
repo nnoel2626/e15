@@ -38,11 +38,12 @@
               <h2>Guess or Acount Holder</h2>
             </div>
             <ul class="footer-menu">
-              <li><a href="it_about.html"><i class="fa fa-angle-right"></i>Register</a></li>
-              <li><a href="it_term_condition.html"><i class="fa fa-angle-right"></i> Login</a></li>
-              <li><a href="it_privacy_policy.html"><i class="fa fa-angle-right"></i> Forget password</a></li>
-               <li><a href="/admin/loginl"><i class="fa fa-angle-right"></i> Admin Login</a></li>
+              <li><a href="{{ route('register') }}"><i class="fa fa-angle-right"></i>Register</a></li>
+              <li><a href="{{ route('login') }}"><i class="fa fa-angle-right"></i> Login</a></li>
+              <li><a href="{{ route('password.request') }}"><i class="fa fa-angle-right"></i> Forget password</a></li>
+             <li><a href="/admin/loginl"><i class="fa fa-angle-right"></i> Admin Login</a></li>
 
+               {{-- password.reset --}}
             </ul>
           </div>
 

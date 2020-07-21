@@ -22,6 +22,7 @@
 <!-- colors css -->
 <link rel="stylesheet" href="/css/colors1.css" />
 <!-- custom css -->
+{{-- <link rel="stylesheet" href="/css/login.css" /> --}}
 <link rel="stylesheet" href="/css/custom.css" />
 <!-- wow Animation css -->
 <link rel="stylesheet" href="/css/animate.css" />

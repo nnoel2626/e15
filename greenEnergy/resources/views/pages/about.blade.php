@@ -197,7 +197,7 @@
       <div class="col-md-12">
         <div class="full">
           <div class="main_heading text_align_left">
-            <h2>About Service</h2>
+            <h2>Best Services</h2>
             <p class="large">Easy and effective way to get your solar energy system installed.</p>
           </div>
         </div>
@@ -219,7 +219,7 @@
             <div class="full">
               <div class="service_blog_inner2">
                 <div class="icon text_align_left"><i class="fa fa-cog"></i></div>
-                <h4 class="service-heading">Secure payments</h4>
+                <h4 class="service-heading">Quick Return On Investment</h4>
                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusa ntium dolore mque.</p>
               </div>
             </div>

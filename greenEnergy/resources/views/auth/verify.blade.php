@@ -1,4 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.app2')
+
+
+@section('head')
+{{-- custom css links for individual pages --}}
+ {{-- <link href='/css/login.css' rel='stylesheet'> --}}
+ <link rel="stylesheet" href="{{ URL::asset('css/login.css') }}">
+  {{-- {!!HTML::style('/css/login.css')!!} --}}
+ <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+@endsection
 
 @section('content')
 <div class="container">

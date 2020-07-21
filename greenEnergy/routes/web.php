@@ -62,12 +62,12 @@ Route::get('/', function () {
     Route::get('/pages/support', 'PagesController@support')->name('support');
 
 
-#All Login and registration routes
+    #All Login and registration routes
     Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+    //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function ()
+    Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function ()
     {
     # Show the page to confirm deletion of a user
     Route::get('/users/{user}/delete', 'UsersController@delete')->name('users.delete');

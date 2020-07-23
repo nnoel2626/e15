@@ -4994,6 +4994,7 @@ img {
   display: inline-block;
   padding: 10px 20px;
   font-size: 12px;
+  font-weight:bold;
   line-height: 20px;
   color: #666666;
   border-radius: 4px;
@@ -5005,7 +5006,7 @@ img {
 
 #portfolio #portfolio-flters li:hover,
 #portfolio #portfolio-flters li.filter-active {
-  background: rgb(91,189,46) ;
+  background: rgb(55,160,3) ;
   color: #fff;
 }
 
@@ -5065,7 +5066,7 @@ img {
 
 #portfolio .portfolio-item figure .link-preview:hover,
 #portfolio .portfolio-item figure .link-details:hover {
-  background:rgb(91,189,46) ;
+  background:rgb(55,160,3) ;
 }
 
 #portfolio .portfolio-item figure .link-preview:hover i,
@@ -5114,7 +5115,7 @@ img {
 }
 
 #portfolio .portfolio-item .portfolio-info h4 a:hover {
-  color:rgb(91,189,46);
+  color:rgb(55,160,3);
 }
 
 #portfolio .portfolio-item .portfolio-info p {

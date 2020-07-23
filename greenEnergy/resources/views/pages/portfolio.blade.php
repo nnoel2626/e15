@@ -33,27 +33,6 @@
 </div>
 <!-- end inner page banner -->
 
-{{-- <div class="section padding_layout_1">
-  <div class="container">
-    <div class="row"> --}}
-
-
-
-
-      {{-- <div class="col-md-12">
-
-        <div class="full">
-
-          <div class="main_heading text_align_center">
-            <h2>Our Portfolio</h2>
-            <p class="large">Fastest service with best price!</p>
-          </div>
-        </div>
-      </div>
-
-    </div> --}}
-
-
 <!--==========================
       Portfolio Section
     ============================-->
@@ -80,10 +59,12 @@
         <div class="row">
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter="*" class="filter-active">All Installations</li>
+              <li data-filter=".filter-app">Multi-cluter Systems</li>
+              <li data-filter=".filter-card">Hybrid Systems</li>
+              <li data-filter=".filter-web">Autonomous systems</li>
+              {{-- <li data-filter=".filter-web">Water Pump Systems</li> --}}
+              <li data-filter=".filter-web">Smart Grid Systems</li>
             </ul>
           </div>
         </div>

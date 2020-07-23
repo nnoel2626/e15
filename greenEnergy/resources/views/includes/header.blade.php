@@ -60,10 +60,10 @@
             </li>
             <li class="{{Request::path()=== '/pages/service' ? 'current_page_item': ''}}">
              <a class="nav-link" href="{{ route('service') }}">Service</a>
-            {{-- </li>
-               <li class="{{Request::path()=== '/pages/shop' ? 'current_page_item': ''}}">
-             <a class="nav-link" href="{{ route('shop') }}">Shop</a>
-            </li> --}}
+            </li>
+               <li class="{{Request::path()=== '/pages/portfolio' ? 'current_page_item': ''}}">
+             <a class="nav-link" href="{{ route('portfolio') }}">Portfolio</a>
+            </li>
             {{-- <li class="{{Request::path()=== '/pages/blog' ? 'current_page_item': ''}}">
              <a class="nav-link" href="{{ route('blog') }}">Blog</a>
             </li> --}}

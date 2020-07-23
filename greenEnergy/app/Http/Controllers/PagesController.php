@@ -47,6 +47,14 @@ class PagesController extends Controller
         return view('pages.contact');
     }
     /**
+    * GET portfolio page
+    */
+    public function portfolio()
+    {
+        return view('pages.portfolio');
+    }
+
+    /**
      * GET /support
      */
     public function support()

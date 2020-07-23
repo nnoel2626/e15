@@ -57,6 +57,7 @@ Route::get('/', function () {
     Route::get('/pages/contact', 'PagesController@contact')->name('contact');
     Route::get('/pages/shop', 'PagesController@shop')->name('shop');
     Route::get('/pages/blog', 'PagesController@blog')->name('blog');
+    Route::get('/pages/portfolio', 'PagesController@portfolio')->name('portfolio');
     Route::get('/pages/appointment', 'PagesController@appointment')->name('appointment');
 
     Route::get('/pages/support', 'PagesController@support')->name('support');

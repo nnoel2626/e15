@@ -47,6 +47,7 @@
           </div>
         </div>
       </div>
+      
     </div>
     {{-- <div class="row about_blog">
       <div class="col-lg-6 col-md-6 col-sm-12 about_cont_blog">

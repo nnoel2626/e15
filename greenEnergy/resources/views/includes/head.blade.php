@@ -12,7 +12,7 @@
 <link rel="icon" href="/images/fevicon/fevicon.png" type="image/gif" />
 
 <!-- bootstrap css -->
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" />
 <!-- Site css -->
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 <!-- responsive css -->
@@ -49,6 +49,14 @@
 
 
 
+
+            {{-- <p>Green Energy Solutions<br>
+            Santo 14,Croix-des-Bouquets 19<br>
+            Port-au-Prince, Haiti<br>
+            <strong>Phone:</strong> +011 509 37022525<br>
+            <strong>Email:</strong><br>
+             greenenergysolutions.haiti@gmail.com<br>
+            </p> --}}
 
 
 

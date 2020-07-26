@@ -168,7 +168,7 @@
                               data-splitin="none"
                               data-splitout="none"
                               data-responsive_offset="on"
-                              style="z-index: 7; white-space: nowrap;">Wind and Solar Energy </div>
+                              style="z-index: 7; white-space: nowrap;">Solar Energy Installation</div>
             </li>
             <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="/images/it_service/slide3.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Perfectly Responsive" data-description="">
               <!-- MAIN IMAGE -->
@@ -305,6 +305,7 @@
         </div>
       </div>
     </div>
+
     <div class="row" style="margin-top: 35px">
       <div class="col-md-8">
         <div class="full margin_bottom_30">

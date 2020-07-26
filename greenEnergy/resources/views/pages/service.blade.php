@@ -33,10 +33,7 @@
 </div>
 <!-- end inner page banner -->
 
-
 <!-- section -->
-
-
 <div class="section padding_layout_1 light_silver service_list">
 
   <div class="container">
@@ -273,9 +270,6 @@
 </div>
  --}}
 
-
-
-
 <div class="section padding_layout_1">
   <div class="container">
     <div class="row">
@@ -368,8 +362,6 @@
     </div>
   </div>
 </div>
-<!-- section -->
-
 
 <!-- end section -->
 @endsection

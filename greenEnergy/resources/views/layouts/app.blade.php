@@ -26,12 +26,14 @@
 
 <!-- footer -->
 <footer class="footer_style_2">
-    @include('includes.footer')
+    @include('includes.footer')x
 </footer>
 <!-- end footer -->
+
  <!-- JavaScript Libraries -->
-<script src="/js/bootstrap.min.js"></script>
 <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
 <!-- menu js -->
 <script src="/js/menumaker.js"></script>
 <!-- wow animation -->

@@ -2565,7 +2565,6 @@ span.skill {
 	color: #000 !important;
 }
 
-
 /*------------------------------------------------------------------
 		10. PRICE TABLE
 	-------------------------------------------------------------------*/
@@ -2690,7 +2689,6 @@ span.skill {
 	background: url('../images/mechanic_service/slide4.jpg');
 	background-size: cover;
 }
-
 
 /*------------------------------------------------------------------
 		11. INNER PAGE BANNER
@@ -2862,7 +2860,6 @@ span.skill {
 	top: 3px;
 	position: relative;
 }
-
 
 /*------------------------------------------------------------------
 		13. BLOG
@@ -3263,12 +3260,186 @@ span.skill {
 	padding-bottom: 185px;
 }
 
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
 
+#footer {
+  background: #000;
+  padding: 0 0 30px 0;
+  color: #eee;
+  font-size: 14px;
+}
+
+#footer .footer-top {
+  background: #111;
+  padding: 60px 0 30px 0;
+}
+
+#footer .footer-top .footer-info {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-info h3 {
+  font-size: 34px;
+  margin: 0 0 20px 0;
+  padding: 2px 0 2px 10px;
+  line-height: 1;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 3px;
+  border-left: 4px solid #18d26e;
+}
+
+#footer .footer-top .footer-info p {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-family: "Montserrat", sans-serif;
+  color: #eee;
+}
+
+#footer .footer-top .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #333;
+  color: #eee;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#footer .footer-top .social-links a:hover {
+  background: #18d26e;
+  color: #fff;
+}
+
+#footer .footer-top h4 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+#footer .footer-top h4::before,
+#footer .footer-top h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+}
+
+#footer .footer-top h4::before {
+  right: 0;
+  background: #555;
+}
+
+#footer .footer-top h4::after {
+  background: #ff8807;
+  width: 60px;
+}
+
+#footer .footer-top .footer-links {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer .footer-top .footer-links ul i {
+  padding-right: 8px;
+  color: #ddd;
+}
+
+#footer .footer-top .footer-links ul li {
+  border-bottom: 1px solid #333;
+  padding: 10px 0;
+}
+
+#footer .footer-top .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+#footer .footer-top .footer-links ul a {
+  color: #eee;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+  color: #18d26e;
+}
+
+#footer .footer-top .footer-contact {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-contact p {
+  line-height: 26px;
+}
+
+#footer .footer-top .footer-newsletter {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-newsletter input[type="email"] {
+  border: 0;
+  padding: 6px 8px;
+  width: 65%;
+}
+
+#footer .footer-top .footer-newsletter input[type="submit"] {
+  background: #ff8807;
+  border: 0;
+  width: 35%;
+  padding: 6px 0;
+  text-align: center;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#footer .footer-top .footer-newsletter input[type="submit"]:hover {
+  background: #ff8807;
+}
+
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+}
+
+#footer .credits {
+  text-align: center;
+  font-size: 13px;
+  color: #ddd;
+}
+
+/* footer p a {
+	color: #ddd;
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 500;
+} */
+div.credits a {
+    color:#37A003;
+    font-size: 14px;
+	line-height: 24px;
+	font-weight: 500;
+}
 /*------------------------------------------------------------------
 		16. FOOTER
 	-------------------------------------------------------------------*/
 
-footer {
+/* footer {
 	background: #632e62;
 	min-height: 375px;
 	padding: 45px 0;
@@ -3341,10 +3512,10 @@ footer h4 {
 .footer_style_2 {
 	padding: 0;
      background: #111;
-    /* background: rgb(0,102,51); */
+    /* background: rgb(0,102,51);
 }
 
-.bottom_footer_style_2 {
+/* .bottom_footer_style_2 {
 	background: #f8f8f8;
 }
 
@@ -3381,16 +3552,16 @@ footer h4 {
 
 .footer_blog {
      /* float: right; */
-     justify-content: center;
+     /* justify-content: center; */
     /* display: flex; */
     /* flex-direction: column-reverse; */
     /* border: 2 rgb(0,102,51); */
-    border: thick double rgb(0,102,51);
+    /* border: thick double rgb(0,102,51);
 	width: 100%;
 	padding: 50px 75px 75px 130px;
 }
-
-footer h2 {
+/*  */
+/* footer h2 {
 	color: #eee;
 	font-size: 14px;
 	text-transform: uppercase;
@@ -3400,7 +3571,7 @@ footer h2 {
 	letter-spacing: 0.5px;
 }
 
-.footer_blog .col-md-6 {
+/* .footer_blog .col-md-6 {
 	margin-bottom: 30px;
 }
 
@@ -3483,7 +3654,7 @@ footer ul.social_icons {
 
 .footer_mail-section .field {
 	padding: 0;
-}
+}  */
 
 .cprt {
 	width: 100%;
@@ -5006,7 +5177,7 @@ img {
 
 #portfolio #portfolio-flters li:hover,
 #portfolio #portfolio-flters li.filter-active {
-  background: rgb(55,160,3) ;
+  background:rgb(45,124,68) ;
   color: #fff;
 }
 
@@ -5066,7 +5237,7 @@ img {
 
 #portfolio .portfolio-item figure .link-preview:hover,
 #portfolio .portfolio-item figure .link-details:hover {
-  background:rgb(55,160,3) ;
+  background:rgb(45,124,68) ;
 }
 
 #portfolio .portfolio-item figure .link-preview:hover i,
@@ -5115,7 +5286,7 @@ img {
 }
 
 #portfolio .portfolio-item .portfolio-info h4 a:hover {
-  color:rgb(55,160,3);
+  color:rgb(45,124,68);
 }
 
 #portfolio .portfolio-item .portfolio-info p {

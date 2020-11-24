@@ -35,10 +35,8 @@
 
 <!-- section -->
 <div class="section padding_layout_1 light_silver service_list">
-
   <div class="container">
     <div class="row">
-
 
     <div class="col-md-12">
 

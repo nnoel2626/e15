@@ -10,16 +10,27 @@ class RolesTableSeeder extends Seeder
      *
      * @return void
      */
-   
-    
+
+
         public function run()
     {
           Role::truncate();
-        //  DB::table('roles')->truncate();
-
-        Role::create(['name' => 'user']);
+        // DB::table('roles')->truncate();
+        
+        //Global access---------//
         Role::create(['name' => 'admin']);
+
         Role::create(['name' => 'owner']);
-        Role::create(['name' => 'tempWorker']);
+
+         //client and staff access---------//
+        Role::create(['name' => 'client']);
+
+         //Distributor and staff access---------//
+        Role::create(['name' => 'distributor']);
+
+         //any staff access---------//
+         Role::create(['name' => 'staff']);
+
+        // Role::create(['name' => 'tempWorker']);
     }
 }

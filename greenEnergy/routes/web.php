@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +39,24 @@ use Illuminate\Support\Facades\Route;
             dump($debug);
     });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//     $tr = new GoogleTranslate('fr'); // Translates into french
+//  return $tr->translate('welcome');
+// return view('welcome');
+
+
+// Route::get('/test', function () {
+//         App::setLocale('es');
+//        dd(App::getLocale());
+// });
+
+
+
+// Route::get('lang/{locale}', function ($locale) {
+// session()->put('locale', $locale);
+// //return redirect()->back('welcome');
+// return view('welcome');
+// });
 
 // Route::group([
 //     'middleware'    => '', // Removing this made everything work
@@ -50,6 +66,41 @@ Route::get('/', function () {
 // ],function(){
 
 // });
+
+// Route::group(['prefix' => '{language}'], function () {
+//     Route::get('/', function () {
+//         return view('welcome');
+//     });
+
+//     Auth::routes();
+//     Route::get('/home', 'HomeController@index')->name('home');
+// });
+
+
+// Route::get('welcome/{locale}', function ($locale) {
+//     if (! in_array($locale, ['en', 'es', 'fr'])) {
+//         abort(400);
+//     }
+
+//     App::setLocale($locale);
+
+//     //
+// });
+
+
+
+Route::redirect('/', '/en');
+
+Route::group([
+    'prefix' => '{language}',
+
+], function () {
+
+Route::get('/',function () {
+return view('welcome');
+});
+
+
 # Misc. Pages Routes
     Route::get('/pages/home', 'PagesController@index')->name('home');
     Route::get('/pages/about', 'PagesController@about')->name('about');
@@ -63,11 +114,12 @@ Route::get('/', function () {
     Route::get('/pages/support', 'PagesController@support')->name('support');
 
 
+});
+
     #All Login and registration routes
     Auth::routes();
 
     //Route::get('/home', 'HomeController@index')->name('home');
-
     Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function ()
     {
     # Show the page to confirm deletion of a user
@@ -78,3 +130,4 @@ Route::get('/', function () {
     Route::resource('/users', 'UsersController', ['except' =>['create','store','show']]);
 
     });
+

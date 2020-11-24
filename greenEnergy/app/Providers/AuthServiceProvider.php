@@ -27,12 +27,12 @@ class AuthServiceProvider extends ServiceProvider
 
          # Gate to be apply to the route to manage all non-admin users
         Gate::define('manage-users', function ($user) {
-            return $user->hasAnyRoles(['admin','staff']);
+            return $user->hasAnyRoles(['admin','owner']);
         });
 
         #Current needs to be to have an AdminRole in order to edit users
         Gate::define('edit-users', function ($user) {
-            return $user->hasAnyRoles(['admin', 'staff']);
+            return $user->hasAnyRoles(['admin', 'owner']);
         });
 
         #Current needs to be to have an AdminRole in order to delete users

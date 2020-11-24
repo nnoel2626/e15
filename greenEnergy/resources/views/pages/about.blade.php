@@ -42,12 +42,12 @@
         <div class="full">
 
           <div class="main_heading text_align_center">
-            <h2>We are a Solar and Wind Energy Company</h2>
+            <h2>We are a Solar Energy Company</h2>
             <p class="large">Fastest service with best price!</p>
           </div>
         </div>
       </div>
-      
+
     </div>
     {{-- <div class="row about_blog">
       <div class="col-lg-6 col-md-6 col-sm-12 about_cont_blog">
@@ -147,7 +147,7 @@
               </div>
               <h3 class="title"><a href="#">Our Mission</a></h3>
               <p>
-                  Green Energy Solutions'commitment to provide reneable energy to all four corners of Haiti, is also accompanied by an environmental responsibility policy that emphasizes the responsibility of its managers, employees, consultants, and partners to minimize the impact of our actions on the environment.
+                  Green Energy Solutions'commitment is to provide renewable and reliable energy solutions to all four corners of Haiti, is also accompanied by an environmental responsibility policy that emphasizes the responsibility of its managers, employees, consultants, and partners to minimize the impact of our actions on the environment.
               </p>
             </div>
           </div>

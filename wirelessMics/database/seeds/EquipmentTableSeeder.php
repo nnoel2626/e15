@@ -74,7 +74,6 @@ use Illuminate\Database\Seeder;
                     'description' => 'This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                     'price' => '25.99',
                     'quantity' => '12',
-
                     'image' =>'img/equipment/dell_laptop.jpg',
                     'slug' => 'pc-laptop'
 

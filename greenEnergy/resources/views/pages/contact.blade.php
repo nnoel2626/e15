@@ -10,7 +10,6 @@
 
 @section('content')
 
-
 <!-- inner page banner -->
 <div id="inner_banner" class="section inner_banner_section">
   <div class="container">
@@ -32,7 +31,7 @@
   </div>
 </div>
 <!-- end inner page banner -->
-<div class="section padding_layout_1">
+<div class="section padding_layout_1" id="contact">
   <div class="container">
     <div class="row">
       <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12"></div>
@@ -107,8 +106,5 @@
   </div>
 </div>
 
-
-
 <!-- End Model search bar -->
-
 @endsection

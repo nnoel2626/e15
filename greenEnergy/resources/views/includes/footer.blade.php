@@ -113,10 +113,10 @@
            <div class="col-lg-3 col-md-6 footer-links">
             <h4>Main Menu</h4>
             <ul>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Portfolio</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="/" accesskey="1">Home</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{{ route('about', app()->getLocale()) }}">About us</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{{ route('service', app()->getLocale()) }}">Services</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{{ route('portfolio', app()->getLocale()) }}">Portfolio</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Blog</a></li>
             </ul>
           </div>
@@ -131,24 +131,21 @@
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
             </ul>
           </div>
-
         <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Acount Holders</h4>
+          <h4>Members</h4>
             <ul>
-            <li><a href="{{ route('register') }}"><i class="fa fa-angle-right"></i>Register</a></li>
-            <li><a href="{{ route('login') }}"><i class="fa fa-angle-right"></i> Login</a></li>
-            <li><a href="{{ route('password.request') }}"><i class="fa fa-angle-right"></i> Forget password</a></li>
+            <li><a href="{{ route('register', app()->getLocale()) }}"><i class="fa fa-angle-right"></i>Join</a></li>
+            <li><a href="{{ route('login', app()->getLocale()) }}"><i class="fa fa-angle-right"></i>Sign In</a></li>
+            <li><a href="{{ route('password.request', app()->getLocale()) }}"><i class="fa fa-angle-right"></i> Forget password</a></li>
             <li><a href="/admin/loginl"><i class="fa fa-angle-right"></i> Admin Login</a></li>
-
           </ul>
         </div>
-
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
 
             <p>Green Energy Solutions<br>
-            Santo 14,Croix-des-Bouquets 19<br>
+            Santo 14, Croix-des-Bouquets 19<br>
             Port-au-Prince, Haiti<br>
             <strong>Phone:</strong> +011 509 37022525<br>
             <strong>Email:</strong>greenenergysolutions.haiti@gmail.com<br>

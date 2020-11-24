@@ -36,7 +36,7 @@
 <!--==========================
       Portfolio Section
     ============================-->
-    <section id="portfolio" class="section_portfolio_bg">
+    <section id="portfolio" class="section_portfolio_bg" >
       <div class="container">
 
         {{-- <header class="section-header">

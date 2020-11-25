@@ -74,7 +74,7 @@
                               data-splitout="none"
                               data-responsive_offset="on"
                               data-elementdelay="0.05"
-                              style="z-index: 6; white-space: nowrap;">Leader in the Solar Energey Market </div>
+                              style="z-index: 6; white-space: nowrap;">Leader in the Solar Energy Market </div>
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0"
                               id="slide-18-layer-412"
@@ -92,7 +92,7 @@
                               data-splitin="none"
                               data-splitout="none"
                               data-responsive_offset="on"
-                              style="z-index: 7; white-space: nowrap;">More than fifty years of Experience </div>
+                              style="z-index: 7; white-space: nowrap;">More than thirty years of Experience </div>
             </li>
             <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="/images/it_service/slide2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Easy To Use & Customize" data-description="">
               <!-- MAIN IMAGE -->

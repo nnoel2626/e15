@@ -14,6 +14,7 @@
 <!-- bootstrap css -->
 <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" />
 <!-- Site css -->
+{{-- <link rel="stylesheet" type="text/css" href="/css/hizoom.css" /> --}}
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 <!-- responsive css -->
 <link rel="stylesheet" type="text/css" href="/css/responsive.css" />
@@ -21,9 +22,11 @@
 <link rel="stylesheet" type="text/css" href="/css/colors1.css" />
 <!-- custom css -->
 <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+
 <!-- wow Animation css -->
 <link rel="stylesheet" type="text/css" href="/css/animate.css" />
 <link rel="stylesheet" type="text/css" href="/animate/animate.min.css" rel="stylesheet" />
+
 
 <!-- Language switcher -->
 {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"

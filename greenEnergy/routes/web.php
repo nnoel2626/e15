@@ -58,14 +58,7 @@ use Stichoza\GoogleTranslate\GoogleTranslate;
 // return view('welcome');
 // });
 
-// Route::group([
-//     'middleware'    => '', // Removing this made everything work
-//     'as'            => 'admin.',
-//     'prefix'        => 'admin',
-//     'namespace'     => 'Admin',
-// ],function(){
 
-// });
 
 // Route::group(['prefix' => '{language}'], function () {
 //     Route::get('/', function () {
@@ -107,14 +100,20 @@ return view('welcome');
     Route::get('/pages/service', 'PagesController@service')->name('service');
     Route::get('/pages/contact', 'PagesController@contact')->name('contact');
     Route::get('/pages/shop', 'PagesController@shop')->name('shop');
-    Route::get('/pages/blog', 'PagesController@blog')->name('blog');
+    Route::get('/pages/shopDetails', 'PagesController@shopDetails')->name('shopDetails');
     Route::get('/pages/portfolio', 'PagesController@portfolio')->name('portfolio');
     Route::get('/pages/appointment', 'PagesController@appointment')->name('appointment');
-
     Route::get('/pages/support', 'PagesController@support')->name('support');
-
-
 });
+
+        Route::group([
+            'middleware'    => '', // Removing this made everything work
+            'as'            => 'admin.',
+            'prefix'        => 'admin',
+            'namespace'     => 'Admin',
+        ],function(){
+
+        });
 
     #All Login and registration routes
     Auth::routes();

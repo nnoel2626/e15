@@ -37,7 +37,7 @@ a.btn.dark_gray_bt:focus,
 }
 
 .theme_bg {
-	background: #039ee3;
+	background: #ff8807;
 }
 
 #navbar_menu > ul > li a.active,
@@ -54,7 +54,7 @@ footer ul.social_icons li a:focus,
 
 .btn.sqaure_bt {
     border-radius: 0;
-    background: #039ee3;
+    background: #ff8807;
 }
 
 .btn.sqaure_bt span {

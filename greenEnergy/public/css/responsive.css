@@ -159,7 +159,7 @@
       transition: ease all 0.5s;
       padding-bottom: 25px;
   }
-	
+
 }
 
 
@@ -407,7 +407,7 @@
 	}
 	.right_section_header_top .social_icon {
         display: none;
-    } 
+    }
 	.header_top {
 		padding: 10px 0;
 	}
@@ -444,7 +444,7 @@
 	/**== menu == **/
 	#navbar_menu.small-screen #menu-button {
         top: -74px;
-    }  
+    }
 	.home_page_2 #navbar_menu.small-screen #menu-button {
 		top: 15px;
 	}
@@ -705,11 +705,11 @@
 	}
 	header .header_top,header .header_bottom,section,footer,.bottom_footer,.light_silver {
 		float: left;width: 100%;
-    }	
+    }
 	.hidden-sm {
 	    display: none;
 	}
-	
+
 .cleaning .menu_bottom_section {
     position: relative;
     z-index: 9;
@@ -733,7 +733,7 @@
     font-size: 14px;
     line-height: normal;
 }
-   
+
 .cleaning .about_cont_blog {
     padding: 50px;
     width: 100%;
@@ -751,8 +751,6 @@
 .about_feature_img img {
 	width: 100%;
 }
-
-
 }
 
 @media (max-width: 767px) {
@@ -771,7 +769,7 @@
 		max-width: 100%;
 		padding: 0 15px;
 	}
-	
+
 	/**== header ==**/
 	.header_top ul {
 		display: flex;
@@ -855,7 +853,7 @@
         margin: 5px 0;
     }
 	#testimonial_slider .testimonial-meta {
-        margin-top: 75px;  
+        margin-top: 75px;
     }
 	.margin_bottom_30 {
 		margin-bottom: 30px;
@@ -1226,27 +1224,27 @@
 	.hidden-xs {
 	   display: none;
 	}
-	
+
 	/**== cross layout ==**/
-	
+
 	.gross_layout::before {
 	   display: none;
 	}
-	
+
 	.gross_layout::after {
 	   display: none;
 	}
-	
+
 	/** counter **/
-	
+
 	.counter .text_align_right {
        text-align: center;
     }
-	
+
 	.counter-count {
        text-align: center;
     }
-	
+
 	.main_heading.text_align_right::after {
        margin-right: auto;
     }
@@ -1256,7 +1254,7 @@
 	.main_heading.text_align_left,.main_heading.text_align_right {
        text-align: center;
     }
-	
+
 	.blog_colum {
        margin-bottom: 25px;
     }
@@ -1267,7 +1265,7 @@
 	margin-bottom: 30px;
 }
 	/** testimonial slider **/
-	
+
 	#testimonial_slider {
        padding-right: 0;
     }
@@ -1301,7 +1299,7 @@
     height: 100%;
     min-height: 180px;
     z-index: 1;
-}  
+}
    .brand_list li {
     float: left;
     width: 100%;
@@ -1310,13 +1308,13 @@
     padding: 30px 0;
     margin: 0 0 20px;
    }
-   
+
    .contact_us_section .inner_cont {
     float: left;
     width: 100%;
     padding-left: 25px;
 }
-   
+
    .contact_us_section .call_icon {
 
     float: left;
@@ -1380,26 +1378,26 @@
 }
 
 /** shop page **/
-	
+
 	.shopping-cart-cart {
         max-width: 100%;
         width: 100%;
         margin-top: 25px;
     }
-	
+
 	.product-table table.table {
         min-width: 720px;
     }
-	
+
 	.product_detail_page .tab_bar_section .nav.nav-tabs {
         display: flex;
         justify-content: center;
     }
-	
+
 	.product_detail_page .tab_bar_section .nav-tabs .nav-item {
         width: 100%;
     }
-	
+
 	.inner_banner1 h2 {
         font-size: 30px;
     }
@@ -1420,22 +1418,22 @@
 
 }
    /** footer **/
-   
+
    .map_section {
     float: right;
     width: 100%;
     }
-	
+
 	.footer_blog {
     float: left;
     width: 100%;
     padding: 50px 40px 110px 40px;
    }
-   
+
    .cprt {
         padding-left: 0px;
     }
-   
+
 }
 
 @media (max-width:574px) {
@@ -1528,11 +1526,11 @@
 	.xs-hidden {
 	    display:none !important;
 	}
-	
+
 }
 
 @media (min-width:575px) and (max-width:767px) {
-	
+
 	.header_top ul li {
 		text-align: left;
 	}
@@ -1600,14 +1598,14 @@
     padding: 5px 70px 10px 0 !important;
     font-size: 40px;
     }
-	
+
 	.testmonial_section .col-sm-7 {
     width: 100%;
     max-width: 100%;
     flex: 100%;
    }
-   
-	
+
+
 }
 
 @media (min-width:575px) and (max-width:767px) {
@@ -1624,7 +1622,7 @@
     width: 100%;
     max-width: 100%;
     flex: inherit;
-}	
+}
 .banner_slider img {
     margin-top: 20px;
     max-width: 90%;
@@ -1675,7 +1673,7 @@
 .cleaning .menu_bottom_section #navbar_menu > ul > li > a {
     padding: 16px 25px 16px;
 }
-	
+
 }
 
 @media (max-width:574px) {

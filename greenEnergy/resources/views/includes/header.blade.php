@@ -53,9 +53,9 @@
               <li class="{{Request::path()=== '/' ? 'current_page_item': ''}}">
                 <a href="/" accesskey="1" title="">Welcome</a>
              </li>
-            {{-- <li class="{{Request::path()=== '/pages/home' ? 'current_page_item': ''}}">
-             <a class="nav-link" href="{{ route('home') }}">Home</a>
-            </li> --}}
+            <li class="{{Request::path()=== '/pages/shop' ? 'current_page_item': ''}}">
+             <a class="nav-link" href="{{ route('shop', app()->getLocale()) }}">Shop</a>
+            </li>
             <li class="{{Request::path()=== '/pages/about' ? 'current_page_item': ''}}">
              <a class="nav-link" href="{{ route('about', app()->getLocale())}}">About Us</a>
             </li>
@@ -69,8 +69,35 @@
              <a class="nav-link" href="{{ route('portfolio', app()->getLocale()) }}">Portfolio</a>
             </li>
              <li class="nav-item">
-            <a class="nav-link" href='/fr' >FR</a>
+
+
+            <li class="nav-item dropdown">
+            <a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i>
+            <span class="selected-language">English</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown-flag">
+                <a class="dropdown-item" href="{{url('/en')}}" data-language="en">
+                <i class="flag-icon flag-icon-us"></i>English</a>
+                <a class="dropdown-item" href="{{url('/fr')}}" data-language="fr">
+                <i class="flag-icon flag-icon-fr"></i>French</a>
+                <a class="dropdown-item" href="{{url('/es')}}" data-language="de">
+                <i class="flag-icon flag-icon-es"></i>Spanish</a>
+            </div>
+          </li>
+
+
+
+
+
+            {{-- <a class="nav-link" href='/fr' >FR</a>
             </li>
+             <li class="nav-item">
+            <a class="nav-link" href='/es' >ES</a>
+            </li>
+             <li class="nav-item">
+            <a class="nav-link" href='/en' >EN</a>
+            </li> --}}
 
 
             {{-- <li>
@@ -84,7 +111,7 @@
             </li> --}}
 
 
-             <li class="nav-item dropdown">
+             {{-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-us"> </span> English</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{url('/fr')}}"><span class="flag-icon flag-icon-fr"> </span>French</a>
@@ -92,22 +119,9 @@
                     <a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru"> </span>  Russian</a>
                    </div>
              </li>
+ --}}
 
 
-          {{-- <li class="nav-item dropdown">
-            <a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i>
-            <span class="selected-language">English</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdown-flag">
-                <a class="dropdown-item" href="{{url('lang/en')}}" data-language="en">
-                <i class="flag-icon flag-icon-us"></i>English</a>
-                <a class="dropdown-item" href="{{url('lang/fr')}}" data-language="fr">
-                <i class="flag-icon flag-icon-fr"></i>French</a>
-                <a class="dropdown-item" href="{{url('lang/es')}}" data-language="de">
-                <i class="flag-icon flag-icon-es"></i>Spanish</a>
-            </div>
-          </li> --}}
 
             {{-- <li class="nav-item dropdown">
              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -19,7 +19,7 @@ class PagesController extends Controller
     // }
 
 
-  
+
     /**
      * Show the application user dashboard.
      *
@@ -73,6 +73,25 @@ class PagesController extends Controller
     {
         return view('pages.shop');
     }
+
+     /**
+     * GET /blog
+     */
+     public function shopDetails()
+    {
+        return view('pages.shopDetails');
+    }
+
+    // public function show( Microphone $microphone, $slug )
+    // {
+    //   $microphone = Microphone::where('slug', '=', $slug)->first();
+
+    //   return view('microphones.show')->with([
+    //         'microphone'=> $microphone,
+    //         'slug' => $slug
+    //         ]);
+    // }
+
     /**
      * GET /blog
      */

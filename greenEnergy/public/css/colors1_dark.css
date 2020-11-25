@@ -125,7 +125,7 @@ hr.dottad_border,
 .pagination>.active>span:hover,
 .comment_section,
 .boder_dottat_small {
-	border-color: #039ee3;
+	border-color:#ff8807;
 }
 
 
@@ -182,9 +182,9 @@ button.btn.white_btn, a.btn.white_btn, button.btn.white_btn, a.btn.white_btn {
 	text-shadow: none;
 }
 
-button.btn.white_btn:hover, 
-a.btn.white_btn:hover, 
-button.btn.white_btn:hover, 
+button.btn.white_btn:hover,
+a.btn.white_btn:hover,
+button.btn.white_btn:hover,
 a.btn.white_btn:hover {
 	color: #fff;
 	text-transform: none;

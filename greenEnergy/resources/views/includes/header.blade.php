@@ -49,48 +49,106 @@
           <!-- menu start -->
           <div class="menu_side">
             <div id="navbar_menu">
+
               <ul class="first-ul">
-              <li class="{{Request::path()=== '/' ? 'current_page_item': ''}}">
-                <a href="/" accesskey="1" title="">Welcome</a>
-             </li>
-            <li class="{{Request::path()=== '/pages/shop' ? 'current_page_item': ''}}">
-             <a class="nav-link" href="{{ route('shop', app()->getLocale()) }}">Shop</a>
-            </li>
-            <li class="{{Request::path()=== '/pages/about' ? 'current_page_item': ''}}">
-             <a class="nav-link" href="{{ route('about', app()->getLocale())}}">About Us</a>
-            </li>
-            <li class="{{Request::path()=== '/pages/contact' ? 'current_page_item': ''}}">
-             <a class="nav-link" href="{{ route('contact', app()->getLocale()) }}">Contact</a>
-            </li>
-            <li class="{{Request::path()=== '/pages/service' ? 'current_page_item': ''}}">
-             <a class="nav-link" href="{{ route('service', app()->getLocale()) }}">Services</a>
-            </li>
-            <li class="{{Request::path()=== '/pages/portfolio' ? 'current_page_item': ''}}">
-             <a class="nav-link" href="{{ route('portfolio', app()->getLocale()) }}">Portfolio</a>
-            </li>
-             <li class="nav-item">
+
+              <li>
+                <a class="active" href="{{ ( '/') }}" accesskey="1" title="">Welcome</a>
+              </li>
+
+               <li> <a href="{{ url('/pages/about' ) }}">About Us</a>
+                    <ul>
+                      <li><a href="{{ url('/pages/portfolio',app()->getLocale() ) }}">Portfolio</a></li>
+                      <li><a href="{{ url('/pages/privacy_policy', app()->getLocale() ) }}">Privacy policy</a></li>
+                   </ul>
+                </li>
+
+               <li><a href="{{ url('/products/product_categories' ) }}">Product Categories</a>
+                 <ul>
+                    <li><a  href="{{ url ('/products/solar_panels') }}">Solar Panels</a></li>
+                    <li><a  href="{{ url ('/products/batteries') }}">Batteries</a></li>
+                    <li><a  href="{{ url ('/products/inverters') }}">Inverters</a></li>
+                    <li><a  href="{{ url ('/products/optimizers') }}">Optimizers</a></li>
+                 </ul>
+               </li>
+                <li><a href="{{ url('/pages/service', app()->getLocale() ) }}">Services</a>
+               <ul>
+                <li><a href="{{ url('/pages/support', app()->getLocale() ) }}">Technical Support</a></li>
+                 <li><a href="{{ url('/pages/terms_of_service', app()->getLocale() ) }}">Terms of Service</a></li>
+                </ul>
+                </li>
+
+                <li><a href="{{ url('/pages/contact')}}">Contact</a>
+                    <ul>
+                        <li><a href="{{ url('/pages/appointment')}}">Make Appointment</a></li>
+                    </ul>
+                </li>
+                <li><a  href="{{url('/en')}}" data-language="en">
+                    <i class="flag-icon flag-icon-us"></i> English</a>
+                    <ul>
+                     <li><a class="dropdown-item" href="{{url('/fr')}}" data-language="fr">
+                        <i class="flag-icon flag-icon-fr"></i> French</a></li>
+
+                     <li><a class="dropdown-item" href="{{url('/es')}}" data-language="de">
+                       <i class="flag-icon flag-icon-es"></i> Spanish</a></li>
+                    </ul>
+                </li>
 
 
-            <li class="nav-item dropdown">
-            <a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i>
-            <span class="selected-language">English</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdown-flag">
-                <a class="dropdown-item" href="{{url('/en')}}" data-language="en">
-                <i class="flag-icon flag-icon-us"></i>English</a>
-                <a class="dropdown-item" href="{{url('/fr')}}" data-language="fr">
-                <i class="flag-icon flag-icon-fr"></i>French</a>
-                <a class="dropdown-item" href="{{url('/es')}}" data-language="de">
-                <i class="flag-icon flag-icon-es"></i>Spanish</a>
-            </div>
-          </li>
 
 
 
 
 
-            {{-- <a class="nav-link" href='/fr' >FR</a>
+
+
+            {{-- <li class="nav-item dropdown">
+             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Languages <span class="caret"></span>
+                </a>
+                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
+                    {{-- <a href="{{ route(Route::currentRouteName(), 'en') }}" class="nav-link">EN</>
+                    <a href="{{ route(Route::currentRouteName(), 'fr') }}" class="nav-link">FR</> --}}
+                {{-- </div>
+                </li> --}}
+
+
+
+
+
+
+
+
+          <!-- menu end -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+   {{-- </div>
+                <div class="search_icon">
+                    <ul>
+                        <li><a href="#" data-toggle="modal" data-target="#search_bar"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div> --}}
+
+
+   {{-- <li class="{{Request::path()=== '/pages/about' ? 'current_page_item': ''}}">
+                <a class="nav-link active" href="{{ route('about', app()->getLocale())}}">About Us</a>
+                </li>
+
+                <li class="{{Request::path()=== '/pages/portfolio' ? 'current_page_item': ''}}">
+                <a class="nav-link" href="{{ route('portfolio', app()->getLocale()) }}">Portfolio</a>
+                </li>
+                <li class="{{Request::path()=== '/pages/service' ? 'current_page_item': ''}}">
+                <a class="nav-link" href="{{ route('service', app()->getLocale()) }}">Services</a>
+                </li> --}}
+
+
+                {{-- <a class="nav-link" href='/fr' >FR</a>
             </li>
              <li class="nav-item">
             <a class="nav-link" href='/es' >ES</a>
@@ -120,38 +178,3 @@
                    </div>
              </li>
  --}}
-
-
-
-            {{-- <li class="nav-item dropdown">
-             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Languages <span class="caret"></span>
-                </a>
-                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
-                    {{-- <a href="{{ route(Route::currentRouteName(), 'en') }}" class="nav-link">EN</>
-                    <a href="{{ route(Route::currentRouteName(), 'fr') }}" class="nav-link">FR</> --}}
-                {{-- </div>
-                </li> --}}
-
-
-
-
-
-            {{-- <li class="{{Request::path()=== '/pages/blog' ? 'current_page_item': ''}}">
-             <a class="nav-link" href="{{ route('products') }}">Products</a>
-            </li> --}}
-
-            {{-- </div>
-                <div class="search_icon">
-                    <ul>
-                        <li><a href="#" data-toggle="modal" data-target="#search_bar"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div> --}}
-
-
-          <!-- menu end -->
-        </div>
-      </div>
-    </div>
-  </div>

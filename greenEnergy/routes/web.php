@@ -40,58 +40,17 @@ use Stichoza\GoogleTranslate\GoogleTranslate;
     });
 
 
-//     $tr = new GoogleTranslate('fr'); // Translates into french
-//  return $tr->translate('welcome');
-// return view('welcome');
 
 
-// Route::get('/test', function () {
-//         App::setLocale('es');
-//        dd(App::getLocale());
-// });
+    // Route::redirect('/', '/en');
 
+    // Route::group([
+    //     'prefix' => '{language}',
+    // ], function () {
 
-
-// Route::get('lang/{locale}', function ($locale) {
-// session()->put('locale', $locale);
-// //return redirect()->back('welcome');
-// return view('welcome');
-// });
-
-
-
-// Route::group(['prefix' => '{language}'], function () {
-//     Route::get('/', function () {
-//         return view('welcome');
-//     });
-
-//     Auth::routes();
-//     Route::get('/home', 'HomeController@index')->name('home');
-// });
-
-
-// Route::get('welcome/{locale}', function ($locale) {
-//     if (! in_array($locale, ['en', 'es', 'fr'])) {
-//         abort(400);
-//     }
-
-//     App::setLocale($locale);
-
-//     //
-// });
-
-
-
-Route::redirect('/', '/en');
-
-Route::group([
-    'prefix' => '{language}',
-
-], function () {
-
-Route::get('/',function () {
-return view('welcome');
-});
+        Route::get('/',function () {
+        return view('welcome');
+        });
 
 
 # Misc. Pages Routes
@@ -99,12 +58,23 @@ return view('welcome');
     Route::get('/pages/about', 'PagesController@about')->name('about');
     Route::get('/pages/service', 'PagesController@service')->name('service');
     Route::get('/pages/contact', 'PagesController@contact')->name('contact');
-    Route::get('/pages/shop', 'PagesController@shop')->name('shop');
-    Route::get('/pages/shopDetails', 'PagesController@shopDetails')->name('shopDetails');
     Route::get('/pages/portfolio', 'PagesController@portfolio')->name('portfolio');
     Route::get('/pages/appointment', 'PagesController@appointment')->name('appointment');
     Route::get('/pages/support', 'PagesController@support')->name('support');
-});
+    Route::get('/pages/terms_of_service', 'PagesController@termsOfService')->name('termsOfService');
+    Route::get('/pages/privacy_policy', 'PagesController@privacyPolicy')->name('privacyPolicy');
+//});
+
+    # Products for shop Routes
+    Route::get('/products/product_categories', 'ShopController@productCategories')->name('productCategories');
+    Route::get('/products/products', 'ShopController@products')->name('products');
+    Route::get('/products/product_details', 'ShopController@productDetails')->name('productDetails');
+    Route::get('/products/inverters', 'ShopController@inverters')->name('inverters');
+    Route::get('/products/batteries', 'ShopController@batteries')->name('batteries');
+    Route::get('/products/solar_panels', 'ShopController@solarPanels')->name('solarPanels');
+    Route::get('/products/optimizers', 'ShopController@optimizers')->name('optimizers');
+
+
 
         Route::group([
             'middleware'    => '', // Removing this made everything work
@@ -130,3 +100,44 @@ return view('welcome');
 
     });
 
+
+
+// Route::get('lang/{locale}', function ($locale) {
+// session()->put('locale', $locale);
+// //return redirect()->back('welcome');
+// return view('welcome');
+// });
+
+
+
+// Route::group(['prefix' => '{language}'], function () {
+//     Route::get('/', function () {
+//         return view('welcome');
+//     });
+
+//     Auth::routes();
+//     Route::get('/home', 'HomeController@index')->name('home');
+// });
+
+
+    //     $tr = new GoogleTranslate('fr'); // Translates into french
+//  return $tr->translate('welcome');
+// return view('welcome');
+
+
+// Route::get('/test', function () {
+//         App::setLocale('es');
+//        dd(App::getLocale());
+// });
+
+
+
+    // Route::get('welcome/{locale}', function ($locale) {
+//     if (! in_array($locale, ['en', 'es', 'fr'])) {
+//         abort(400);
+//     }
+
+//     App::setLocale($locale);
+
+//     //
+// });

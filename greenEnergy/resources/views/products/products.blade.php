@@ -16,16 +16,18 @@
       <div class="col-md-12">
         <div class="full">
           <div class="main_heading text_align_center">
-            <h2>Our Products</h2>
+            <h2>Our Product Categories</h2>
             <p class="large">We package the products with best services to make you a happy customer.</p>
           </div>
         </div>
       </div>
     </div>
+
+    
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/1.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="/images/it_service/1.jpg" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
               <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>
@@ -41,7 +43,7 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/2.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="/images/it_service/2.jpg" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
               <h4><a href="it_shop_detail.html">Kaspersky Internet Security</a></h4>
@@ -57,7 +59,7 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/3.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="/images/it_service/3.jpg" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
               <h4><a href="it_shop_detail.html">Mcafee Livesafe Antivirus</a></h4>
@@ -73,7 +75,7 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/4.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="/images/it_service/4.jpg" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
               <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>
@@ -89,7 +91,7 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/5.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="/images/it_service/5.jpg" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
               <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>
@@ -105,7 +107,7 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/6.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="/images/it_service/6.jpg" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
               <h4><a href="it_shop_detail.html">Kaspersky Internet Security</a></h4>
@@ -121,7 +123,7 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/7.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="/images/it_service/7.jpg" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
               <h4><a href="it_shop_detail.html">Mcafee Livesafe Antivirus</a></h4>
@@ -137,7 +139,7 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/8.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="/images/it_service/8.jpg" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
               <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>
@@ -153,7 +155,7 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/1.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="/images/it_service/1.jpg" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
               <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>
@@ -169,7 +171,7 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/2.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="/images/it_service/2.jpg" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
               <h4><a href="it_shop_detail.html">Kaspersky Internet Security</a></h4>
@@ -185,7 +187,7 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/3.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="/images/it_service/3.jpg" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
               <h4><a href="it_shop_detail.html">Mcafee Livesafe Antivirus</a></h4>
@@ -201,7 +203,7 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/4.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="/images/it_service/4.jpg" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
               <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>

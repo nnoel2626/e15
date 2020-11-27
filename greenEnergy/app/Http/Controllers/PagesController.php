@@ -66,39 +66,31 @@ class PagesController extends Controller
     {
         return view('pages.support');
     }
+
     /**
-     * GET /shop
+     * GET /blog
      */
-     public function shop()
+     public function privacyPolicy()
     {
-        return view('pages.shop');
+        return view('pages.privacy_policy');
+    }
+
+    /**
+     * GET /blog
+     */
+     public function technicalSupport()
+    {
+        return view('pages.technical_support');
     }
 
      /**
      * GET /blog
      */
-     public function shopDetails()
+     public function termsOfService()
     {
-        return view('pages.shopDetails');
+        return view('pages.terms_of_service');
     }
 
-    // public function show( Microphone $microphone, $slug )
-    // {
-    //   $microphone = Microphone::where('slug', '=', $slug)->first();
-
-    //   return view('microphones.show')->with([
-    //         'microphone'=> $microphone,
-    //         'slug' => $slug
-    //         ]);
-    // }
-
-    /**
-     * GET /blog
-     */
-     public function blog()
-    {
-        return view('pages.blog');
-    }
     /**
      * GET /appointment
      */

@@ -13,12 +13,12 @@ class SetLanguage
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
-        \App::setLocale($request->language);
-        // if (session()->has('locale')) {
-        //     \App::setLocale(session()->get('locale'));
-        // }
-        return $next($request);
-    }
+    // public function handle($request, Closure $next)
+    // {
+    //     \App::setLocale($request->language);
+    //     // if (session()->has('locale')) {
+    //     //     \App::setLocale(session()->get('locale'));
+    //     // }
+    //     return $next($request);
+    // }
 }

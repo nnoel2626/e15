@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
- <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-{{-- <html lang="en"> --}}
+ {{-- <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> --}}
+<html lang="{{ app()->getLocale() }}">
 
 <head>
  @include('includes.head')

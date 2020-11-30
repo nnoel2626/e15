@@ -56,10 +56,10 @@
                 <a class="active" href="{{ ( '/') }}" accesskey="1" title="">Welcome</a>
               </li>
 
-               <li> <a href="{{ url('/pages/about' ) }}">About Us</a>
+               <li> <a href="{{ url('/pages/about') }}">About Us</a>
                     <ul>
-                      <li><a href="{{ url('/pages/portfolio',app()->getLocale() ) }}">Portfolio</a></li>
-                      <li><a href="{{ url('/pages/privacy_policy', app()->getLocale() ) }}">Privacy policy</a></li>
+                      <li><a href="{{ url('/pages/portfolio' ) }}">Portfolio</a></li>
+                      <li><a href="{{ url('/pages/privacy_policy') }}">Privacy policy</a></li>
                    </ul>
                 </li>
 
@@ -71,10 +71,10 @@
                     <li><a  href="{{ url ('/products/optimizers') }}">Optimizers</a></li>
                  </ul>
                </li>
-                <li><a href="{{ url('/pages/service', app()->getLocale() ) }}">Services</a>
+                <li><a href="{{ url('/pages/service' ) }}">Services</a>
                <ul>
-                <li><a href="{{ url('/pages/support', app()->getLocale() ) }}">Technical Support</a></li>
-                 <li><a href="{{ url('/pages/terms_of_service', app()->getLocale() ) }}">Terms of Service</a></li>
+                <li><a href="{{ url('/pages/support' ) }}">Technical Support</a></li>
+                 <li><a href="{{ url('/pages/terms_of_service' ) }}">Terms of Service</a></li>
                 </ul>
                 </li>
 
@@ -83,13 +83,13 @@
                         <li><a href="{{ url('/pages/appointment')}}">Make Appointment</a></li>
                     </ul>
                 </li>
-                <li><a  href="{{url('/en')}}" data-language="en">
+                <li><a  href="{{url('locale/en')}}" data-language="en">
                     <i class="flag-icon flag-icon-us"></i> English</a>
                     <ul>
-                     <li><a class="dropdown-item" href="{{url('/fr')}}" data-language="fr">
+                     <li><a class="dropdown-item" href="{{url('locale/fr')}}" data-language="fr">
                         <i class="flag-icon flag-icon-fr"></i> French</a></li>
 
-                     <li><a class="dropdown-item" href="{{url('/es')}}" data-language="de">
+                     <li><a class="dropdown-item" href="{{url('locale/es')}}" data-language="de">
                        <i class="flag-icon flag-icon-es"></i> Spanish</a></li>
                     </ul>
                 </li>

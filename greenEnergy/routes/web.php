@@ -42,16 +42,22 @@ use Stichoza\GoogleTranslate\GoogleTranslate;
 
 
 
-    // Route::redirect('/', '/en');
+    //Route::redirect('/', '/en');
 
     // Route::group([
-    //     'prefix' => '{language}',
+    //     'prefix' => '{locale}',
     // ], function () {
 
-        Route::get('/',function () {
+    Route::get('/',function () {
         return view('welcome');
         });
 
+    route::get('locale/{locale}', function ($locale){
+
+        Session::put('locale', $locale);
+        return redirect()->back();
+
+        });
 
 # Misc. Pages Routes
     Route::get('/pages/home', 'PagesController@index')->name('home');
@@ -63,7 +69,7 @@ use Stichoza\GoogleTranslate\GoogleTranslate;
     Route::get('/pages/support', 'PagesController@support')->name('support');
     Route::get('/pages/terms_of_service', 'PagesController@termsOfService')->name('termsOfService');
     Route::get('/pages/privacy_policy', 'PagesController@privacyPolicy')->name('privacyPolicy');
-//});
+
 
     # Products for shop Routes
     Route::get('/products/product_categories', 'ShopController@productCategories')->name('productCategories');
@@ -74,7 +80,7 @@ use Stichoza\GoogleTranslate\GoogleTranslate;
     Route::get('/products/solar_panels', 'ShopController@solarPanels')->name('solarPanels');
     Route::get('/products/optimizers', 'ShopController@optimizers')->name('optimizers');
 
-
+         //});
 
         Route::group([
             'middleware'    => '', // Removing this made everything work

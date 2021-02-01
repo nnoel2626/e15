@@ -23,7 +23,7 @@
                  <a  class="nonactive float-right" href="/">Cancel</a>
                 </div>
 
-                <form method="POST" action="{{ route('register, app()->getLocale())') }}">
+                <form method="POST" action="{{ route('register') }}">
                      @csrf
 
                     <label for="name"><span>{{  __('Name')  }}</span></label>
@@ -53,7 +53,7 @@
                     <a href="{{ route('login') }}">{{ __('Login') }}</a>
                         <br/>
                     @if (Route::has('password.request'))
-                    <a class="btn btn-link" href="{{ route('password.request, app()->getLocale())') }}">
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
                     {{ __('Forgot Your Password?') }}
                     </a>
                     @endif

@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('title')
@@ -254,130 +253,237 @@
   </div>
 </div>
 <!-- end section -->
-<!-- section -->
-<div class="section padding_layout_1">
+
+<div class="section padding_layout_1 light_silver service_list">
+{{-- <div id="services" class="section lb"> --}}
   <div class="container">
+
+        <div class="row">     <!-- title -->
+            <div class="col-md-12">
+                <div class="full">
+                <div class="main_heading text_align_center">
+                    <h2>Your Solar Energy Solutions in One place </h2>
+                    <p class="large">Residential and commercial</p>
+                </div>
+                </div>
+            </div>
+        </div>   <!-- end title -->
+
+             <div class="row">
+				<div class="col-md-4">
+                    <div class="services-inner-box">
+						{{-- <div class="ser-icon">
+							<i class="flaticon-seo"></i>
+						</div> --}}
+						<h2>Ready to go Solar Kits</h2>
+						<p>Low budget solar system solutions that would meet the need of many custumers</p>
+					</div>
+                </div><!-- end col -->
+                <div class="col-md-4">
+                    <div class="services-inner-box">
+						{{-- <div class="ser-icon">
+							<i class="flaticon-development"></i>
+						</div> --}}
+						<h2>Design and Build System</h2>
+						<p>Form concept to implementation of a Solar System that works for you</p>
+					</div>
+                </div><!-- end col -->
+				<div class="col-md-4">
+                    <div class="services-inner-box">
+						{{-- <div class="ser-icon">
+							<i class="flaticon-process"></i>
+						</div> --}}
+						<h2>Autonomous System</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</div>
+                </div><!-- end col -->
+				<div class="col-md-4">
+
+                    <div class="services-inner-box">
+						{{-- <div class="ser-icon">
+							<i class="flaticon-discuss-issue"></i>
+						</div> --}}
+						<h2>Solar Hybrid System</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+
+                </div><!-- end col -->
+				<div class="col-md-4">
+                    <div class="services-inner-box">
+						{{-- <div class="ser-icon">
+							<i class="flaticon-idea"></i>
+						</div> --}}
+						<h2>Multi-cluster System</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</div>
+                </div><!-- end col -->
+				<div class="col-md-4">
+                    <div class="services-inner-box">
+						{{-- <div class="ser-icon">
+							<i class="flaticon-idea-1"></i>
+						</div> --}}
+						<h2>Energy Storage</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</div>
+                </div><!-- end col -->
+            </div><!-- end row -->
+
+
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+
+<!-- section -->
+<div class="section  light_silver service_list">
+  <div class="container">
+
+   <div class="row">
+     <div class="col-md-12">
+      <div class="full">
+        <div class="main_heading text_align_center">
+            <h2>Types Of Services </h2>
+                <p class="large">Many types of services!</p>
+            </div>
+        </div>
+    </div>
+
+      <div class="col-md-4 service_blog">
+        <div class="full">
+          <div class="service_img"> <img class="img-responsive" src="/images/it_service/post-01.jpg" alt="#" /> </div>
+          <div class="service_cont">
+            <h3 class="service_head">Consulation</h3>
+            <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Details</a> </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 service_blog">
+        <div class="full">
+          <div class="service_img"> <img class="img-responsive" src="/images/it_service/post-02.jpg" alt="#" /> </div>
+          <div class="service_cont">
+            <h3 class="service_head">Design and Build</h3>
+            <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 service_blog">
+        <div class="full">
+          <div class="service_img"> <img class="img-responsive" src="/images/it_service/post-03.jpg" alt="#" /> </div>
+          <div class="service_cont">
+            <h3 class="service_head">Technical Support and Troubleshoot</h3>
+            <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<br><br><br>
+
+{{-- <div class="container">
+    <div class="row">
+      <div class="col-md-4 service_blog">
+        <div class="full">
+          <div class="service_img"> <img class="img-responsive" src="/images/it_service/post-01.jpg" alt="#" /> </div>
+          <div class="service_cont">
+            <h3 class="service_head">Solar Hybrid System</h3>
+            <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Details</a> </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 service_blog">
+        <div class="full">
+          <div class="service_img"> <img class="img-responsive" src="/images/it_service/post-02.jpg" alt="#" /> </div>
+          <div class="service_cont">
+            <h3 class="service_head"> Autonomous Solar System</h3>
+            <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 service_blog">
+        <div class="full">
+          <div class="service_img"> <img class="img-responsive" src="/images/it_service/post-03.jpg" alt="#" /> </div>
+          <div class="service_cont">
+            <h3 class="service_head">Technical support service</h3>
+            <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+          </div>
+        </div>
+      </div> --}}
+
+    </div>
+  </div>
+</div><!-- end section -->
+
+
+<!-- section -->
+{{-- <div class="section padding_layout_1 light_silver gross_layout">
+  <div class="container">
+
     <div class="row">
       <div class="col-md-12">
         <div class="full">
-          <div class="main_heading text_align_center">
-            <h2>Why Choose Us</h2>
-            <p class="large">Fastest service with best price!</p>
+          <div class="main_heading text_align_left">
+            <h2>About Service</h2>
+            <p class="large">Easy and effective way to get your device repaired.</p>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-        <div class="full text_align_center margin_bottom_30">
-          <div class="center">
-            <div class="icon"> <img src="/images/it_service/i1.png" alt="#" /> </div>
-          </div>
-          <h4 class="theme_color">Complete Energy Solutions</h4>
-          <p>GES is becoming a reference in multi-user solar-hybrid (MSG) micro-grids for rural electrification, housing and commercial use, setting new standards</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-        <div class="full text_align_center margin_bottom_30">
-          <div class="center">
-            <div class="icon"> <img src="/images/it_service/i2.png" alt="#" /> </div>
-          </div>
-          <h4 class="theme_color">Most Exprienced Team</h4>
-          <p>Our in-house team of experts strives to produce top-notch and innovative solar designs and installations</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-        <div class="full text_align_center margin_bottom_30">
-          <div class="center">
-            <div class="icon"> <img src="/images/it_service/i3.png" alt="#" /> </div>
-          </div>
-          <h4 class="theme_color">Best and Affordable Products</h4>
-          <p>Because of our extensive partnership with top solar manufacturers, we have access to the best products based on highest standards in reliability, extendibility and low failure rate</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-        <div class="full text_align_center margin_bottom_30 margin_0">
-          <div class="center">
-            <div class="icon"> <img src="/images/it_service/i4.png" alt="#" /> </div>
-          </div>
-          <h4 class="theme_color">Unrival Costumer Service</h4>
-          <p>we are able to provide a complete spectrum of services for projects from viability studies to commissioning</p>
         </div>
       </div>
     </div>
 
-    <div class="row" style="margin-top: 35px">
+    <div class="row">
       <div class="col-md-8">
-        <div class="full margin_bottom_30">
-          <div class="accordion border_circle">
-            <div class="bs-example">
-              <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fa fa-bar-chart" aria-hidden="true"></i> Complete Energy Solutions for your Business<i class="fa fa-angle-down"></i></a> </p>
-                  </div>
-                  <div id="collapseOne" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                      <p>We provide comprehensive energy solutions through project design, implementation and technology support services. Already an authority in its field, GES is becoming a reference in multi-user solar-hybrid (MSG) micro-grids for rural electrification, housing and commercial use, setting new standards..</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="fa fa-plane"></i> Need to renew your Batteries<i class="fa fa-angle-down"></i></a> </p>
-                  </div>
-                  <div id="collapseTwo" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it
-                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-                        consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><i class="fa fa-star"></i> Need Energy Solar Kit<i class="fa fa-angle-down"></i></a> </p>
-                  </div>
-                  <div id="collapseThree" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it
-                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-                        consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><i class="fa fa-bar-chart" aria-hidden="true"></i>Only need Solar Energy products<i class="fa fa-angle-down"></i></a> </p>
-                  </div>
-                  <div id="collapseFour" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it
-                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-                        consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
-                    </div>
-                  </div>
-                </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="full">
+              <div class="service_blog_inner2">
+                <div class="icon text_align_left"><i class="fa fa-wrench"></i></div>
+                <h4 class="service-heading">Honest Services</h4>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusa ntium dolore mque.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="full">
+              <div class="service_blog_inner2">
+                <div class="icon text_align_left"><i class="fa fa-cog"></i></div>
+                <h4 class="service-heading">Secure payments</h4>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusa ntium dolore mque.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="full">
+              <div class="service_blog_inner2">
+                <div class="icon text_align_left"><i class="fa fa-history"></i></div>
+                <h4 class="service-heading">Expert team</h4>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusa ntium dolore mque.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="full">
+              <div class="service_blog_inner2">
+                <div class="icon text_align_left"><i class="fa fa-heart-o"></i></div>
+                <h4 class="service-heading">Affordable services</h4>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusa ntium dolore mque.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="full" style="margin-top: 35px;">
-          <h3>Need Solar Panel installation?</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
-            quasi architecto beatae vitae dicta sunt explicabo.. </p>
-          <p><a class="btn main_bt" href="#">Read More</a></p>
-        </div>
-      </div>
     </div>
   </div>
-</div>
+</div> --}}
 <!-- end section -->
-
-
-
  <!--==========================
       Partners Section
     ============================-->

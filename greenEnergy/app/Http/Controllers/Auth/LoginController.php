@@ -34,33 +34,36 @@ class LoginController extends Controller
      *
      * @return void
      */
-   public function __construct()
+    public function __construct()
     {
+
         $this->middleware('guest')->except('logout');
     }
 
     public function redirectTo()
     {
-       if (Auth::user()->hasRole('admin')) {
+        # Admin Homepage
+        if (Auth::user()->hasRole('admin')) {
             $this->redirectTo = route('admin.users.index');
-
             return $this->redirectTo;
         }
+
+        # Distributor Homepage
         if (Auth::user()->hasRole('distributor')) {
-            $this->redirectTo = route('distributor.users.index');
-
+            $this->redirectTo = route('distributor.index');
             return $this->redirectTo;
         }
+
+        # Registered client/user Homepage
         if (Auth::user()->hasRole('client')) {
-            $this->redirectTo = route('client.users.index');
-
+            $this->redirectTo = route('client.index');
             return $this->redirectTo;
         }
 
+        # Non registered user welcome page/ which means login failed
         $this->redirectTo = route('home');
-
         return $this->redirectTo;
     }
 
-
 }
+

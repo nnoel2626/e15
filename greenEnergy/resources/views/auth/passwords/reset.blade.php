@@ -21,14 +21,6 @@
 
             <div class="login">
                 <h2 dusk="login-heading" class="active">{{ __('Reset Password')  }}</h2>
-
-
-
-
-
-
-
-
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
@@ -78,10 +70,6 @@
                             </div>
                         </div>
                     </form>
-
-
-
-
                 </div>
             </div>
         </div>

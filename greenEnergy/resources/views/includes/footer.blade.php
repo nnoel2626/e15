@@ -25,15 +25,24 @@
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
             </ul>
           </div>
-        <div class="col-lg-3 col-md-6 footer-links">
+
+
+
+
+        {{-- <div class="col-lg-3 col-md-6 footer-links">
           <h4>Members</h4>
             <ul>
-            <li><a href="{{ route('register', app()->getLocale()) }}"><i class="fa fa-angle-right"></i>Join</a></li>
-            <li><a href="{{ route('login', app()->getLocale()) }}"><i class="fa fa-angle-right"></i>Sign In</a></li>
-            <li><a href="{{ route('password.request', app()->getLocale()) }}"><i class="fa fa-angle-right"></i> Forget password</a></li>
-            <li><a href="/admin/loginl"><i class="fa fa-angle-right"></i> Admin Login</a></li>
-          </ul>
-        </div>
+            {{-- @guest --}}
+            {{-- <li><a href="{{ route('login' ) }}"><i class="fa fa-angle-right"></i>Sign In</a></li>
+            <li><a href="{{ route('password.request') }}"><i class="fa fa-angle-right"></i> Forget password</a></li>
+            <li><a href="{{ route('register') }}"><i class="fa fa-angle-right"></i>Join</a></li> --}}
+             {{-- @if (Route::has('register')) --}}
+
+            {{-- @endif --}}
+            {{-- <li><a href="/admin/login"><i class="fa fa-angle-right"></i> Admin Login</a></li>
+          </ul> --}}
+           {{-- @endguest --}}
+        {{-- </div> --}}
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>

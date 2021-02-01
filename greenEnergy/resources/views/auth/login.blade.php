@@ -17,15 +17,13 @@
         {{-- <div class="col-md-4"> --}}
             <div class="login">
 
-            <div class="form-header">
-                    <h2 dusk="login-heading" class="active float-left">{{ __('Login') }}</h2>
-                    <a  class="nonactive float-right" href="/">Cancel</a>
+                <div class="form-header">
+                        <h2 dusk="login-heading" class="active float-left">{{ __('Login') }}</h2>
+                        <a  class="nonactive float-right" href="/">Cancel</a>
 
+                </div>
 
-             </div>
-
-
-                       <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('login') }}">
                          @csrf
                         {{-- <label for="name"><span>{{  __('Name')  }}</span></label> --}}
                         <label for="e-mail"><span>{{  __('E-Mail') }}</span></label>
@@ -41,12 +39,10 @@
                         <input type="checkbox" id="checkbox-1-1" class="form-check-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                          <label for="checkbox-1-1"><span>{{ __('Remember Me') }}</span></label>
 
-
                         <button type="submit" dusk="login-button" class="signin">
                              {{ __('Login') }}
                         </button>
                         <hr>
-
                        <a href="{{ route('register') }}">{{ __('Register') }}</a>
                        <br/>
                         @if (Route::has('password.request'))
@@ -54,8 +50,7 @@
                         {{ __('Forgot Your Password?') }}
                         </a>
                         @endif
-                    </form>
-
+                </form>
                </div>
             </div>
         {{-- </div> --}}

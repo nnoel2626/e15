@@ -7,7 +7,8 @@
             <div class="topbar-left">
               <ul class="list-inline">
                 <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">Croix-des-Bouquets 19, Santo 14</span> </li>
-                <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:greenenergysolutions.haiti@gmail"> greenenergysolutions.haiti@gmail.com></a></span> </li>
+                <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span><span class="topbar-hightlight"><a href="mailto:greenenergysolutions.haiti@gmail">greenenergysolutions.haiti@gmail.com</a></span>
+                </li>
               </ul>
             </div>
           </div>
@@ -16,7 +17,7 @@
           <div class="float-left">
             <div class="social_icon">
               <ul class="list-inline">
-                <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
+              <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
                 <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
                 <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
                 <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
@@ -25,16 +26,12 @@
             </div>
           </div>
           <div class="float-right">
-            <div class="make_appo"> <a class="btn white_btn" href="/pages/appointment">Make Appointment</a>
-            </div>
-
-             </div>
+            <div class="make_appo"> <a class="btn white_btn" href="/pages/appointment">Make Appointment</a></div>
+         </div>
         </div>
       </div>
     </div>
   </div>
-
-
   <!-- end header top -->
   <!-- header bottom -->
   <div class="header_bottom">
@@ -55,35 +52,53 @@
               <li>
                 <a class="active" href="{{ ( '/') }}" accesskey="1" title="">Welcome</a>
               </li>
-
+              @if(!Auth::user())
                <li> <a href="{{ url('/pages/about') }}">About Us</a>
                     <ul>
                       <li><a href="{{ url('/pages/portfolio' ) }}">Portfolio</a></li>
                       <li><a href="{{ url('/pages/privacy_policy') }}">Privacy policy</a></li>
                    </ul>
                 </li>
-
-               <li><a href="{{ url('/products/product_categories' ) }}">Product Categories</a>
-                 <ul>
-                    <li><a  href="{{ url ('/products/solar_panels') }}">Solar Panels</a></li>
-                    <li><a  href="{{ url ('/products/batteries') }}">Batteries</a></li>
-                    <li><a  href="{{ url ('/products/inverters') }}">Inverters</a></li>
-                    <li><a  href="{{ url ('/products/optimizers') }}">Optimizers</a></li>
-                 </ul>
-               </li>
+                <li><a href="{{ url('/pages/contact')}}">Contact</a>
+                    <ul>
+                        <li><a href="{{ url('/pages/appointment')}}">Make Appointment</a></li>
+                    </ul>
+                </li>
                 <li><a href="{{ url('/pages/service' ) }}">Services</a>
                <ul>
                 <li><a href="{{ url('/pages/support' ) }}">Technical Support</a></li>
                  <li><a href="{{ url('/pages/terms_of_service' ) }}">Terms of Service</a></li>
                 </ul>
                 </li>
+                @endif
 
-                <li><a href="{{ url('/pages/contact')}}">Contact</a>
-                    <ul>
-                        <li><a href="{{ url('/pages/appointment')}}">Make Appointment</a></li>
-                    </ul>
+                 @if(Auth::user())
+                  <li>
+               <a href="{{ url('/products/product_categories' ) }}">Product Categories</a>
+                 <ul>
+                    <li><a  href="{{ url ('/products/solar_panels') }}">Solar Panels</a></li>
+                    <li><a  href="{{ url ('/products/batteries') }}">Batteries</a></li>
+                    <li><a  href="{{ url ('/products/inverters') }}">Inverters</a></li>
+                    <li><a  href="{{ url ('/products/optimizers') }}">Optimizers</a></li>
+                 </ul>
                 </li>
-                <li><a  href="{{url('locale/en')}}" data-language="en">
+                <li>
+                <a  href="{{ ( '/products/shop') }}" accesskey="1" title="">Shop</a>
+              </li>
+                @endif
+
+
+
+                @if(!Auth::user())
+                     <li>
+                         <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                     </li>
+
+                     <li>
+                        <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                     </li>
+
+                     <li><a  href="{{url('locale/en')}}" data-language="en">
                     <i class="flag-icon flag-icon-us"></i> English</a>
                     <ul>
                      <li><a class="dropdown-item" href="{{url('locale/fr')}}" data-language="fr">
@@ -93,37 +108,47 @@
                        <i class="flag-icon flag-icon-es"></i> Spanish</a></li>
                     </ul>
                 </li>
+                    @else
+                     <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                      </a>
 
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                        </a>
+                       <a class="dropdown-item" href="{{ route('admin.users.index') }}">User profile</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                         @csrf
+                         </form>
 
-
-
-
-
-
-
-
-            {{-- <li class="nav-item dropdown">
-             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Languages <span class="caret"></span>
-                </a>
-                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
-                    {{-- <a href="{{ route(Route::currentRouteName(), 'en') }}" class="nav-link">EN</>
-                    <a href="{{ route(Route::currentRouteName(), 'fr') }}" class="nav-link">FR</> --}}
-                {{-- </div>
-                </li> --}}
-
-
-
-
-
-
-
+                         </div>
+                     </li>
+                   @endif
 
           <!-- menu end -->
+            </div>
         </div>
-      </div>
+        </div>
     </div>
-  </div>
+
+
+
+               <!-- Authentication Links -->
+                 {{-- <li> --}}
+                    {{-- @if(!Auth::user())
+                        <a href='/login'>Login</a>
+                    @else
+                        <form method='POST' id='logout' action='/logout'>
+                            {{ csrf_field() }}
+                            <a href='#' onClick='document.getElementById("logout").submit();'>Logout {{  $user ?? ''}}</a>
+                        </form>
+                    @endif
+                         </li> --}}
+
+
+
 
 
 
@@ -177,4 +202,16 @@
                     <a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru"> </span>  Russian</a>
                    </div>
              </li>
- --}}
+         --}}
+
+
+ {{-- <li class="nav-item dropdown">
+             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Languages <span class="caret"></span>
+                </a>
+                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
+                    {{-- <a href="{{ route(Route::currentRouteName(), 'en') }}" class="nav-link">EN</>
+                    <a href="{{ route(Route::currentRouteName(), 'fr') }}" class="nav-link">FR</> --}}
+                {{-- </div>
+                </li> --}}
+

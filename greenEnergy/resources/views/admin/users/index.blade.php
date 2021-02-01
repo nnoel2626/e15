@@ -38,8 +38,6 @@
                             <td> {{ $user->email  }}</td>
                             <td> {{ implode( ',', $user->roles()->get()->pluck('name')->toArray()) }}</td>
                             <td>
-
-
                             <a href="{{ route ('admin.users.edit', $user) }}" class="btn btn-primary"><i class="fa fa-edit"></i>Edit</a>
 
                              @can('delete-users')

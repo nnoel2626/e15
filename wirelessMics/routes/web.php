@@ -11,7 +11,7 @@
 |
 */
     # To disable Auth feature
-   
+
 
     #test route to check Database connection
     Route::get('/debug', function () {
@@ -118,3 +118,7 @@
 
 
     });
+
+
+
+

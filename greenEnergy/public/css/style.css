@@ -72,10 +72,13 @@ html,
 body {
 	color: #898989;
 	font-size: 15px;
-	font-family: 'Raleway', sans-serif;
+    /* font-family: 'Raleway', sans-serif; */
+    font-family: 'Kufam', cursive;
 	line-height: normal;
 	font-weight: 400;
-	overflow-x: hidden;
+    overflow-x: hidden;
+
+
 }
 
 body {
@@ -887,8 +890,6 @@ hr.dottad_border {
 	left: 0;
 	width: 100%;
 }
-
-
 /*----- Header Top -----*/
 
 header {
@@ -923,6 +924,13 @@ header .right_bt .btn {
 	color: #fff;
 	float: left;
 }
+.social_icon .list-inline .account-signUp li {
+    font-size: 16px;
+    color: #fff;
+    float: left;
+    padding-top: 5px;
+}
+
 
 .header_top ul li i {
 	margin: 0 2px 0 0;
@@ -1003,11 +1011,6 @@ header .right_bt .btn {
 	z-index: 9;
 }
 
-
-
-
-
-
 /*------------------------------------------------------------------
 		6. Nav Menu
 	-------------------------------------------------------------------*/
@@ -1053,6 +1056,7 @@ header .right_bt .btn {
 	line-height: 0;
 	height: 0;
 }
+
 
 #navbar_menu #menu-button {
 	display: none;
@@ -1166,9 +1170,79 @@ header .right_bt .btn {
 }
 
 
+/* #navbar_menu, #navbar_menu ul,
+#navbar_menu ul li,
+#navbar_menu ul li a,
+#navbar_menu #menu-button {
+margin: 0;
+padding: 0;
+border: 0;
+list-style: none;
+line-height: 1;
+display: block;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+} */
+
+/* .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #ff8807;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+} */
 
 
+ a #navbarDropdown.nav-link.dropdown-toggle {
+    font-family: 'Kufam', cursive;
+    padding: 15px 10px;
+    margin: 1px;
+    color: #000000;
+    background-color: #fff;
+}
 
+div.dropdown-menu.dropdown-menu-right.show {
+margin:0px;
+padding: px;
+font:italic;
+color: #ff8807;
+background-color: #f8f9fa;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+color: #fff;
+text-decoration: none;
+background-color: #ff8807;
+}
+
+a.dropdown-item:focus,
+ .dropdown-item:hover {
+padding: 15px 20px 15px;
+font-size: 16px;
+font-family: 'Kufam', cursive;
+color: #999;
+font-weight: 500;
+text-decoration: none;
+background-color: #ff8807;
+}
+
+ /* a.dropdown-item{
+padding: 10px;
+margin:5px;
+} */
 
 
 
@@ -1590,7 +1664,98 @@ body.light_blue #full_slider.full_slider_inner {
 	min-height: 810px;
 }
 
+/* background: #ff8807; */
 
+
+.services-inner-box{
+	padding: 15px;
+    background: #ffffff;
+    border: 1px solid #ff8807;
+    /* box-shadow: 5px 5px #9c9c9c; */
+
+    /* box-shadow: 2px 20px 45px 5px rgba(0,0,0,.2); */
+
+   box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+	margin-bottom: 30px;
+	border-radius: 50px 50px 0px 50px;
+	position: relative;
+	transition: all 0.3s ease-in-out 0s;
+}
+.ser-icon{
+	width: 90px;
+	height: 90px;
+	text-align: center;
+	line-height: 90px;
+	position: relative;
+	z-index: 1;
+}
+.ser-icon i{
+	font-size: 50px;
+	color: #333333;
+}
+.services-inner-box h2{
+	font-size: 22px;
+	font-weight: 600;
+	position: relative;
+	z-index: 1;
+}
+.services-inner-box p{
+	font-size: 14px;
+	position: relative;
+	z-index: 1;
+}
+
+.services-inner-box::after{
+	background: #ff8807;
+	width: 0px;
+	height: 0px;
+	content: "";
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	border-radius: 50px 50px 0px 50px;
+	transition: all 0.3s ease-in-out 0s;
+	z-index: 0;
+}
+.services-inner-box:hover::after{
+	width: 100%;
+	height: 100%;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.services-inner-box:hover .ser-icon i{
+	color: #ffffff;
+}
+
+.services-inner-box:hover h2{
+	color: #ffffff;
+	transition: all 0.3s ease-in-out 0s;
+}
+.services-inner-box:hover p{
+	color: #ffffff;
+}
+
+
+
+
+
+p {
+display: block;
+margin-block-start: 1em;
+margin-block-end: 1em;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+}
+
+
+
+
+ /* ::after, ::before {
+box-sizing: border-box;
+} */
 
 
 /* Partner Section
@@ -5092,3 +5257,8 @@ img {
   font-size: 14px;
   text-transform: uppercase;
 }
+
+
+
+
+
